@@ -10,4 +10,4 @@ This is a tool that can randomize layers, and materials in Unity, with the abili
 
 ## Dependencies
 - This project was made with Unity 2019.4.31.f1 
-- This project uses the `gltfast` for untime gltf export
+- This project uses the `gltfast` for untime gltf export https://github.com/atteneder/glTFast
