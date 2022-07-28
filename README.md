@@ -5,7 +5,7 @@
 
 ## Summary
 
-This is a tool that can randomize layers, and materials in Unity, with the ability to export to GLTF, and generate ERC-720 json output. 
+This is a tool that can randomize GameObject layers in Unity, materials  with the feature to export to VRM using uniVRM runtime export example. The editor tools can be configured to export a batch of NFTs along with the erc-721 metadata saved to file. 
 
 Editor View
 
