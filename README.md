@@ -7,7 +7,20 @@
 
 This is a tool that can randomize GameObject layers in Unity, materials  with the feature to export to VRM using uniVRM runtime export example. The editor tools can be configured to export a batch of NFTs along with the erc-721 metadata saved to file. 
 
-Editor View
+## Dependencies
+- This project was made with Unity 2019.4.31.f1 
+- https://unity3d.com/get-unity/download
+- This project uses the `uniVRM` package for runtime VRM export
+- https://github.com/vrm-c/UniVRM
+
+
+## Instructions
+
+## Contribute / Feedback Issues
+Please let me know if there is anyway to improve this tool! 
+
+
+## Screenshots
 
 ![](https://i.imgur.com/A6SNLTk.png)
 
@@ -48,17 +61,10 @@ Gif inside Webaverse
 ![](https://i.imgur.com/aDdKPCJ.gif)
 
 
-## Dependencies
-- This project was made with Unity 2019.4.31.f1 
-- https://unity3d.com/get-unity/download
-- This project uses the `uniVRM` package for runtime VRM export
-- https://github.com/vrm-c/UniVRM
 
-## Contribute
-Please let me know if there is anyway to improve this tool! 
+## License
+MIT CC0 
+
 
 ## Contact
 @godfreymeyer http://www.twitter.com/godfreymeyer
-
-
-
