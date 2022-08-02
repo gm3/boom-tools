@@ -1,9 +1,12 @@
+![](https://i.imgur.com/kFgGaGs.png)
+
+
 # boom-tools
 ###### tags: `boom-tools` `Unity Layer Randomizer` 
 
 ![](https://i.imgur.com/pYkqt1h.png)
 
-// alpha pre-relese  
+This software is in alpha, and getting ready for public release. There are bugs, and the project is bloated with test assets. This repo is to clean up, optimize and get the project ready for an open-source release.   
 
 ## Summary
 
@@ -24,7 +27,6 @@ Please let me know if there is anyway to improve this tool!
 
 ## Screenshots
 
-![](https://i.imgur.com/A6SNLTk.png)
 
 
 Renter Texture of the erc 721 still frame image output
