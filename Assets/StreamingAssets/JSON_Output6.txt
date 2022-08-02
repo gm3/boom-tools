@@ -1,0 +1,45 @@
+{ 
+"editionId": "6",
+"description": "This is a default description about this NFT",
+"external_url": "www.boomboxheads.com",
+"image": "http://www.replacethisurl.com/imagefile6.png",
+"name": "Cool NFT#6 ",
+"attributes": [
+	{
+		"trait_type": "Hat",
+		"value": "Crown"
+	}
+,	{
+		"trait_type": "Chest",
+		"value": "Chest1"
+	}
+,	{
+		"trait_type": "Face",
+		"value": "Monicle"
+	}
+,	{
+		"trait_type": "Weapon",
+		"value": "Bat"
+	}
+,	{
+		"trait_type": "Patches",
+		"value": "MVC"
+	}
+,	{
+		"trait_type": "Backpacks",
+		"value": "Backpack2"
+	}
+,	{
+		"trait_type": "Shoes",
+		"value": "Sandals"
+	}
+,	{
+		"trait_type": "BGColor",
+		"value": "20_Pottery"
+	}
+,	{
+		"trait_type": "BodyTexture",
+		"value": "18_PebbleGround"
+	}
+	]
+}

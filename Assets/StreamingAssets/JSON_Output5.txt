@@ -1,0 +1,45 @@
+{ 
+"editionId": "5",
+"description": "This is a default description about this NFT",
+"external_url": "www.boomboxheads.com",
+"image": "http://www.replacethisurl.com/imagefile5.png",
+"name": "Cool NFT#5 ",
+"attributes": [
+	{
+		"trait_type": "Hat",
+		"value": "Crown"
+	}
+,	{
+		"trait_type": "Chest",
+		"value": "Chest1"
+	}
+,	{
+		"trait_type": "Face",
+		"value": "Specs"
+	}
+,	{
+		"trait_type": "Weapon",
+		"value": "Mace"
+	}
+,	{
+		"trait_type": "Patches",
+		"value": "BBH"
+	}
+,	{
+		"trait_type": "Backpacks",
+		"value": "Backpack3"
+	}
+,	{
+		"trait_type": "Shoes",
+		"value": "Socks"
+	}
+,	{
+		"trait_type": "BGColor",
+		"value": "9_CyberpunkWall"
+	}
+,	{
+		"trait_type": "BodyTexture",
+		"value": "9_CyberpunkWall"
+	}
+	]
+}

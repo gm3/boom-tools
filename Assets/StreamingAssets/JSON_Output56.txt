@@ -1,0 +1,45 @@
+{ 
+"editionId": "56",
+"description": "This is a default description about this NFT",
+"external_url": "www.boomboxheads.com",
+"image": "http://www.replacethisurl.com/imagefile56.png",
+"name": "Cool NFT#56 ",
+"attributes": [
+	{
+		"trait_type": "Hat",
+		"value": "Boomboxhead"
+	}
+,	{
+		"trait_type": "Chest",
+		"value": "Chest1"
+	}
+,	{
+		"trait_type": "Face",
+		"value": "Monicle"
+	}
+,	{
+		"trait_type": "Weapon",
+		"value": "Sword"
+	}
+,	{
+		"trait_type": "Patches",
+		"value": "UV"
+	}
+,	{
+		"trait_type": "Backpacks",
+		"value": "Backpack4"
+	}
+,	{
+		"trait_type": "Shoes",
+		"value": "Sandals"
+	}
+,	{
+		"trait_type": "BGColor",
+		"value": "18_PebbleGround"
+	}
+,	{
+		"trait_type": "BodyTexture",
+		"value": "4_AbstractPaint"
+	}
+	]
+}

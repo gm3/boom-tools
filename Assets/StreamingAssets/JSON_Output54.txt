@@ -1,0 +1,45 @@
+{ 
+"editionId": "54",
+"description": "This is a default description about this NFT",
+"external_url": "www.boomboxheads.com",
+"image": "http://www.replacethisurl.com/imagefile54.png",
+"name": "Cool NFT#54 ",
+"attributes": [
+	{
+		"trait_type": "Hat",
+		"value": "DemonCrown"
+	}
+,	{
+		"trait_type": "Chest",
+		"value": "Chest1"
+	}
+,	{
+		"trait_type": "Face",
+		"value": "Raybans"
+	}
+,	{
+		"trait_type": "Weapon",
+		"value": "Sword"
+	}
+,	{
+		"trait_type": "Patches",
+		"value": "MVC"
+	}
+,	{
+		"trait_type": "Backpacks",
+		"value": "Backpack2"
+	}
+,	{
+		"trait_type": "Shoes",
+		"value": "Socks"
+	}
+,	{
+		"trait_type": "BGColor",
+		"value": "13_Moss"
+	}
+,	{
+		"trait_type": "BodyTexture",
+		"value": "3_AbstractPaint"
+	}
+	]
+}

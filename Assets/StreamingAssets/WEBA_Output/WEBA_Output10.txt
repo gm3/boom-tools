@@ -1,0 +1,58 @@
+{
+  "objects": [
+    {
+      "type": "application/light",
+      "content": {
+        "lightType": "ambient",
+        "args": [
+           [
+             225,
+             225,
+             225
+           ],
+           0.1
+         ]
+       }
+     },
+     {
+      "type": "application/light",
+      "content": {
+        "lightType": "directional",
+        "args": [
+           [
+             255,
+             255,
+             255
+           ],
+           0.5
+         ],
+         "position": [
+           22,
+           177,
+           360
+         ],
+         "shadow": [
+            150,
+            5120,
+            0.1,
+            10000,
+            -0.0001
+         ]
+       }
+    },
+     {
+      "type": "application/wind",
+      "content": {
+        "windType": "directional",
+        "direction": [
+           22,
+           177,
+           360
+         ],
+         "windForce": 0.5,
+         "noiseScale": 1,
+         "windFrequency": 1
+       }
+    },
+  ]
+}

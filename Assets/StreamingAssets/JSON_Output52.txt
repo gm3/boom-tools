@@ -1,0 +1,45 @@
+{ 
+"editionId": "52",
+"description": "This is a default description about this NFT",
+"external_url": "www.boomboxheads.com",
+"image": "http://www.replacethisurl.com/imagefile52.png",
+"name": "Cool NFT#52 ",
+"attributes": [
+	{
+		"trait_type": "Hat",
+		"value": "Cap"
+	}
+,	{
+		"trait_type": "Chest",
+		"value": "Chest5"
+	}
+,	{
+		"trait_type": "Face",
+		"value": "Specs"
+	}
+,	{
+		"trait_type": "Weapon",
+		"value": "Axe"
+	}
+,	{
+		"trait_type": "Patches",
+		"value": "BBH"
+	}
+,	{
+		"trait_type": "Backpacks",
+		"value": "Backpack4"
+	}
+,	{
+		"trait_type": "Shoes",
+		"value": "Sandals"
+	}
+,	{
+		"trait_type": "BGColor",
+		"value": "15_ORnateGold2"
+	}
+,	{
+		"trait_type": "BodyTexture",
+		"value": "3_AbstractPaint"
+	}
+	]
+}
