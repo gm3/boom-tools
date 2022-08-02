@@ -1,7 +1,9 @@
 # boom-tools
-###### tags: `boom-tools` `Unity Layer Randomizer` `Open Source`
+###### tags: `boom-tools` `Unity Layer Randomizer` 
 
 ![](https://i.imgur.com/pYkqt1h.png)
+
+// alpha pre-relese  
 
 ## Summary
 
