@@ -25,6 +25,9 @@ This is a tool that can randomize GameObject layers in Unity, materials  with th
 
 ## Instructions
 
+## CC0 libraries included in this package
+https://thebasemesh.com/model-library
+
 ## Contribute / Feedback Issues
 Please let me know if there is anyway to improve this tool! 
 
