@@ -63,11 +63,6 @@ Change the Format dropdown to chage the output format, then click Export to expo
 
 ![](https://i.imgur.com/Dgi5rp6.png)
 
-## About adding layers
-Every layer you add you have to go through this process for now.
-The material randomizer is slightly different as well and works with a different datatype (Material) so regarding data types, if you are to randomize new data types, they must be coded in. This is planned for future release. 
-
-
 ## Feature ideas
 
 - Perfect looping video output with the Movie Recorder or ffmpeg.
