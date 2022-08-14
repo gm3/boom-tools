@@ -12,7 +12,7 @@
 
 ## Summary
 
-This is a tool that can randomize layers in Unity, with a feature to export VRMs using uniVRM. The tool can be configured to export a batch of NFTs with erc-721 metadata, and an image. 
+This is a tool that can randomize layers in Unity, with a feature to export VRMs using uniVRM. The tool can be configured to export a batch of NFTs with erc-1155 metadata, and an image. 
 
 ## Dependencies
 
