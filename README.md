@@ -29,29 +29,43 @@ This is a tool that can randomize layers in Unity, with a feature to export VRMs
 - In Batch mode you can export a VRM, the JSON, and an image, total of X times you can set in the batch export configuration script.
 - You can also export a single VRM as well as just the JSON if you wish.
 - Push ```spacebar``` to randomize a layer, or click Random All
-- ```role``` mode is still being worked on. You can spin through a bunch and land on a random avatar.
+- ```Roll``` mode is still being worked on. You can spin through a bunch and land on a random avatar.
 
 
 ## Layers and Heirechy
 
-![](https://i.imgur.com/OOB8U85.png =500x600)
 
-Configuring the randomimzer takes some getting used to, but essentially we are setting up each layer, the probibility (Weights) of the layers of showing up, all of the meta-data for the JSON output, and the 3d layers that will be randomized. There is also 2 layers that randomize materials on a mesh.
+
+We set up each layer, the probibility (Weights) or chance the layers show up, all of the meta-data for the JSON output, and references to the 3d layers that will be randomized. There is also 2 examples of scripts that have been customized to randomize materials on a mesh. (Background and Body)
+
+![](https://i.imgur.com/yFDw64c.png)
 
 1. Each Layer has a configuration script where you set up all your ```Values and Weights``` for each variation in a layer. 
 
-2. Drag references to 3d gameObjects / layers into the ``"Total Objects In Layer"`` array. 
+![](https://i.imgur.com/OOB8U85.png =500x600)
+
+3. Drag references to 3d gameObjects / layers into the ``"Total Objects In Layer"`` array. 
 
 3. Setup the ``Layer String Data`` by matching the names of the values of the layers, that will be used to create the string JSON output.
 
-![](https://i.imgur.com/yFDw64c.png)
+
  
-Then the Random Button Scripts trigger of a randomization of that layer, and if you hit randomize all it randomizes all layers, and creates a string in the script ```DNAManager``` to bring it all together. 
+Then the Random ```once, batch or roll``` can be chosen to trigger the randomization.
+
+![](https://i.imgur.com/rIEIeJS.png)
+![](https://i.imgur.com/CQ0Q5j8.png)
+
+For the JSON string output, it is created and formatted in the script ```DNAManager```  
+
+All of the output goes to the StreamingAssets folder in the Assets folder. Inside you will find the VRMs, JSON, and Images that were generated.
+
+Change the Format dropdown to chage the output format, then click Export to export a single generated instance, or configure the tool to do a batch export! (Make sure you have enough hard drive space and do small tests first)
+
+![](https://i.imgur.com/Dgi5rp6.png)
 
 ## About adding layers
 Every layer you add you have to go through this process for now.
 The material randomizer is slightly different as well and works with a different datatype (Material) so regarding data types, if you are to randomize new data types, they must be coded in. This is planned for future release. 
-
 
 
 ## Feature ideas
