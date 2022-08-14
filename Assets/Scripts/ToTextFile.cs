@@ -9,12 +9,14 @@ public class ToTextFile : MonoBehaviour
 
     public DNAManager dnaIDReference;
     public Button buttonReference;
+    private int batchNumber;
+    
 
     void Start(){
-
+            batchNumber = 1;
             // create a folder
             Directory.CreateDirectory(Application.streamingAssetsPath + "/JSON_Output/");
-
+        
             // Reference to Button
             Button btn = buttonReference.GetComponent<Button>();
 		    btn.onClick.AddListener(TaskOnClick);
@@ -23,7 +25,7 @@ public class ToTextFile : MonoBehaviour
     public void CreateTextFile(){
 
         // name it
-        string txtDocumentName = Application.streamingAssetsPath + "/JSON_Output" + dnaIDReference.genID + ".txt";
+        string txtDocumentName = Application.streamingAssetsPath + "/JSON_Output/JSON_Output" + dnaIDReference.genID + ".txt";
 
         // check to see if exists
         if (!File.Exists(txtDocumentName))

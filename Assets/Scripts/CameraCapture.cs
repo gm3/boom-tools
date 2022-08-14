@@ -5,9 +5,10 @@ using System.IO;
  
 public class CameraCapture : MonoBehaviour
 {
-    public int fileCounter;
+    //public int fileCounter;
     public KeyCode screenshotKey;
     public Camera Camera;
+    public DNAManager dnaManagerReference;
    
  
     private void LateUpdate()
@@ -33,7 +34,7 @@ public class CameraCapture : MonoBehaviour
         byte[] bytes = image.EncodeToPNG();
         Destroy(image);
  
-        File.WriteAllBytes(Application.dataPath + "/EXPORTS/" + fileCounter + ".png", bytes);
-        fileCounter++;
+        File.WriteAllBytes(Application.dataPath + "/StreamingAssets/Images/" + dnaManagerReference.genID + ".png", bytes);
+        //fileCounter++;
     }
 }

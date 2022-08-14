@@ -16,7 +16,7 @@ public class ConfigureRandomizer : MonoBehaviour
     public ToTextFile toTxtFileRef;
     private Coroutine delayCoroutine;
     public float delaySpeed;
-    public VRMRuntimeExporter vrmRuntimeExporterRef;
+    public VRMRuntimeExporter1 vrmRuntimeExporterRef;
     public GameObject modelToExportToVRM;
     //public gltfExporter gltfExporterRef;
 

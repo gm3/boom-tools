@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 using UnityEngine;
 using VRMShaders;
 using System.Collections;
@@ -48,7 +48,7 @@ using VRM;
 #elif UNITY_EDITOR
             var path = UnityEditor.EditorUtility.OpenFilePanel("Open VRM", "", "vrm");
 #else
-        var path = Application.dataPath + "/default.vrm";
+        var path = Application.dataPath + "/StreamingAssets/VRM/default.vrm";
 #endif
             if (string.IsNullOrEmpty(path))
             {
@@ -126,7 +126,7 @@ using VRM;
 #if false
         var path = FileDialogForWindows.SaveDialog("save VRM", Application.dataPath + "/export.vrm");
 #else
-            var path = Application.dataPath + "/../export" + edition + ".vrm"; // i edited this line
+            var path = Application.dataPath + "/StreamingAssets/VRM/export" + edition + ".vrm"; // i edited this line
 #endif
             if (string.IsNullOrEmpty(path))
             {
