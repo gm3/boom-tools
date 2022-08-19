@@ -1,6 +1,3 @@
-![](https://i.imgur.com/LNmNGJH.png)
-
-
 # boom-tools: a.r.m. avatar randomizer machine
 ###### tags: `boom-tools` `Unity Layer Randomizer` `devlog` ```v.0.0.1-alpha```
 
@@ -11,8 +8,7 @@
 
 
 ## Summary
-
-This is a tool that can randomize layers in Unity, with a feature to export VRMs using uniVRM. The tool can be configured to export a batch of NFTs with erc-1155 metadata, and an image. 
+This is a tool that can randomize layers in Unity using weighted randomization. It can export VRMs using uniVRM. The tool can be configured to export a batch of VRMs with erc-1155 metadata, along with an image. You can use this tool to randomize pretty much anything if customized. 
 
 ## Dependencies
 
@@ -22,21 +18,25 @@ This is a tool that can randomize layers in Unity, with a feature to export VRMs
 - https://github.com/vrm-c/UniVRM
 
 ## Instructions
-
-
-
-- Push F2 to Export iamge from The "Export Camera" to file.
-- In Batch mode you can export a VRM, the JSON, and an image, total of X times you can set in the batch export configuration script.
-- You can also export a single VRM as well as just the JSON if you wish.
 - Push ```spacebar``` to randomize a layer, or click Random All
+### Exporting Single Screen Shot
+- Push F2 to Export iamge from The "Export Camera" to file.
+### Batch Export
+- In Batch mode you can export a VRM, the JSON, and an image, total of X times you can set in the batch export configuration script.
+### Single Export
+- You can also export a single VRM as well as just the JSON if you wish.
+### Roll Mode (beta)
 - ```Roll``` mode is still being worked on. You can spin through a bunch and land on a random avatar.
-
-
 ## Layers and Heirechy
+![](https://i.imgur.com/uwNNh34.png)
+All of the scripts are nested under the `_BoomTools` GameObject and the output can be configered there for the batch export.
 
+## Setting up Layers
+* Configure the weights for each layer in the inspector panel on the DNAManager sript
+* Configure corresponding value associated with the weights
+* Define the string data the meta-data the JSON output will contain
+* Assign references to the 3d layers that will be randomized. 
 
-
-We set up each layer, the probibility (Weights) or chance the layers show up, all of the meta-data for the JSON output, and references to the 3d layers that will be randomized. There is also 2 examples of scripts that have been customized to randomize materials on a mesh. (Background and Body)
 
 ![](https://i.imgur.com/yFDw64c.png)
 
@@ -63,9 +63,9 @@ Change the Format dropdown to chage the output format, then click Export to expo
 
 ![](https://i.imgur.com/Dgi5rp6.png)
 
-## Feature ideas
+## Issues
+https://github.com/gm3/boom-tools/issues
 
-- Perfect looping video output with the Movie Recorder or ffmpeg.
 
 ## Mocap Tests
 
