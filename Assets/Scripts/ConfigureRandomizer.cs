@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using VRM;
 //using VRM.RuntimeExporterSample;
 
 public class ConfigureRandomizer : MonoBehaviour
@@ -19,6 +20,11 @@ public class ConfigureRandomizer : MonoBehaviour
     public VRMRuntimeExporter1 vrmRuntimeExporterRef;
     public GameObject modelToExportToVRM;
     //public gltfExporter gltfExporterRef;
+    public string vrmTitle = "";
+    public string vrmAuthor = "";
+    public string vrmContactInformation = "";
+    public string vrmReference = "";
+    const string vrmVersion = "0.x";
 
     // Start is called before the first frame update
     void Start()
@@ -67,6 +73,17 @@ public class ConfigureRandomizer : MonoBehaviour
 
     IEnumerator GenerateAllNFTsSlow(int totalNFTs)
     {
+
+        VRMMetaObject metaData = ScriptableObject.CreateInstance<VRMMetaObject>();
+        metaData.Title = vrmTitle;
+        metaData.Version = vrmVersion;
+        metaData.Author = vrmAuthor;
+        metaData.ContactInformation = vrmContactInformation;
+        metaData.Reference = vrmReference;
+
+        VRMMeta metaComponent = modelToExportToVRM.AddComponent<VRMMeta>();
+        metaComponent.Meta = metaData;
+
             for (int i = 0; i < totalNFTs; i++) {
                
 
