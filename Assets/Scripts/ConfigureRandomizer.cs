@@ -24,7 +24,7 @@ public class ConfigureRandomizer : MonoBehaviour
     public string vrmAuthor = "";
     public string vrmContactInformation = "";
     public string vrmReference = "";
-    const string vrmVersion = "0.x"
+    const string vrmVersion = "0.x";
 
     // Start is called before the first frame update
     void Start()
