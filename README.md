@@ -4,9 +4,6 @@
 
 ![](https://i.imgur.com/qYqOZM5.gif)
 
-![](https://i.imgur.com/s54Yj8F.png)
-
-
 ## Summary
 This is a tool that can randomize layers in Unity using weighted randomization. It can export VRMs using uniVRM. The tool can be configured to export a batch of VRMs with erc-1155 metadata, along with an image. You can use this tool to randomize pretty much anything if customized. 
 
