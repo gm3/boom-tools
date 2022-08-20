@@ -37,19 +37,17 @@ All of the scripts are nested under the `_BoomTools` GameObject and the output c
 * Define the string data the meta-data the JSON output will contain
 * Assign references to the 3d layers that will be randomized. 
 
-
-![](https://i.imgur.com/yFDw64c.png)
+---
 
 1. Each Layer has a configuration script where you set up all your ```Values and Weights``` for each variation in a layer. 
 
 ![](https://i.imgur.com/OOB8U85.png =500x600)
 
-3. Drag references to 3d gameObjects / layers into the ``"Total Objects In Layer"`` array. 
+2. Drag references to 3d gameObjects / layers into the ``"Total Objects In Layer"`` array. 
 
 3. Setup the ``Layer String Data`` by matching the names of the values of the layers, that will be used to create the string JSON output.
 
 
- 
 Then the Random ```once, batch or roll``` can be chosen to trigger the randomization.
 
 ![](https://i.imgur.com/rIEIeJS.png)
@@ -65,13 +63,6 @@ Change the Format dropdown to chage the output format, then click Export to expo
 
 ## Issues
 https://github.com/gm3/boom-tools/issues
-
-
-## Mocap Tests
-
-Here we bring in external live mocap to create animations using the Unity Recorder with a generated avatar. This animation was done by r00t, a friend of m3 and mvc
-
-![](https://i.imgur.com/uLwjfwx.gif)
 
 ## License
 This project is available under the MIT CC0 licence 
