@@ -25,7 +25,7 @@ public class ToTextFile : MonoBehaviour
     public void CreateTextFile(){
 
         // name it
-        string txtDocumentName = Application.streamingAssetsPath + "/JSON_Output/JSON_Output" + dnaIDReference.genID + ".txt";
+        string txtDocumentName = Application.streamingAssetsPath + "/JSON_Output/JSON_Output" + dnaIDReference.genID + ".json";
 
         // check to see if exists
         if (!File.Exists(txtDocumentName))
@@ -36,7 +36,7 @@ public class ToTextFile : MonoBehaviour
     }
 
     void TaskOnClick(){
-		Debug.Log ("You have created a text file"); 
+		Debug.Log ("You have created a json file"); 
        
         if(dnaIDReference.jsonOutputPreview == ""){
             return;

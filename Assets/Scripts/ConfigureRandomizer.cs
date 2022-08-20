@@ -24,7 +24,7 @@ public class ConfigureRandomizer : MonoBehaviour
     public string vrmAuthor = "";
     public string vrmContactInformation = "";
     public string vrmReference = "";
-    const string vrmVersion = "0.x";
+    public string vrmVersion = "0.x";
 
     // Start is called before the first frame update
     void Start()
@@ -83,6 +83,9 @@ public class ConfigureRandomizer : MonoBehaviour
 
         VRMMeta metaComponent = modelToExportToVRM.AddComponent<VRMMeta>();
         metaComponent.Meta = metaData;
+
+        //reset GenID
+        dnaManagerReference.genID = 0;
 
             for (int i = 0; i < totalNFTs; i++) {
                

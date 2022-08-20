@@ -18,6 +18,7 @@ public class DNAManager : MonoBehaviour
     public string description;
     public string name;
     public string externalUrl;
+    public string ipfsUrl;
 
     [TextArea(10,10)]
     public string jsonOutputPreview;
@@ -28,6 +29,7 @@ public class DNAManager : MonoBehaviour
     public TextMeshProUGUI[] traitLabel;
     public TextMeshProUGUI BGTraitLabel;
     public TextMeshProUGUI BGTraitValue;
+    public TextMeshProUGUI URLTraitValue;
     public string DNACode;
     public List<string> DNAList = new List<string>();
 
@@ -63,7 +65,7 @@ public class DNAManager : MonoBehaviour
         BGTraitLabel.text = randomBGScriptReferences.traitType;
         BGTraitValue.text = randomBGScriptReferences.currentEntryValue;
         genIDLabel.text = genID.ToString();
-
+        URLTraitValue.text = externalUrl.ToString();
         
     }
 
@@ -71,11 +73,11 @@ public class DNAManager : MonoBehaviour
     {
        
         jsonOutputPreview = "{ \n" + 
-        "\"editionId\": " + "\"" + (genID+1).ToString() + "\",\n" +
+        //"\"editionId\": " + "\"" + (genID+1).ToString() + "\",\n" +
         "\"description\": " + "\"" + description + "\",\n" +
         "\"external_url\": " + "\"" + externalUrl + "\",\n" +
-        "\"image\": " + "\"http://www.replacethisurl.com/imagefile" + (genID+1).ToString() + ".png" + "\",\n" +
-        "\"name\": " + "\"Cool NFT#" + (genID+1).ToString() + " \",\n" +
+        "\"image\": " + "\"" + ipfsUrl + "/imagefile" + (genID+1).ToString() + ".png" + "\",\n" +
+        "\"name\": " + "\"" + name + " #" + (genID+1).ToString() + " \",\n" +
         
         
         // open attributes array
