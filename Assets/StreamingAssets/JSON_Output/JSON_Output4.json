@@ -1,0 +1,44 @@
+{ 
+"description": "This is a default description about this NFT",
+"external_url": "https://github.com/m3-org",
+"image": "https://www.ipfsreplacethis.com/imagefile4.png",
+"name": "Random Dude #4 ",
+"attributes": [
+	{
+		"trait_type": "Hat",
+		"value": "Boomboxhead2"
+	}
+,	{
+		"trait_type": "Chest",
+		"value": "Chest5"
+	}
+,	{
+		"trait_type": "Glasses",
+		"value": "Monicle"
+	}
+,	{
+		"trait_type": "Weapon",
+		"value": "Axe"
+	}
+,	{
+		"trait_type": "Patches",
+		"value": "M3"
+	}
+,	{
+		"trait_type": "Backpacks",
+		"value": "Backpack4"
+	}
+,	{
+		"trait_type": "Gadgets",
+		"value": "Radio"
+	}
+,	{
+		"trait_type": "BGColor",
+		"value": "10_Frozen"
+	}
+,	{
+		"trait_type": "BodyTexture",
+		"value": "13_Moss"
+	}
+	]
+}
