@@ -9,7 +9,7 @@ public class RandomRoll : MonoBehaviour
 {
     public RandomizeAll ramdomizeAllRef;
     public int totalSpins;
-    private int lengthOfSpin = 3;
+    //private int lengthOfSpin = 3;
     public float delaySpeed = 0.01f;
     public Button buttonReference;
     private Coroutine rollCoroutine;
