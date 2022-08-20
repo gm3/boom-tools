@@ -9,11 +9,11 @@ public class ToTextFile : MonoBehaviour
 
     public DNAManager dnaIDReference;
     public Button buttonReference;
-    private int batchNumber;
+    //private int batchNumber;
     
 
     void Start(){
-            batchNumber = 1;
+            //batchNumber = 1;
             // create a folder
             Directory.CreateDirectory(Application.streamingAssetsPath + "/JSON_Output/");
         
