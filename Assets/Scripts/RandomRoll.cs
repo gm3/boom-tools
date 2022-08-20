@@ -18,6 +18,7 @@ public class RandomRoll : MonoBehaviour
      public int startingPitch = 1;
      public int timeToDecrease = 5;
      public AudioClip progressSound;
+     private bool isRolling = false;
     
 
 
@@ -37,9 +38,15 @@ public class RandomRoll : MonoBehaviour
 
     void TaskOnClick()
     {
-        // Generate NFts SLow
-        rollCoroutine = StartCoroutine(Roll(totalSpins));
+        
 
+        // check to see if it is already rolling
+        if (isRolling == false){
+                    // Generate NFts SLow
+                    rollCoroutine = StartCoroutine(Roll(totalSpins));
+                    isRolling = true;
+        }
+        
         // Generate NFTs Fast
 		//GenerateAllNFTs(totalNFTs);
     }
@@ -49,6 +56,7 @@ public class RandomRoll : MonoBehaviour
         dnaManagerReference.genID = 0;
         delaySpeed = 0.01f;
         audioSource.pitch = startingPitch;
+        
 
             for (int i = 0; i < totalSpins; i++) {
                
@@ -72,6 +80,8 @@ public class RandomRoll : MonoBehaviour
                     //gltfExporterRef.Export(ITextureSerializer textureSerializer);
                     yield return new WaitForSeconds(delaySpeed);
         }
+
+        isRolling = false;
             
     }
 }
