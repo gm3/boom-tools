@@ -38,7 +38,7 @@ All of the scripts are nested under the `_BoomTools` GameObject and the output c
 
 1. Each Layer has a configuration script where you set up all your ```Values and Weights``` for each variation in a layer. 
 
-![](https://i.imgur.com/OOB8U85.png =500x600)
+![](https://i.imgur.com/OOB8U85.png)
 
 2. Drag references to 3d gameObjects / layers into the ``"Total Objects In Layer"`` array. 
 
