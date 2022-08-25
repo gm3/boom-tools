@@ -19,6 +19,7 @@ public class ConfigureRandomizer : MonoBehaviour
     public float delaySpeed;
     public VRMRuntimeExporter1 vrmRuntimeExporterRef;
     public GameObject modelToExportToVRM;
+    public SetObjectsVisibility exportVRMFromRandomTrait;
     //public gltfExporter gltfExporterRef;
     public string vrmTitle = "";
     public string vrmAuthor = "";
@@ -62,6 +63,8 @@ public class ConfigureRandomizer : MonoBehaviour
                         randomizeAllScriptReference.RamdomizeAll();
                     }
 
+                    if (exportVRMFromRandomTrait != null)
+                        modelToExportToVRM = exportVRMFromRandomTrait.selectedObject as GameObject;
                     cameraCaptureReference.Capture();
                     toTxtFileRef.CreateTextFile();
                     vrmRuntimeExporterRef.Export(modelToExportToVRM, true, dnaManagerReference.genID.ToString());
@@ -99,6 +102,8 @@ public class ConfigureRandomizer : MonoBehaviour
 
                     cameraCaptureReference.Capture();
                     toTxtFileRef.CreateTextFile();
+                    if (exportVRMFromRandomTrait != null)
+                        modelToExportToVRM = exportVRMFromRandomTrait.selectedObject as GameObject;
                     vrmRuntimeExporterRef.Export(modelToExportToVRM, true, dnaManagerReference.genID.ToString());
                     //gltfExporterRef.Export(ITextureSerializer textureSerializer);
                     yield return new WaitForSeconds(delaySpeed);

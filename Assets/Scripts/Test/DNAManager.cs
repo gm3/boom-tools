@@ -69,7 +69,7 @@ public class DNAManager : MonoBehaviour
         
     }
 
-    public void ExportJsonToText()
+    public void ExportJsonToText(string attributes = "")
     {
        
         jsonOutputPreview = "{ \n" + 
@@ -81,10 +81,12 @@ public class DNAManager : MonoBehaviour
         
         
         // open attributes array
-        "\"attributes\": [\n" 
+        "\"attributes\": [\n"
+
+
 
         // get all traits
-        + GetAllTraits() +
+        + (attributes != "" ? attributes : GetAllTraits()) + 
 
         // close aatribute array
         "\t]\n" +
