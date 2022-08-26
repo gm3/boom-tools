@@ -6,6 +6,8 @@ using TMPro;
 
 public class RandomizeAll : MonoBehaviour
 {
+    public GameObject parentRandomTraitCaller;
+
     public List<WeightedValue> weightedValues;
     public PrintRandomValue[] randomScriptReferences;
     public BGColorRandomizer randomBGScriptReference;
@@ -40,9 +42,14 @@ public class RandomizeAll : MonoBehaviour
         }else{
           RamdomizeAll();
         }
+
+        
     }
                   
 	public void RamdomizeAll(){
+        string newTraits = "";
+        if (parentRandomTraitCaller != null)
+            newTraits = RandomizeParentGetJsonData();
         randomScriptReferences[0].RandomCheck();
         randomScriptReferences[1].RandomCheck();
         randomScriptReferences[2].RandomCheck();
@@ -52,6 +59,18 @@ public class RandomizeAll : MonoBehaviour
         randomScriptReferences[6].RandomCheck();
         randomBGScriptReference.RandomCheck();
         randomBodyTextureScriptReferences.RandomCheck();
-        dnaManagerReference.ExportJsonToText();
-  }
+        dnaManagerReference.ExportJsonToText(newTraits);
+    }
+
+    private string RandomizeParentGetJsonData()
+    {
+        ActionCaller[] traits = parentRandomTraitCaller.GetComponentsInChildren<ActionCaller>(true);
+        string result = "";
+        foreach (ActionCaller t in traits)
+        {
+            t.SetRandomTrait();
+            result += t.GetJsonedObject(true,1);
+        }
+        return result.Substring(0, result.Length - 2) + "\n";
+    }
 }
