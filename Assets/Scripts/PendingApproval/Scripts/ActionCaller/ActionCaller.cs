@@ -1,9 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 public class ActionCaller : MonoBehaviour
 {
@@ -27,6 +24,7 @@ public class ActionCaller : MonoBehaviour
             Debug.LogWarning("No random target set in script SetObjectsVisibility in: " + gameObject.name);
         }
     }
+    
     protected virtual void Action()
     {
         //override//
@@ -40,6 +38,17 @@ public class ActionCaller : MonoBehaviour
     protected virtual bool IsValidTrait()
     {
         return true;
+    }
+    public List<Object> GetExtraData()
+    {
+        if (IsValidTrait())
+            return FetchExtraData();
+        else
+            return new List<Object>();
+    }
+    protected virtual List<Object> FetchExtraData()
+    {
+        return new List<Object>();
     }
     public string GetJsonedObject(bool addEndComma, int tabulation = 0)
     {
@@ -61,26 +70,6 @@ public class ActionCaller : MonoBehaviour
 }
 
 #if UNITY_EDITOR
-[CustomEditor(typeof(ActionCaller), true)]
-public class ActionCaller_Editor : Editor
-{
-    ActionCaller myScript;
 
-    private void OnEnable()
-    {
-        myScript = (ActionCaller)target;
-    }
-
-    public override void OnInspectorGUI()
-    {
-        base.OnInspectorGUI();
-        if (myScript.randomTarget != null)
-            if (!myScript.IsValidType())
-            {
-                myScript.randomTarget = null;
-                Debug.LogWarning("Not a valid type of script for targetRandom in: " + myScript.gameObject.name);
-            }
-    }
-}
 
 #endif
