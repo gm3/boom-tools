@@ -1,83 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-#if UNITY_EDITOR
 using UnityEditor;
-#endif
 
-public class RandomObject : MonoBehaviour
-{
-    public List<Object> objects;
-    public List<int> weights;
-    public List<string> nameTraits;
-
-    [HideInInspector]
-    public int currentSelected = 0;
-
-    public string objectName = "Object";
-
-    public Object GetRandomObject()
-    {
-        currentSelected = GetRandomValue();
-        return objects[currentSelected];
-    }
-    public int GetObjectWeight()
-    {
-        return weights[currentSelected];
-    }
-    public string GetObjectTraitName()
-    {
-        return nameTraits[currentSelected];
-    }
-    public virtual bool IsValidObjectType(Object obj)
-    {
-        return obj.GetType() == typeof(Object);
-    }
-    public virtual void SetObjectName()
-    {
-        objectName = "Object";
-    }
-
-    public void ResetObjects()
-    {
-        objects = new List<Object>();
-        weights = new List<int>();
-        nameTraits = new List<string>();
-    }
-    public void AddObject(Object value)
-    {
-        objects.Add(value);
-        weights.Add(1);
-        nameTraits.Add(value.name);
-    }
-    public void RemoveAtIndex(int index)
-    {
-        objects.RemoveAt(index);
-        weights.RemoveAt(index);
-        nameTraits.RemoveAt(index);
-    }
-    protected int GetRandomValue()
-    {
-        return Random.Range(0, objects.Count);
-    }
-
-    public bool ObjectExists(Object obj)
-    {
-        foreach (Object o in objects)
-        {
-            if (o == obj)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-}
-
-
-
-#if UNITY_EDITOR
-[CustomEditor(typeof(RandomObject),true)]
+[CustomEditor(typeof(RandomObject), true)]
 public class RandomObject_Editor : Editor
 {
     RandomObject myScript;
@@ -111,7 +37,7 @@ public class RandomObject_Editor : Editor
                 {
                     myScript.weights.Add(1);
                 }
-                
+
             }
             if (myScript.nameTraits.Count != myScript.objects.Count)
             {
@@ -163,7 +89,7 @@ public class RandomObject_Editor : Editor
                     }
                     else
                     {
-                        Debug.Log("not a "+ myScript.objectName +": " + obj.name);
+                        Debug.Log("not a " + myScript.objectName + ": " + obj.name);
                     }
                 }
                 EditorUtility.SetDirty(myScript);
@@ -174,7 +100,7 @@ public class RandomObject_Editor : Editor
                 myScript.ResetObjects();
                 EditorUtility.SetDirty(myScript);
             }
-            
+
             if (GUILayout.Button("Random Example", GUILayout.Height(30f)))
             {
                 Object obj = myScript.GetRandomObject();
@@ -194,15 +120,15 @@ public class RandomObject_Editor : Editor
             EditorGUILayout.EndHorizontal();
         }
         GUILayout.Label("== " + myScript.objectName + " ==", style, GUILayout.Height(30f));
-        
+
         if (myScript.objects != null)
         {
-            
+
             EditorGUILayout.LabelField("object / trait name / weight");
 
             for (int i = 0; i < myScript.objects.Count; i++)
             {
-                
+
 
                 EditorGUILayout.BeginHorizontal();
                 int weight = myScript.weights[i];
@@ -211,7 +137,7 @@ public class RandomObject_Editor : Editor
                 if (filterByObject == "" && filterByName != "" && filterByWeight < 0)
                 {
                     EditorGUILayout.ObjectField(myScript.objects[i], typeof(Object), true);
-                   
+
                     if (editing)
                     {
                         trait = EditorGUILayout.TextField(myScript.nameTraits[i], GUILayout.Width(200f));
@@ -261,7 +187,7 @@ public class RandomObject_Editor : Editor
                     Undo.RecordObject(myScript, "Set Weight Value");
                     myScript.weights[i] = weight;
                 }
-                if (trait  != myScript.nameTraits[i])
+                if (trait != myScript.nameTraits[i])
                 {
                     Undo.RecordObject(myScript, "Set Trait Name Value");
                     myScript.nameTraits[i] = trait;
@@ -278,8 +204,8 @@ public class RandomObject_Editor : Editor
         filterByObject = "";
     }
     private bool FilterValue(int index)
-    {    
-        
+    {
+
         if (filterByObject != "")
         {
             if (!myScript.objects[index].name.ToLower().Contains(filterByObject.ToLower()))
@@ -311,11 +237,9 @@ public class RandomObject_Editor : Editor
                     break;
             }
         }
-        
+
         return true;
     }
 
 
 }
-
-#endif
