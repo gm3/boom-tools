@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class ActionCaller : MonoBehaviour
 {
+    [HideInInspector]
+    public OptionsManager optionsManager;
+
     public RandomObject randomTarget;
     public string traitName = "";
 
+    [HideInInspector]
     public Object selectedObject;
+    [HideInInspector]
     public string selectedTrait;
 
 

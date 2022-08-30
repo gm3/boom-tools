@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RandomObject : MonoBehaviour
 {
+    public OptionsManager optionsManager;
+
     public List<Object> objects;
     public List<int> weights;
     public List<string> nameTraits;

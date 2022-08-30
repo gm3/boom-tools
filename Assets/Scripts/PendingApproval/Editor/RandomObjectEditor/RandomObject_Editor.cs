@@ -52,8 +52,17 @@ public class RandomObject_Editor : Editor
     {
         bool editing = ActiveEditorTracker.sharedTracker.isLocked;
         GUIStyle style = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter };
+        
         if (!editing)
         {
+            if (myScript.optionsManager != null)
+            {
+                if (GUILayout.Button("Back to main options", GUILayout.Height(30f)))
+                {
+                    Selection.activeObject = myScript.optionsManager.gameObject;
+                    myScript.optionsManager.setupStage = 1;
+                }
+            }
             if (GUILayout.Button("Edit " + myScript.objectName + "s: ", GUILayout.Height(30f)))
             {
                 ActiveEditorTracker.sharedTracker.isLocked = true;
