@@ -6,6 +6,11 @@ using VRM;
 public class SetObjectsVisibility : ActionCaller
 {
     public GameObject[] SetOnNewParentIfActive;
+
+    //new
+    public RandomGameObject rootParentOnChosen;
+    public string newParentName = "";
+
     private Transform lastObject = null;
     private Transform lastObjectParent = null;
 
@@ -27,6 +32,19 @@ public class SetObjectsVisibility : ActionCaller
         }
 
     }
+    protected override void PostAction()
+    {
+        if (rootParentOnChosen != null && newParentName != "")
+        {
+            SetNewParent(GetObjectByName(rootParentOnChosen.GetSelectedObject() as GameObject, newParentName));
+            GameObject parent = GetObjectByName(rootParentOnChosen.GetSelectedObject() as GameObject, newParentName);
+            if (parent != null) {
+                GameObject sel = selectedObject as GameObject;
+                SaveParentPosition(sel.transform);
+                sel.transform.parent = parent.transform;
+            }
+        }
+    }
     private void DisplayObject(GameObject obj)
     {
         ResetParentPosition();
@@ -39,6 +57,22 @@ public class SetObjectsVisibility : ActionCaller
             SetNewParent(obj);
  
     }
+    private GameObject GetObjectByName(GameObject root, string name)
+    {
+        if (root == null)
+            return null;
+
+        Transform[] children = root.GetComponentsInChildren<Transform>();
+        foreach (var child in children)
+        {
+            if (child.name == name)
+            {
+                return child.gameObject;
+            }
+        }
+        return null;
+    }
+
     private void ResetParentPosition()
     {
         if (lastObject != null)

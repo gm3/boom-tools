@@ -28,6 +28,10 @@ public class RandomObject : MonoBehaviour
     {
         return nameTraits[currentSelected];
     }
+    public Object GetSelectedObject()
+    {
+        return objects[currentSelected];
+    }
     public virtual bool IsValidObjectType(Object obj)
     {
         return obj.GetType() == typeof(Object);
@@ -56,9 +60,10 @@ public class RandomObject : MonoBehaviour
     }
     public void RemoveAtIndex(int index)
     {
-        objects.RemoveAt(index);
         weights.RemoveAt(index);
         nameTraits.RemoveAt(index);
+        objects.RemoveAt(index);
+        
     }
     public bool ObjectExists(Object obj)
     {

@@ -7,10 +7,14 @@ public class OptionsManager : MonoBehaviour
     public List<GameObject> randomObjects;
     public List<GameObject> actionCallers;
 
+    public RandomGameObject mainCharacterOptions;
+    public SetObjectsVisibility mainCharacterAction;
+
     public RandomGameObject mainVRMStructure;
 
     public GameObject optionsHolder;
     public GameObject actionsHolder;
+    public GameObject characterHolder;
 
     public int setupStage = 0;
     // random objects
@@ -95,5 +99,41 @@ public class OptionsManager : MonoBehaviour
     public void SetMainVRM()
     {
         Debug.Log("set main action caller vrm");
+    }
+
+    public void CreateBasicCharacterSetup()
+    {
+
+        if (characterHolder == null)
+        {
+            characterHolder = new GameObject("character");
+            characterHolder.transform.parent = transform;
+        }
+
+        if (mainCharacterOptions == null) 
+        {
+            mainCharacterOptions = characterHolder.AddComponent<RandomGameObject>();
+            mainCharacterOptions.ResetObjects();
+        }
+
+        if (mainCharacterAction == null)
+        {
+            mainCharacterAction = characterHolder.AddComponent<SetObjectsVisibility>();
+            mainCharacterAction.randomTarget = mainCharacterOptions;
+        }
+  
+    }
+
+
+    public void AttachDataToDNA(DNAManager dna)
+    {
+        Debug.Log("ENTERS!!!");
+        ConfigureRandomizer randomizer = dna.transform.parent.GetComponentInChildren<ConfigureRandomizer>();
+        randomizer.exportVRMFromRandomTrait = mainCharacterAction;
+
+        RandomizeAll randomizeAll = dna.transform.parent.GetComponentInChildren<RandomizeAll>();
+        randomizeAll.exportVRMFromRandomTrait = mainCharacterAction;
+        randomizeAll.parentRandomTraitCaller = gameObject;
+
     }
 }

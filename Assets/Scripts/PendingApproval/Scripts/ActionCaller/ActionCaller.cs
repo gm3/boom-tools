@@ -15,7 +15,11 @@ public class ActionCaller : MonoBehaviour
     [HideInInspector]
     public string selectedTrait;
 
-
+    public void SetPostSetup()
+    {
+        if (randomTarget != null)
+            PostAction();
+    }
     public void SetRandomTrait()
     {
         if (randomTarget != null)
@@ -30,6 +34,10 @@ public class ActionCaller : MonoBehaviour
         }
     }
     
+    protected virtual void PostAction()
+    {
+        //override//
+    }
     protected virtual void Action()
     {
         //override//
