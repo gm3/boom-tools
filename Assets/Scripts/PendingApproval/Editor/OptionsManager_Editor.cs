@@ -54,12 +54,38 @@ public class OptionsManager_Editor : Editor
             myScript.CreateBasicCharacterSetup();
             myScript.setupStage = 1;
         }
-        //if (myScript.)
+        bool guiEnabled = true;
+        if (myScript.mainCharacterOptions != null)
+        {
+            if (myScript.mainCharacterOptions.objects == null)
+                guiEnabled = false;
+            else
+                if(myScript.mainCharacterOptions.objects.Count == 0)
+                    guiEnabled = false;
+        }
+        else
+            guiEnabled = false;
+
+        GUI.enabled = guiEnabled;
+
+
         EditorGUILayout.BeginHorizontal();
         if (GUILayout.Button("Edit Options", GUILayout.Height(30f)))
         {
             myScript.setupStage = 2;
         }
+
+        //check if there is at least 1 options in random objects
+        if (myScript.randomObjects != null)
+        {
+            if (myScript.randomObjects.Count == 0)
+                guiEnabled = false;
+        }
+        else
+            guiEnabled = false;
+
+        GUI.enabled = guiEnabled;
+
         if (GUILayout.Button("Edit Actions", GUILayout.Height(30f)))
         {
             myScript.setupStage = 3;
@@ -243,14 +269,16 @@ public class OptionsManager_Editor : Editor
         EditorGUILayout.BeginHorizontal();
         if (GUILayout.Button("Display Selected Object", GUILayout.Height(30f)))
         {
-            Undo.RegisterCreatedObjectUndo(myScript.AddActionCaller(typeof(SetObjectsVisibility), identifierName, traitName), "New Set Object Visibility Action");
+            GameObject newObj = myScript.AddActionCaller(typeof(SetObjectsVisibility), identifierName, traitName);
+            Undo.RegisterCreatedObjectUndo(newObj, "New Set Object Visibility Action");
             traitName = "";
             identifierName = "";
             GUI.FocusControl(null);
         }
         if (GUILayout.Button("Set Texture to material", GUILayout.Height(30f)))
         {
-            Undo.RegisterCreatedObjectUndo(myScript.AddActionCaller(typeof(SetTextureToMaterial), identifierName, traitName), "New Set Object Visibility Action");
+            GameObject newObj = myScript.AddActionCaller(typeof(SetTextureToMaterial), identifierName, traitName);
+            Undo.RegisterCreatedObjectUndo(newObj, "New Set Texture To Material Action");
             traitName = "";
             identifierName = "";
             GUI.FocusControl(null);

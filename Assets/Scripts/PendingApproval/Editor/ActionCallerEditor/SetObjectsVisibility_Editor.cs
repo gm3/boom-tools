@@ -8,13 +8,31 @@ using VRM;
 public class SetObjectsVisibility_Editor : ActionCaller_Editor
 {
     SetObjectsVisibility myScript;
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         myScript = (SetObjectsVisibility)target;
+        if (myScript.optionsManager != null)
+        {
+            if (myScript.rootParentOnChosen == null)
+                myScript.rootParentOnChosen = myScript.optionsManager.mainCharacterOptions;
+        }
     }
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
+        // works only for manager
+        if (myScript.optionsManager != null)
+        {
+            string newParentName = EditorGUILayout.TextField("New Parent Name: ", myScript.newParentName);
+            if (newParentName != myScript.newParentName)
+            {
+                Undo.RecordObject(myScript, "Set New Parent Name");
+                myScript.newParentName = newParentName;
+            }
+            //EditorGUILayout.ObjectField("Root On Parent", myScript.rootParentOnChosen,typeof(RandomGameObject),true);
+        }
+        // works for all
 
         if (GUILayout.Button("Add Blendshape Identifier", GUILayout.Height(30f))) myScript._AddBlendShape();
         if (myScript.blendShapes != null)

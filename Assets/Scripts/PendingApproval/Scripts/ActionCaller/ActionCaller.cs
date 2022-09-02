@@ -43,7 +43,15 @@ public class ActionCaller : MonoBehaviour
         //override//
         Debug.Log(selectedObject.name);
     }
-    //set tu public to be able to se it in custom editor
+
+    /// <summary>
+    /// Returns the Type of option that can be assigned to this class.
+    /// </summary>
+    /// <returns></returns>
+    public virtual System.Type GetRandomObjectValidType()
+    {
+        return typeof(RandomObject); //generic
+    }
     public virtual bool IsValidType()
     {
         return true;
@@ -82,7 +90,3 @@ public class ActionCaller : MonoBehaviour
     }
 }
 
-#if UNITY_EDITOR
-
-
-#endif

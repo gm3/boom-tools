@@ -5,7 +5,7 @@ using VRM;
 
 public class SetObjectsVisibility : ActionCaller
 {
-    public GameObject[] SetOnNewParentIfActive;
+   // public GameObject[] SetOnNewParentIfActive;
 
     //new
     public RandomGameObject rootParentOnChosen;
@@ -36,7 +36,7 @@ public class SetObjectsVisibility : ActionCaller
     {
         if (rootParentOnChosen != null && newParentName != "")
         {
-            SetNewParent(GetObjectByName(rootParentOnChosen.GetSelectedObject() as GameObject, newParentName));
+            //SetNewParent(GetObjectByName(rootParentOnChosen.GetSelectedObject() as GameObject, newParentName));
             GameObject parent = GetObjectByName(rootParentOnChosen.GetSelectedObject() as GameObject, newParentName);
             if (parent != null) {
                 GameObject sel = selectedObject as GameObject;
@@ -53,8 +53,8 @@ public class SetObjectsVisibility : ActionCaller
             go.SetActive(false);
         }
         obj.SetActive(true);
-        if (SetOnNewParentIfActive.Length != 0)
-            SetNewParent(obj);
+        //if (SetOnNewParentIfActive.Length != 0)
+        //    SetNewParent(obj);
  
     }
     private GameObject GetObjectByName(GameObject root, string name)
@@ -87,23 +87,27 @@ public class SetObjectsVisibility : ActionCaller
         lastObject = target;
         lastObjectParent = target.parent;
     }
-    private void SetNewParent(GameObject obj)
-    {
+    //private void SetNewParent(GameObject obj)
+    //{
         
-        for (int i =0; i < SetOnNewParentIfActive.Length; i++)
-        {
-            if (SetOnNewParentIfActive[i] != null)
-            {
-                if (SetOnNewParentIfActive[i].activeInHierarchy)
-                {
-                    SaveParentPosition(obj.transform);
-                    obj.transform.SetParent(SetOnNewParentIfActive[i].transform);
-                    chosenParent = SetOnNewParentIfActive[i];
-                    break;
-                }
-            }
+    //    for (int i =0; i < SetOnNewParentIfActive.Length; i++)
+    //    {
+    //        if (SetOnNewParentIfActive[i] != null)
+    //        {
+    //            if (SetOnNewParentIfActive[i].activeInHierarchy)
+    //            {
+    //                SaveParentPosition(obj.transform);
+    //                obj.transform.SetParent(SetOnNewParentIfActive[i].transform);
+    //                chosenParent = SetOnNewParentIfActive[i];
+    //                break;
+    //            }
+    //        }
 
-        }
+    //    }
+    //}
+    public override System.Type GetRandomObjectValidType()
+    {
+        return typeof(RandomGameObject);
     }
     public override bool IsValidType()
     {

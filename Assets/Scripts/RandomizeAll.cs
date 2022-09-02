@@ -38,7 +38,8 @@ public class RandomizeAll : MonoBehaviour
     void TaskOnClick()
     {
         //Debug.Log ("You have randomized All!"); 
-
+        if (dnaManagerReference.optionsManager != null)
+            dnaManagerReference.optionsManager.AttachDataToDNA(dnaManagerReference);
 
         if (!dnaManagerReference.DNAList.Contains(dnaManagerReference.DNACode)) {
             RamdomizeAll();
@@ -76,6 +77,11 @@ public class RandomizeAll : MonoBehaviour
             result += t.GetJsonedObject(true, 1);
             extraData.AddRange(t.GetExtraData());
         }
+        foreach (ActionCaller t in traits)
+        {
+            t.SetPostSetup();
+        }
+            
 
         // fetch all blendshape clips data
         List<BlendShapeClip> shapeClips = new List<BlendShapeClip>();

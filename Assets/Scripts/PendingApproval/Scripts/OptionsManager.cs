@@ -93,7 +93,37 @@ public class OptionsManager : MonoBehaviour
 
 
 
+    public List<ActionCaller> GetActionCallersOfType(System.Type type)
+    {
+        List<ActionCaller> result = new List<ActionCaller>();
+        foreach (GameObject go in actionCallers)
+        {
+            if (go != null)
+            {
+                ActionCaller caller = go.GetComponent(type) as ActionCaller;
+                if (caller != null)
+                    result.Add(caller);
 
+            }
+        }
+        return result;
+    }
+
+    public List<RandomObject> GetRandomObjectOfType(System.Type type)
+    {
+        List<RandomObject> result = new List<RandomObject>();
+        foreach (GameObject go in randomObjects)
+        {
+            if (go != null)
+            {
+                RandomObject rand = go.GetComponent(type) as RandomObject;
+                if (rand != null)
+                    result.Add(rand);
+
+            }
+        }
+        return result;
+    }
 
     //
     public void SetMainVRM()

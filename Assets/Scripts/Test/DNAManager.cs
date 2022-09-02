@@ -8,6 +8,8 @@ using TMPro;
 
 public class DNAManager : MonoBehaviour
 {
+    public OptionsManager optionsManager;
+
     public PrintRandomValue[] randomScriptReferences;
     public BGColorRandomizer randomBGScriptReferences;
     public BGColorRandomizer randomBodyTextureScriptReferences;
