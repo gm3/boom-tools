@@ -32,7 +32,7 @@ public class ActionCaller_Editor : Editor
             {
                 Selection.activeObject = myScript.optionsManager.gameObject;
             }
-            int newRandom = EditorGUILayout.Popup("Random Target: ", curRandom, options);
+            int newRandom = EditorGUILayout.Popup("Target Options: ", curRandom, options);
             if (newRandom != curRandom)
             {
                 Undo.RecordObject(myScript, "Change Random Target");
