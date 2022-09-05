@@ -117,20 +117,21 @@ public class OptionsManager_Editor : Editor
     private void CharacterSetup()
     {
         
-        GoBackButton();
+       // GoBackButton();
         GUILayout.Space(5f);
 
         #region Main Edit
         if (ActiveEditorTracker.sharedTracker.isLocked)
         {
             isEditing = true;
-            GUILayout.Label("EDIT MODE\n\n *Select gameObjects and click Add selected (you may choose more than 1 at a time)\n*Use Add blendshape only if any of your characters contain this information\n", styleCenteredYellow);
-            
+
             if (GUILayout.Button("Finish Editing", GUILayout.Height(30f)))
             {
                 ActiveEditorTracker.sharedTracker.isLocked = false;
                 Selection.activeGameObject = myScript.gameObject;
             }
+
+            GUILayout.Label("EDIT MODE\n\n *Select gameObjects and click Add selected (you may choose more than 1 at a time)\n*Use Add blendshape only if any of your characters contain this information\n", styleCenteredYellow);
 
             // add new options
             EditorGUILayout.BeginHorizontal();
@@ -165,6 +166,7 @@ public class OptionsManager_Editor : Editor
         }
         else
         {
+            GoBackButton();
             GUILayout.Label("=Instructions= \n\n Choose gameObjects in your scene hierarchy with Animator component. Animator must have human avatar definition.\n", styleCentered);
             isEditing = false;
             if (GUILayout.Button("Edit", GUILayout.Height(30f)))
