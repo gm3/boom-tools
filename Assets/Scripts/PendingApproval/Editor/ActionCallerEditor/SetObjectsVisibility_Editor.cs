@@ -24,7 +24,7 @@ public class SetObjectsVisibility_Editor : ActionCaller_Editor
         // works only for manager
         if (myScript.optionsManager != null)
         {
-            string newParentName = EditorGUILayout.TextField("New Parent Name: ", myScript.newParentName);
+            string newParentName = EditorGUILayout.TextField("Parent Name (optional): ", myScript.newParentName);
             if (newParentName != myScript.newParentName)
             {
                 Undo.RecordObject(myScript, "Set New Parent Name");

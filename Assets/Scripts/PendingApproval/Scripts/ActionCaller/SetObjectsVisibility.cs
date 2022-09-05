@@ -115,7 +115,7 @@ public class SetObjectsVisibility : ActionCaller
             return false;
         return base.IsValidType();
     }
-    protected override bool IsValidTrait()
+    protected override bool IsActiveTrait()
     {
         GameObject go = (GameObject)selectedObject;
         if (go.activeInHierarchy)

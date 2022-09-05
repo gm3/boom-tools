@@ -18,6 +18,8 @@ public class DNAManager_Editor : Editor
             if (GUILayout.Button("Add options manager", GUILayout.Height(30f)))
             {
                 myScript.optionsManager = myScript.transform.root.gameObject.AddComponent<OptionsManager>();
+                myScript.optionsManager.dnaManager = myScript;
+                Selection.activeGameObject = myScript.transform.root.gameObject;
             }
         }
         else

@@ -32,6 +32,10 @@ public class RandomObject : MonoBehaviour
     {
         return objects[currentSelected];
     }
+    public Object GetObjectAt(int index)
+    {
+        return objects[index];
+    }
     public virtual bool IsValidObjectType(Object obj)
     {
         return obj.GetType() == typeof(Object);

@@ -56,13 +56,27 @@ public class ActionCaller : MonoBehaviour
     {
         return true;
     }
-    protected virtual bool IsValidTrait()
+    /// <summary>
+    /// Does this trait is something that is displayed in the scene?
+    /// </summary>
+    /// <returns></returns>
+    protected virtual bool IsActiveTrait()
     {
+        return true;
+    }
+    /// <summary>
+    /// Does this trait has the basic setup to work?
+    /// </summary>
+    /// <returns></returns>
+    public virtual bool IsValidTrait()
+    {
+        if (randomTarget == null)
+            return false;
         return true;
     }
     public List<Object> GetExtraData()
     {
-        if (IsValidTrait())
+        if (IsActiveTrait())
             return FetchExtraData();
         else
             return new List<Object>();
@@ -77,7 +91,7 @@ public class ActionCaller : MonoBehaviour
         for (int i = 0; i < tabulation; i++)
             tab += "\t";
 
-        if (IsValidTrait())
+        if (IsActiveTrait())
         {
             return
                 tab + "{\n" +

@@ -52,8 +52,9 @@ public class RandomObject_Editor : Editor
     public override void OnInspectorGUI()
     {
         bool editing = ActiveEditorTracker.sharedTracker.isLocked;
-        GUIStyle style = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter };
-        
+        GUIStyle style = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, wordWrap = true };
+        GUIStyle styleCenteredYellow = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, wordWrap = true, normal = { textColor = Color.yellow }, hover = { textColor = Color.yellow } };
+
         if (!editing)
         {
             if (myScript.optionsManager != null)
@@ -77,8 +78,8 @@ public class RandomObject_Editor : Editor
                 Selection.activeGameObject = myScript.gameObject;
                 EditorUtility.SetDirty(myScript);
             }
-
-            GUILayout.Label("EDITING: " + myScript.gameObject.name, style, GUILayout.Height(30f));
+            GUILayout.Space(5f);
+            GUILayout.Label("EDIT MODE\n\n" + myScript.gameObject.name + "\nSelect Objects of type " + myScript.objectName + " Then click add selected to add them to the list\n", styleCenteredYellow);
             
             if (GUILayout.Button("Add Selected " + myScript.objectName + "s: ", GUILayout.Height(30f)))
             {
@@ -145,13 +146,24 @@ public class RandomObject_Editor : Editor
                 }
             }
         }
-        GUILayout.Space(5f);
-        GUILayout.Label("== " + myScript.objectName + " ==", style, GUILayout.Height(30f));
+       
 
-        if (myScript.objects != null)
+        if (myScript.objects?.Count > 0)
         {
+            GUILayout.Space(5f);
+            GUILayout.Label("== " + myScript.objectName + "s ==",style);
+            
+            if (editing)
+            {
+                GUILayout.Label("\n*Trait name: final name of option exported in the json trait\n*Weight: How probably is for this option to get chosen from other options\n", style);
 
-            EditorGUILayout.LabelField("object / trait name / weight");
+            }
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField(myScript.objectName, GUILayout.MinWidth(50f));
+            EditorGUILayout.LabelField("Trait Name", GUILayout.Width(200f));
+            EditorGUILayout.LabelField("Weight", GUILayout.Width(60f));
+            EditorGUILayout.EndHorizontal();
+            //EditorGUILayout.LabelField("object / trait name / weight");
 
             for (int i = 0; i < myScript.objects.Count; i++)
             {

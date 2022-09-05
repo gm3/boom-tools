@@ -17,6 +17,8 @@ public class OptionsManager : MonoBehaviour
     public GameObject characterHolder;
 
     public int setupStage = 0;
+
+    public DNAManager dnaManager;
     // random objects
     public GameObject AddRandomObjectOption(System.Type type, string name = "")
     {
@@ -150,6 +152,7 @@ public class OptionsManager : MonoBehaviour
         {
             mainCharacterAction = characterHolder.AddComponent<SetObjectsVisibility>();
             mainCharacterAction.randomTarget = mainCharacterOptions;
+            mainCharacterAction.traitName = "body";
         }
   
     }
