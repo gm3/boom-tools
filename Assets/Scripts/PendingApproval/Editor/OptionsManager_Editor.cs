@@ -15,8 +15,11 @@ public class OptionsManager_Editor : Editor
    
     //int secondarySetup = 0;
     GUIStyle styleCentered;
+    GUIStyle styleTitle;
+    GUIStyle styleTitleCentered;
     GUIStyle styleCenteredYellow;
     GUIStyle styleCorrect;
+    GUIStyle styleWarning;
     GUIStyle styleWrong;
     GUIStyle textFieldStyle;
     GUIStyle buttonStyle;
@@ -28,8 +31,11 @@ public class OptionsManager_Editor : Editor
     public override void OnInspectorGUI()
     {
         styleCentered = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter , wordWrap = true};
+        styleTitle = new GUIStyle(GUI.skin.label) { fontStyle = FontStyle.Bold };
+        styleTitleCentered = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold };
         styleCenteredYellow = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter , wordWrap = true, normal = { textColor = Color.yellow }, hover = { textColor = Color.yellow } };
         styleCorrect = new GUIStyle(GUI.skin.label) { normal = { textColor = Color.green } };
+        styleWarning = new GUIStyle(GUI.skin.label) { normal = { textColor = Color.yellow } };
         styleWrong = new GUIStyle(GUI.skin.label) { normal = { textColor = Color.red} };
 
 
@@ -365,19 +371,19 @@ public class OptionsManager_Editor : Editor
         EditorGUILayout.BeginHorizontal();
         if (GUILayout.Button("GameObjects", GUILayout.Height(30f)))
         {
-            Undo.RegisterCreatedObjectUndo(myScript.AddRandomObjectOption(typeof(RandomGameObject), "GameOject: "+newOptionsName), "Object Option");
+            Undo.RegisterCreatedObjectUndo(myScript.AddRandomObjectOption(typeof(RandomGameObject), newOptionsName), "Object Option");
             newOptionsName = "";
             GUI.FocusControl(null);
         }
         if (GUILayout.Button("Textures", GUILayout.Height(30f)))
         {
-            Undo.RegisterCreatedObjectUndo(myScript.AddRandomObjectOption(typeof(RandomTexture), "Texture: " + newOptionsName), "Texture Option");
+            Undo.RegisterCreatedObjectUndo(myScript.AddRandomObjectOption(typeof(RandomTexture), newOptionsName), "Texture Option");
             newOptionsName = "";
             GUI.FocusControl(null);
         }
         if (GUILayout.Button("Materials", GUILayout.Height(30f)))
         {
-            Undo.RegisterCreatedObjectUndo(myScript.AddRandomObjectOption(typeof(RandomMaterial), "Material: " + newOptionsName), "Material Option");
+            Undo.RegisterCreatedObjectUndo(myScript.AddRandomObjectOption(typeof(RandomMaterial), newOptionsName), "Material Option");
             newOptionsName = "";
             GUI.FocusControl(null);
         }
@@ -385,10 +391,19 @@ public class OptionsManager_Editor : Editor
         EditorGUILayout.EndHorizontal();
         GUI.enabled = true;
         GUILayout.Space(5f);
-        if (myScript.randomObjects?.Count>0)
-            EditorGUILayout.LabelField("== Current OPTIONS ==\n\n Click on view to add, remove, edit and set weight on options\n", styleCentered);
-        if (myScript.randomObjects != null)
+        if (myScript.randomObjects?.Count > 0)
         {
+            EditorGUILayout.LabelField("== Current OPTIONS ==\n\n Click on view to add, remove, edit and set weight on options\n", styleCentered);
+
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("Name", styleTitle, GUILayout.MinWidth(30f));
+            EditorGUILayout.LabelField("Type", styleTitle, GUILayout.Width(70f));
+            EditorGUILayout.LabelField("Options", styleTitle, GUILayout.Width(70f));
+            EditorGUILayout.LabelField("Edit", styleTitleCentered, GUILayout.Width(60f));
+            EditorGUILayout.LabelField("X", styleTitleCentered, GUILayout.Width(20f));
+            EditorGUILayout.EndHorizontal();
+
+
             for (int i = 0; i < myScript.randomObjects.Count; i++)
             {
                 if (myScript.randomObjects[i] == null)
@@ -397,9 +412,31 @@ public class OptionsManager_Editor : Editor
                 }
                 else
                 {
-                    string name = myScript.randomObjects[i].name;
+                    RandomObject ro = myScript.randomObjects[i].GetComponent<RandomObject>();
+
+                    string labelType;
+                    switch (ro.GetType().ToString())
+                    {
+                        case "RandomGameObject":
+                            labelType = "GObject";
+                            break;
+                        case "RandomTexture":
+                            labelType = "Texture";
+                            break;
+                        case "RandomMaterial":
+                            labelType = "Material";
+                            break;
+                        default:
+                            labelType = "Generic";
+                            break;
+                    }
                     EditorGUILayout.BeginHorizontal();
-                    EditorGUILayout.LabelField(myScript.randomObjects[i].name);
+                    EditorGUILayout.LabelField(myScript.randomObjects[i].name, GUILayout.MinWidth(30f));
+                    EditorGUILayout.LabelField(labelType, GUILayout.Width(70f));
+                    int val = ro.objects == null ? 0 : ro.objects.Count;
+                    EditorGUILayout.LabelField(val.ToString(), val == 0 ? styleWrong:styleCorrect, GUILayout.Width(70f));
+
+
                     if (GUILayout.Button("View", GUILayout.Width(60f))) Selection.activeGameObject = myScript.randomObjects[i];
                     if (GUILayout.Button("X", GUILayout.Width(20f)))
                     {
@@ -462,10 +499,18 @@ public class OptionsManager_Editor : Editor
         }
         EditorGUILayout.EndHorizontal();
         GUI.enabled = true;
-        EditorGUILayout.LabelField("== Current ACTIONS ==", styleCentered, GUILayout.Height(20f));
-        EditorGUILayout.LabelField("\nIf text displays red, it means some values are still required for this action to work, a green color means it's ready\n", styleCentered);
-        if (myScript.actionCallers != null)
+        if (myScript.actionCallers?.Count > 0)
         {
+            EditorGUILayout.LabelField("== Current ACTIONS ==", styleCentered, GUILayout.Height(20f));
+            EditorGUILayout.LabelField("\nIf text displays red, it means some values are still required for this action to work, a green color means it's ready, and yellow the option type required\n", styleCentered);
+
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("Name", styleTitle, GUILayout.MinWidth(30f));
+            EditorGUILayout.LabelField("Option", styleTitle, GUILayout.Width(100f));
+            EditorGUILayout.LabelField("Trait", styleTitle, GUILayout.Width(70f));
+            EditorGUILayout.LabelField("Edit", styleTitleCentered, GUILayout.Width(60f));
+            EditorGUILayout.LabelField("X", styleTitleCentered, GUILayout.Width(20f));
+            EditorGUILayout.EndHorizontal();
             for (int i = 0; i < myScript.actionCallers.Count; i++)
             {
                 if (myScript.actionCallers[i] == null)
@@ -476,8 +521,30 @@ public class OptionsManager_Editor : Editor
                 {
                     ActionCaller ac = myScript.actionCallers[i].GetComponent<ActionCaller>();
 
+                    string labelType;
+                    switch (ac.GetType().ToString())
+                    {
+                        case "SetObjectsVisibility":
+                            labelType = "GObject";
+                            break;
+                        case "SetTextureToMaterial":
+                            labelType = "Texture";
+                            break;
+                        case "SetMaterialToMesh":
+                            labelType = "Material";
+                            break;
+                        default:
+                            labelType = "Generic";
+                            break;
+                    }
+
                     EditorGUILayout.BeginHorizontal();
-                    EditorGUILayout.LabelField(myScript.actionCallers[i].name + " : " + ac.traitName, ac.IsValidTrait() ? styleCorrect : styleWrong);
+                    EditorGUILayout.LabelField(myScript.actionCallers[i].name, ac.IsValidTrait() ? styleCorrect : styleWrong, GUILayout.MinWidth(30f));
+                    if (ac.randomTarget == null)
+                        EditorGUILayout.LabelField(labelType, styleWarning, GUILayout.Width(100f));
+                    else
+                        EditorGUILayout.LabelField(ac.randomTarget.gameObject.name, GUILayout.Width(100f));
+                    EditorGUILayout.LabelField(ac.traitName, GUILayout.Width(70f));
                     if (GUILayout.Button("Edit", GUILayout.Width(60f))) Selection.activeGameObject = myScript.actionCallers[i];
                     if (GUILayout.Button("X", GUILayout.Width(20f)))
                     {
@@ -489,9 +556,6 @@ public class OptionsManager_Editor : Editor
                 }
             }
         }
-
-
-
     }
 
     private void GoBackButton()
