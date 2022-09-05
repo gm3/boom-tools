@@ -128,6 +128,8 @@ public class RandomObject_Editor : Editor
                     ClearFilters();
                 }
                 GUILayout.Label("== filters: ==", style, GUILayout.Height(30f));
+                EditorGUILayout.LabelField("Quickly search through your added options with keywords and weights (value below 0 in weight will ignore this field)\n", style);
+
                 if (GUILayout.Button("Clear filters", GUILayout.Height(30f)))
                     ClearFilters();
                 filterByObject = EditorGUILayout.TextField("Object: ", filterByObject);
@@ -245,6 +247,10 @@ public class RandomObject_Editor : Editor
                 
                 EditorGUILayout.EndHorizontal();
             }
+        }
+        else
+        {
+            EditorGUILayout.LabelField("*No options. Click Edit button to start adding options", style);
         }
     }
     private void ClearFilters()

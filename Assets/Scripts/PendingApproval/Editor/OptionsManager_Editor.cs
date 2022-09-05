@@ -352,7 +352,7 @@ public class OptionsManager_Editor : Editor
     {
         GoBackButton();
         GUILayout.Space(5f);
-        GUILayout.Label("=Instructions= \n\n Create options for traits: Use the buttons below to define the type of options they can choose from.\n", styleCentered);
+        GUILayout.Label("=Instructions= \n\n Create options for traits: Type a name for the options, then use the buttons below to define the type of options they can choose from.\n", styleCentered);
 
         GUILayout.Space(5f);
         newOptionsName = EditorGUILayout.TextField("New options Name:", newOptionsName);
@@ -417,7 +417,10 @@ public class OptionsManager_Editor : Editor
     {
         GoBackButton();
         GUILayout.Space(5f);
-        GUILayout.Label("=Instructions= \n\nAdd action traits and assign previous options to them.\n", styleCentered);
+        GUILayout.Label("=Instructions= " +
+            "\n\nAdd action traits and assign previous options to them.\n" +
+            "*Identifier name: a custom name to quickly identify this action\n" +
+            "*Trait name: this name will be exported in the final json file\n", styleCentered);
 
         GUILayout.Space(5f);
 
@@ -431,7 +434,7 @@ public class OptionsManager_Editor : Editor
         else
             GUI.enabled = true;
         EditorGUILayout.BeginHorizontal();
-        if (GUILayout.Button("Display Selected Object", GUILayout.Height(30f)))
+        if (GUILayout.Button("Display Chosen Object", GUILayout.Height(30f)))
         {
             GameObject newObj = myScript.AddActionCaller(typeof(SetObjectsVisibility), identifierName, traitName);
             Undo.RegisterCreatedObjectUndo(newObj, "New Set Object Visibility Action");
@@ -460,6 +463,7 @@ public class OptionsManager_Editor : Editor
         EditorGUILayout.EndHorizontal();
         GUI.enabled = true;
         EditorGUILayout.LabelField("== Current ACTIONS ==", styleCentered, GUILayout.Height(20f));
+        EditorGUILayout.LabelField("\nIf text displays red, it means some values are still required for this action to work, a green color means it's ready\n", styleCentered);
         if (myScript.actionCallers != null)
         {
             for (int i = 0; i < myScript.actionCallers.Count; i++)
@@ -474,7 +478,7 @@ public class OptionsManager_Editor : Editor
 
                     EditorGUILayout.BeginHorizontal();
                     EditorGUILayout.LabelField(myScript.actionCallers[i].name + " : " + ac.traitName, ac.IsValidTrait() ? styleCorrect : styleWrong);
-                    if (GUILayout.Button("View", GUILayout.Width(60f))) Selection.activeGameObject = myScript.actionCallers[i];
+                    if (GUILayout.Button("Edit", GUILayout.Width(60f))) Selection.activeGameObject = myScript.actionCallers[i];
                     if (GUILayout.Button("X", GUILayout.Width(20f)))
                     {
                         Undo.RegisterFullObjectHierarchyUndo(myScript.actionsHolder, "Remove Random Options");
