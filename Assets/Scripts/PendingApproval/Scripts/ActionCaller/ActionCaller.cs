@@ -4,13 +4,22 @@ using UnityEngine;
 
 public class ActionCaller : MonoBehaviour
 {
+    [HideInInspector]
+    public OptionsManager optionsManager;
+
     public RandomObject randomTarget;
     public string traitName = "";
 
+    [HideInInspector]
     public Object selectedObject;
+    [HideInInspector]
     public string selectedTrait;
 
-
+    public void SetPostSetup()
+    {
+        if (randomTarget != null)
+            PostAction();
+    }
     public void SetRandomTrait()
     {
         if (randomTarget != null)
@@ -25,23 +34,49 @@ public class ActionCaller : MonoBehaviour
         }
     }
     
+    protected virtual void PostAction()
+    {
+        //override//
+    }
     protected virtual void Action()
     {
         //override//
         Debug.Log(selectedObject.name);
     }
-    //set tu public to be able to se it in custom editor
+
+    /// <summary>
+    /// Returns the Type of option that can be assigned to this class.
+    /// </summary>
+    /// <returns></returns>
+    public virtual System.Type GetRandomObjectValidType()
+    {
+        return typeof(RandomObject); //generic
+    }
     public virtual bool IsValidType()
     {
         return true;
     }
-    protected virtual bool IsValidTrait()
+    /// <summary>
+    /// Does this trait is something that is displayed in the scene?
+    /// </summary>
+    /// <returns></returns>
+    protected virtual bool IsActiveTrait()
     {
+        return true;
+    }
+    /// <summary>
+    /// Does this trait has the basic setup to work?
+    /// </summary>
+    /// <returns></returns>
+    public virtual bool IsValidTrait()
+    {
+        if (randomTarget == null)
+            return false;
         return true;
     }
     public List<Object> GetExtraData()
     {
-        if (IsValidTrait())
+        if (IsActiveTrait())
             return FetchExtraData();
         else
             return new List<Object>();
@@ -56,7 +91,7 @@ public class ActionCaller : MonoBehaviour
         for (int i = 0; i < tabulation; i++)
             tab += "\t";
 
-        if (IsValidTrait())
+        if (IsActiveTrait())
         {
             return
                 tab + "{\n" +
@@ -69,7 +104,3 @@ public class ActionCaller : MonoBehaviour
     }
 }
 
-#if UNITY_EDITOR
-
-
-#endif

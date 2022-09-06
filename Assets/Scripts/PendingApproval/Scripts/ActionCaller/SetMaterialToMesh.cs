@@ -2,43 +2,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SetTextureToMaterial : ActionCaller
+public class SetMaterialToMesh : ActionCaller
 {
     public List<Renderer> targetRenderers;
-    
     protected override void Action()
     {
         if (randomTarget != null)
-            ChangeMaterialTexture(selectedObject as Texture2D);
+            ChangeRendererMaterial(selectedObject as Material);
         else
             Debug.LogWarning("No random target set in script SetTextureToMaterial in: " + gameObject.name);
     }
-    private void ChangeMaterialTexture(Texture2D texture)
+
+    private void ChangeRendererMaterial(Material material)
     {
         foreach (Renderer mr in targetRenderers)
-            mr.sharedMaterial.mainTexture = texture;
+            mr.sharedMaterial = material;
     }
-
 
     public override System.Type GetRandomObjectValidType()
     {
-        return typeof(RandomTexture);
+        return typeof(RandomMaterial);
     }
+
     public override bool IsValidType()
     {
-        if (randomTarget.GetType() != typeof(RandomTexture))
+        if (randomTarget.GetType() != typeof(RandomMaterial))
             return false;
         return base.IsValidType();
     }
+
     protected override bool IsActiveTrait()
     {
-        for (int i =0; i < targetRenderers?.Count; i++)
+        for (int i = 0; i < targetRenderers?.Count; i++)
         {
             if (targetRenderers[i].gameObject.activeInHierarchy)
                 return true;
         }
         return false;
     }
+
     public override bool IsValidTrait()
     {
         if (targetRenderers == null)
@@ -47,7 +49,8 @@ public class SetTextureToMaterial : ActionCaller
         bool valid = false;
         for (int i = 0; i < targetRenderers.Count; i++)
         {
-            if (targetRenderers[i] != null) {
+            if (targetRenderers[i] != null)
+            {
                 valid = true;
                 break;
             }
@@ -62,7 +65,7 @@ public class SetTextureToMaterial : ActionCaller
     {
         if (targetRenderers != null)
         {
-            for (int i =0; i < targetRenderers.Count; i++)
+            for (int i = 0; i < targetRenderers.Count; i++)
             {
                 if (targetRenderers[i] != null)
                 {
@@ -72,6 +75,7 @@ public class SetTextureToMaterial : ActionCaller
         }
         return false;
     }
+
     public void AddRenderer(Renderer rend)
     {
         if (rend == null)
@@ -80,7 +84,7 @@ public class SetTextureToMaterial : ActionCaller
         {
             targetRenderers = new List<Renderer>();
         }
-        foreach(Renderer r in targetRenderers)
+        foreach (Renderer r in targetRenderers)
         {
             if (r == rend)
             {

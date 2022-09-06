@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RandomObject : MonoBehaviour
 {
+    public OptionsManager optionsManager;
+
     public List<Object> objects;
     public List<int> weights;
     public List<string> nameTraits;
@@ -25,6 +27,14 @@ public class RandomObject : MonoBehaviour
     public string GetObjectTraitName()
     {
         return nameTraits[currentSelected];
+    }
+    public Object GetSelectedObject()
+    {
+        return objects[currentSelected];
+    }
+    public Object GetObjectAt(int index)
+    {
+        return objects[index];
     }
     public virtual bool IsValidObjectType(Object obj)
     {
@@ -54,9 +64,10 @@ public class RandomObject : MonoBehaviour
     }
     public void RemoveAtIndex(int index)
     {
-        objects.RemoveAt(index);
         weights.RemoveAt(index);
         nameTraits.RemoveAt(index);
+        objects.RemoveAt(index);
+        
     }
     public bool ObjectExists(Object obj)
     {

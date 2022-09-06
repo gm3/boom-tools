@@ -44,6 +44,8 @@ public class ConfigureRandomizer : MonoBehaviour
     void TaskOnClick()
     {
         // Generate NFts SLow
+        if (dnaManagerReference.optionsManager != null)
+            dnaManagerReference.optionsManager.AttachDataToDNA(dnaManagerReference);
         delayCoroutine = StartCoroutine(GenerateAllNFTsSlow(totalNFTs));
 
         // Generate NFTs Fast
