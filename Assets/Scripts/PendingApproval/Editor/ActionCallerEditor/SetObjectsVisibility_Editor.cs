@@ -33,6 +33,16 @@ public class SetObjectsVisibility_Editor : ActionCaller_Editor
             //EditorGUILayout.ObjectField("Root On Parent", myScript.rootParentOnChosen,typeof(RandomGameObject),true);
         }
         // works for all
+        if (!myScript.setbonesSkinToVRM)
+        {
+            if (GUILayout.Button("Enable reparent skin bones to vrm", GUILayout.Height(30f)))
+                myScript.setbonesSkinToVRM = true;
+        }
+        else
+        {
+            if (GUILayout.Button("Disable reparent skin bones to vrm", GUILayout.Height(30f)))
+                myScript.setbonesSkinToVRM = false;
+        }
 
         if (GUILayout.Button("Add Blendshape Identifier", GUILayout.Height(30f))) myScript._AddBlendShape();
         if (myScript.blendShapes != null)

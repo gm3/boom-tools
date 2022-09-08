@@ -15,6 +15,11 @@ public class ActionCaller : MonoBehaviour
     [HideInInspector]
     public string selectedTrait;
 
+    public void SetPreSetup()
+    {
+        if (randomTarget != null)
+            PreAction();
+    }
     public void SetPostSetup()
     {
         if (randomTarget != null)
@@ -33,7 +38,10 @@ public class ActionCaller : MonoBehaviour
             Debug.LogWarning("No random target set in script SetObjectsVisibility in: " + gameObject.name);
         }
     }
-    
+    protected virtual void PreAction()
+    {
+        //override//
+    }
     protected virtual void PostAction()
     {
         //override//
@@ -41,7 +49,6 @@ public class ActionCaller : MonoBehaviour
     protected virtual void Action()
     {
         //override//
-        Debug.Log(selectedObject.name);
     }
 
     /// <summary>

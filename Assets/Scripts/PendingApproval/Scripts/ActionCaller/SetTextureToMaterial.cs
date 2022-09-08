@@ -15,8 +15,18 @@ public class SetTextureToMaterial : ActionCaller
     }
     private void ChangeMaterialTexture(Texture2D texture)
     {
+        RandomTexture randomTexture = randomTarget as RandomTexture;
         foreach (Renderer mr in targetRenderers)
-            mr.sharedMaterial.mainTexture = texture;
+        {
+            if (mr != null)
+            {
+                mr.sharedMaterial.mainTexture = texture;
+                if (randomTexture.setMetallic)
+                    mr.sharedMaterial.SetFloat("_Metallic", randomTexture.metallicProperty[randomTexture.currentSelected]);
+                if (randomTexture.setSmoothness)
+                    mr.sharedMaterial.SetFloat("_Glossiness", randomTexture.smoothnessProperty[randomTexture.currentSelected]);
+            }
+        }
     }
 
 
@@ -34,8 +44,9 @@ public class SetTextureToMaterial : ActionCaller
     {
         for (int i =0; i < targetRenderers?.Count; i++)
         {
-            if (targetRenderers[i].gameObject.activeInHierarchy)
-                return true;
+            if (targetRenderers[i] != null)
+                if (targetRenderers[i].gameObject.activeInHierarchy)
+                    return true;
         }
         return false;
     }

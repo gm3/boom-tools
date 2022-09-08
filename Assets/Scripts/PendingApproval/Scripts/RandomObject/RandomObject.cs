@@ -17,7 +17,15 @@ public class RandomObject : MonoBehaviour
 
     public Object GetRandomObject()
     {
+        if (objects.Count == 0)
+            return null;
+
         currentSelected = GetRandomValue();
+        if (objects[currentSelected] == null)
+        {
+            objects.RemoveAt(currentSelected);
+            return GetRandomObject();
+        }
         return objects[currentSelected];
     }
     public int GetObjectWeight()
@@ -45,13 +53,13 @@ public class RandomObject : MonoBehaviour
         objectName = "Object";
     }
 
-    public void ResetObjects()
+    public virtual void ResetObjects()
     {
         objects = new List<Object>();
         weights = new List<int>();
         nameTraits = new List<string>();
     }
-    public void AddObject(Object value)
+    public virtual void AddObject(Object value)
     {
         objects.Add(value);
         weights.Add(1);
@@ -62,7 +70,7 @@ public class RandomObject : MonoBehaviour
     {
         return Random.Range(0, objects.Count);
     }
-    public void RemoveAtIndex(int index)
+    public virtual void RemoveAtIndex(int index)
     {
         weights.RemoveAt(index);
         nameTraits.RemoveAt(index);

@@ -73,6 +73,10 @@ public class RandomizeAll : MonoBehaviour
         List<Object> extraData = new List<Object>();
         foreach (ActionCaller t in traits)
         {
+            t.SetPreSetup();
+        }
+        foreach (ActionCaller t in traits)
+        {
             t.SetRandomTrait();
             result += t.GetJsonedObject(true, 1);
             extraData.AddRange(t.GetExtraData());

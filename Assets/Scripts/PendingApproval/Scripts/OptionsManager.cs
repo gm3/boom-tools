@@ -160,7 +160,6 @@ public class OptionsManager : MonoBehaviour
 
     public void AttachDataToDNA(DNAManager dna)
     {
-        Debug.Log("ENTERS!!!");
         ConfigureRandomizer randomizer = dna.transform.parent.GetComponentInChildren<ConfigureRandomizer>();
         randomizer.exportVRMFromRandomTrait = mainCharacterAction;
 

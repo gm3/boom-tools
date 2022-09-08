@@ -8,13 +8,15 @@ public class RandomObject_Editor : Editor
 {
     RandomObject myScript;
 
-    string filterByObject = "";
-    string filterByName = "";
+    protected string filterByObject = "";
+    protected string filterByName = "";
+    protected int filterByWeight = -1;
     bool enabledFilters = false;
-    int filterByWeight = -1;
     int operation = 0;
     string[] operationOptions;
-    private void OnEnable()
+    public bool editing = false;
+    public GUIStyle style;
+    protected virtual void OnEnable()
     {
         myScript = (RandomObject)target;
         myScript.SetObjectName();
@@ -25,7 +27,7 @@ public class RandomObject_Editor : Editor
         operationOptions[2] = "greater";
 
     }
-    private void ValidateListSize()
+    protected virtual void ValidateListSize()
     {
         if (myScript.objects != null)
         {
@@ -51,8 +53,8 @@ public class RandomObject_Editor : Editor
     }
     public override void OnInspectorGUI()
     {
-        bool editing = ActiveEditorTracker.sharedTracker.isLocked;
-        GUIStyle style = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, wordWrap = true };
+        editing = ActiveEditorTracker.sharedTracker.isLocked;
+        style = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, wordWrap = true };
         GUIStyle styleCenteredYellow = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, wordWrap = true, normal = { textColor = Color.yellow }, hover = { textColor = Color.yellow } };
 
         if (!editing)
@@ -112,13 +114,6 @@ public class RandomObject_Editor : Editor
                 EditorUtility.SetDirty(myScript);
             }
 
-            //if (GUILayout.Button("Random Example", GUILayout.Height(30f)))
-            //{
-            //    Object obj = myScript.GetRandomObject();
-            //    Debug.Log(myScript.currentSelected);
-            //    Debug.Log("Type: " + obj.GetType().ToString() + ", Object name: " + obj.name + ", " + "Trait name: " + myScript.GetObjectTraitName() + ", Weight: " + myScript.GetObjectWeight().ToString());
-            //}
-
             // filter section
             if (enabledFilters)
             {
@@ -152,107 +147,88 @@ public class RandomObject_Editor : Editor
 
         if (myScript.objects?.Count > 0)
         {
-            GUILayout.Space(5f);
-            GUILayout.Label("== " + myScript.objectName + "s ==",style);
-            
-            if (editing)
-            {
-                GUILayout.Label("\n*Trait name: final name of option exported in the json trait\n*Weight: How probably is for this option to get chosen from other options\n", style);
-
-            }
-            EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.LabelField(myScript.objectName, GUILayout.MinWidth(50f));
-            EditorGUILayout.LabelField("Trait Name", GUILayout.Width(200f));
-            EditorGUILayout.LabelField("Weight", GUILayout.Width(60f));
-            EditorGUILayout.EndHorizontal();
-            //EditorGUILayout.LabelField("object / trait name / weight");
-
-            for (int i = 0; i < myScript.objects.Count; i++)
-            {
-
-
-                EditorGUILayout.BeginHorizontal();
-                //int weight = myScript.weights[i];
-                //string trait = myScript.nameTraits[i];
-
-                if (filterByObject == "" && filterByName != "" && filterByWeight < 0)
-                {
-                    EditorGUILayout.ObjectField(myScript.objects[i], typeof(Object), true);
-
-                    if (editing)
-                    {
-                        string trait = EditorGUILayout.TextField(myScript.nameTraits[i], GUILayout.Width(200f));
-                        if (trait != myScript.nameTraits[i])
-                        {
-                            Undo.RecordObject(myScript, "Set Trait Name Value");
-                            myScript.nameTraits[i] = trait;
-                        }
-                        int weight = EditorGUILayout.IntField(myScript.weights[i], GUILayout.Width(40f));
-                        if (weight != myScript.weights[i])
-                        {
-                            Undo.RecordObject(myScript, "Set Weight Value");
-                            myScript.weights[i] = weight;
-                        }
-                        if (GUILayout.Button("x", GUILayout.Width(20f)))
-                        {
-                            Undo.RecordObject(myScript, "Remove Object");
-                            myScript.RemoveAtIndex(i);
-                        }
-                    }
-                    else
-                    {
-                        EditorGUILayout.LabelField(myScript.nameTraits[i], GUILayout.Width(200f));
-                        EditorGUILayout.LabelField(myScript.weights[i].ToString(), GUILayout.Width(40f));
-                    }
-
-                    // delete button
-
-                }
-                else
-                {
-                    if (FilterValue(i))
-                    {
-                        EditorGUILayout.ObjectField(myScript.objects[i], typeof(Object), true);
-
-                        if (editing)
-                        {
-                            string trait = EditorGUILayout.TextField(myScript.nameTraits[i], GUILayout.Width(200f));
-                            if (trait != myScript.nameTraits[i])
-                            {
-                                Undo.RecordObject(myScript, "Set Trait Name Value");
-                                myScript.nameTraits[i] = trait;
-                            }
-                            int weight = EditorGUILayout.IntField(myScript.weights[i], GUILayout.Width(40f));
-                            if (weight != myScript.weights[i])
-                            {
-                                Undo.RecordObject(myScript, "Set Weight Value");
-                                myScript.weights[i] = weight;
-                            }
-                            if (GUILayout.Button("x", GUILayout.Width(20f)))
-                            {
-                                Undo.RecordObject(myScript, "Remove Object");
-                                myScript.RemoveAtIndex(i);
-                            }
-                        }
-                        else
-                        {
-                            EditorGUILayout.LabelField(myScript.nameTraits[i], GUILayout.Width(200f));
-                            EditorGUILayout.LabelField(myScript.weights[i].ToString(), GUILayout.Width(40f));
-                        }
-
-                        // delete button
-                    }
-                }
-                
-                
-                EditorGUILayout.EndHorizontal();
-            }
+            DisplayAllOptions();
         }
         else
         {
             EditorGUILayout.LabelField("*No options. Click Edit button to start adding options", style);
         }
     }
+
+    protected virtual void DisplayAllOptions()
+    {
+        GUILayout.Space(5f);
+        GUILayout.Label("== " + myScript.objectName + "s ==", style);
+
+        if (editing)
+        {
+            GUILayout.Label("\n*Trait name: final name of option exported in the json trait\n*Weight: How probably is for this option to get chosen from other options\n", style);
+        }
+
+        Titles();
+
+        for (int i = 0; i < myScript.objects.Count; i++)
+        {
+            if (myScript.objects[i] == null)
+                myScript.RemoveAtIndex(i);
+            EditorGUILayout.BeginHorizontal();
+
+            if (filterByObject == "" && filterByName != "" && filterByWeight < 0)
+            {
+                Option(i);
+            }
+            else
+            {
+                if (FilterValue(i))
+                {
+                    Option(i);
+                }
+            }
+
+
+            EditorGUILayout.EndHorizontal();
+        }
+    }
+
+    protected virtual void Titles()
+    {
+        EditorGUILayout.BeginHorizontal();
+        EditorGUILayout.LabelField(myScript.objectName, GUILayout.MinWidth(50f));
+        EditorGUILayout.LabelField("Trait Name", GUILayout.Width(200f));
+        EditorGUILayout.LabelField("Weight", GUILayout.Width(60f));
+        EditorGUILayout.EndHorizontal();
+    }
+    protected virtual void Option(int index)
+    {
+        EditorGUILayout.ObjectField(myScript.objects[index], typeof(Object), true);
+
+        if (editing)
+        {
+            string trait = EditorGUILayout.TextField(myScript.nameTraits[index], GUILayout.Width(160f));
+            if (trait != myScript.nameTraits[index])
+            {
+                Undo.RecordObject(myScript, "Set Trait Name Value");
+                myScript.nameTraits[index] = trait;
+            }
+            int weight = EditorGUILayout.IntField(myScript.weights[index], GUILayout.Width(40f));
+            if (weight != myScript.weights[index])
+            {
+                Undo.RecordObject(myScript, "Set Weight Value");
+                myScript.weights[index] = weight;
+            }
+            if (GUILayout.Button("x", GUILayout.Width(20f)))
+            {
+                Undo.RecordObject(myScript, "Remove Object");
+                myScript.RemoveAtIndex(index);
+            }
+        }
+        else
+        {
+            EditorGUILayout.LabelField(myScript.nameTraits[index], GUILayout.Width(200f));
+            EditorGUILayout.LabelField(myScript.weights[index].ToString(), GUILayout.Width(40f));
+        }
+    }
+
     private void ClearFilters()
     {
         operation = 0;
@@ -262,7 +238,7 @@ public class RandomObject_Editor : Editor
         GUI.FocusControl(null);
     }
 
-    private bool FilterValue(int index)
+    protected bool FilterValue(int index)
     {
 
         if (filterByObject != "")
