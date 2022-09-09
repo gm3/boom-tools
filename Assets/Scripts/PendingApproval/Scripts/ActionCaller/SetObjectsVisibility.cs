@@ -34,8 +34,15 @@ public class SetObjectsVisibility : ActionCaller
     {
         if (selectedObject != null)
         {
-            DisplayObject(selectedObject as GameObject);
-            CreateShapes();
+            if (enableAction)
+            {
+                DisplayObject(selectedObject as GameObject);
+                CreateShapes();
+            }
+            else
+            {
+                DisplayObject(null);
+            }
         }
     }
     
@@ -133,7 +140,8 @@ public class SetObjectsVisibility : ActionCaller
             if (go != null)
                 go.SetActive(false);
         }
-        obj.SetActive(true);
+        if (obj != null)
+            obj.SetActive(true);
  
     }
     private GameObject GetObjectByName(GameObject root, string name)
@@ -142,10 +150,8 @@ public class SetObjectsVisibility : ActionCaller
             return null;
 
         Transform[] children = root.GetComponentsInChildren<Transform>();
-        Debug.Log(children.Length);
         foreach (var child in children)
         {
-            Debug.Log(child.name);
             if (child.name == name)
             {
                 return child.gameObject;
@@ -164,18 +170,10 @@ public class SetObjectsVisibility : ActionCaller
         }
         if (lastChilds != null)
         {
-            Debug.Log(gameObject.name);
-            //Debug.Log(lastChilds.Count);
-            Debug.Log("CHECK HERE");
             for (int i =0; i < lastChilds.Count; i++)
             {
-                Debug.Log("===");
-                Debug.Log("old parent: " + lastChilds[i].parent.name);
                 lastChilds[i].SetParent(lastChildParents[i]);
-                Debug.Log("new parent: " + lastChilds[i].parent.name);
             }
-            //lastChilds = null;
-            //lastChildParents = null;
         }
     }
     private void SaveParentPosition(Transform target)

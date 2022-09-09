@@ -6,6 +6,7 @@ public class OptionsManager : MonoBehaviour
 {
     public List<GameObject> randomObjects;
     public List<GameObject> actionCallers;
+    public List<GameObject> superRules;
 
     public RandomGameObject mainCharacterOptions;
     public SetObjectsVisibility mainCharacterAction;
@@ -15,6 +16,7 @@ public class OptionsManager : MonoBehaviour
     public GameObject optionsHolder;
     public GameObject actionsHolder;
     public GameObject characterHolder;
+    public GameObject rulesHolder;
 
     public int setupStage = 0;
 
@@ -24,7 +26,7 @@ public class OptionsManager : MonoBehaviour
     {
         if (type.IsSubclassOf(typeof(RandomObject)))
         {
-            if (optionsHolder == null) CreateOptionsHolder();   
+            if (optionsHolder == null) CreateHolder(ref optionsHolder, "options");   
             if (randomObjects == null) randomObjects = new List<GameObject>();
             
             GameObject newObj = new GameObject(name);
@@ -40,18 +42,9 @@ public class OptionsManager : MonoBehaviour
             return null;
         }
     }
-    private void CreateOptionsHolder()
-    {
-        optionsHolder = new GameObject("options");
-        optionsHolder.transform.SetParent(transform);
-    }
 
-    public void RemoveRandomObjectOption(int index)
-    {
-        if (randomObjects[index] != null)
-            DestroyImmediate(randomObjects[index]);    
-        randomObjects.RemoveAt(index);
-    }
+
+
 
 
 
@@ -60,7 +53,7 @@ public class OptionsManager : MonoBehaviour
     {
         if (type.IsSubclassOf(typeof(ActionCaller)))
         {
-            if (actionsHolder == null) CreateActionsHolder();
+            if (actionsHolder == null) CreateHolder(ref actionsHolder, "actions");
             if (actionCallers == null) actionCallers = new List<GameObject>();
 
             GameObject newObj = new GameObject(name);
@@ -78,21 +71,47 @@ public class OptionsManager : MonoBehaviour
             Debug.LogWarning("Not a valid action caller type: " + type);
             return null;
         }
-
-
     }
-    private void CreateActionsHolder()
+
+    public GameObject AddRule(string name)
     {
-        actionsHolder = new GameObject("actions");
-        actionsHolder.transform.SetParent(transform);
+        if (rulesHolder == null) CreateHolder(ref rulesHolder, "rules");
+        if (superRules == null) superRules = new List<GameObject>();
+
+        GameObject newObj = new GameObject(name);
+        newObj.transform.parent = rulesHolder.transform;
+        newObj.AddComponent(typeof(SuperRules));
+        SuperRules newRule = newObj.GetComponent<SuperRules>();
+        newRule.optionsManager = this;
+
+        superRules.Add(newObj);
+        return newObj;
     }
+
+    private void CreateHolder (ref GameObject storeGo, string name)
+    {
+        storeGo = new GameObject(name);
+        storeGo.transform.SetParent(transform);
+    }
+
+    public void RemoveElement(ref List<GameObject> list, int index)
+    {
+        if (list != null)
+        {
+            if (list[index] != null)
+            {
+                DestroyImmediate(list[index]);
+            }
+            list.RemoveAt(index);
+        }
+    }
+
     public void RemoveActionCaller(int index)
     {
         if (actionCallers[index] != null)
             DestroyImmediate(actionCallers[index]);
         actionCallers.RemoveAt(index);
     }
-
 
 
     public List<ActionCaller> GetActionCallersOfType(System.Type type)

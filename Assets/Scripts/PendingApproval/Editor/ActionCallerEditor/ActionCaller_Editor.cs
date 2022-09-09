@@ -16,7 +16,6 @@ public class ActionCaller_Editor : Editor
         myScript = (ActionCaller)target;
         if (myScript.optionsManager != null)
         {
-            Debug.Log("enters");
             FetchRandomOptions(myScript.optionsManager, myScript.GetRandomObjectValidType());
             curRandom = GetCurrentSelectedRandom(myScript.randomTarget);
         }
@@ -32,6 +31,7 @@ public class ActionCaller_Editor : Editor
             {
                 Selection.activeObject = myScript.optionsManager.gameObject;
             }
+
             int newRandom = EditorGUILayout.Popup("Target Options: ", curRandom, options);
             if (newRandom != curRandom)
             {
@@ -67,9 +67,7 @@ public class ActionCaller_Editor : Editor
 
     private void FetchRandomOptions(OptionsManager optionManager, System.Type type)
     {
-        Debug.Log(randomList);
         randomList = optionManager.GetRandomObjectOfType(type);
-        Debug.Log(randomList);
         options = new string[randomList.Count];
         for (int i =0; i < randomList.Count; i++)
         {

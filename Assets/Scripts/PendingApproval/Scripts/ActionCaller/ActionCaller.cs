@@ -15,6 +15,8 @@ public class ActionCaller : MonoBehaviour
     [HideInInspector]
     public string selectedTrait;
 
+    public bool enableAction = true;
+
     public void SetPreSetup()
     {
         if (randomTarget != null)
@@ -25,13 +27,22 @@ public class ActionCaller : MonoBehaviour
         if (randomTarget != null)
             PostAction();
     }
+    public void SetAction()
+    {
+        if (randomTarget != null)
+            Action();
+    }
+    public void DisableByRule()
+    {
+        enableAction = false;
+    }
     public void SetRandomTrait()
     {
+        enableAction = true;
         if (randomTarget != null)
         {
             selectedObject = randomTarget.GetRandomObject();
             selectedTrait = randomTarget.GetObjectTraitName();
-            Action();
         }
         else
         {

@@ -21,16 +21,16 @@ public class OptionsManager_Editor : Editor
     bool isEditing = false;
     public override void OnInspectorGUI()
     {
-        styleCentered = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter , wordWrap = true};
+        styleCentered = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, wordWrap = true };
         styleTitle = new GUIStyle(GUI.skin.label) { fontStyle = FontStyle.Bold };
         styleTitleCentered = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold };
-        styleCenteredYellow = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter , wordWrap = true, normal = { textColor = Color.yellow }, hover = { textColor = Color.yellow } };
+        styleCenteredYellow = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, wordWrap = true, normal = { textColor = Color.yellow }, hover = { textColor = Color.yellow } };
         styleCorrect = new GUIStyle(GUI.skin.label) { normal = { textColor = Color.green } };
         styleWarning = new GUIStyle(GUI.skin.label) { normal = { textColor = Color.yellow } };
-        styleWrong = new GUIStyle(GUI.skin.label) { normal = { textColor = Color.red} };
+        styleWrong = new GUIStyle(GUI.skin.label) { normal = { textColor = Color.red } };
 
 
-        textFieldStyle = new GUIStyle(GUI.skin.textField) { alignment = TextAnchor.MiddleCenter};
+        textFieldStyle = new GUIStyle(GUI.skin.textField) { alignment = TextAnchor.MiddleCenter };
         buttonStyle = new GUIStyle(GUI.skin.button);
         //buttonStyle.normal.
         //base.OnInspectorGUI();
@@ -47,9 +47,12 @@ public class OptionsManager_Editor : Editor
             case 3:
                 ActionSetup();
                 break;
+            case 4:
+                RulesSetup();
+                break;
         }
-            
-    
+
+
     }
 
     private void InitialSetup()
@@ -77,8 +80,8 @@ public class OptionsManager_Editor : Editor
             if (myScript.mainCharacterOptions.objects == null)
                 guiEnabled = false;
             else
-                if(myScript.mainCharacterOptions.objects.Count == 0)
-                    guiEnabled = false;
+                if (myScript.mainCharacterOptions.objects.Count == 0)
+                guiEnabled = false;
         }
         else
             guiEnabled = false;
@@ -104,11 +107,16 @@ public class OptionsManager_Editor : Editor
         {
             myScript.setupStage = 3;
         }
+
+        if (GUILayout.Button("Rules", GUILayout.Height(30f)))
+        {
+            myScript.setupStage = 4;
+        }
     }
     private void CharacterSetup()
     {
-        
-       // GoBackButton();
+
+        // GoBackButton();
         GUILayout.Space(5f);
 
         #region Main Edit
@@ -291,7 +299,7 @@ public class OptionsManager_Editor : Editor
         GUILayout.Space(5f);
         if (isEditing)
         {
-            
+
             if (myScript.mainCharacterAction.blendShapes?.Count > 0)
             {
                 GUIStyle style = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter };
@@ -345,7 +353,7 @@ public class OptionsManager_Editor : Editor
 
         if (importer == null)
         {
-            if (debug)Debug.LogWarning("Cant fix, require manual fixing");
+            if (debug) Debug.LogWarning("Cant fix, require manual fixing");
         }
         else
         {
@@ -409,7 +417,7 @@ public class OptionsManager_Editor : Editor
             {
                 if (myScript.randomObjects[i] == null)
                 {
-                    myScript.RemoveRandomObjectOption(i);
+                    myScript.RemoveElement(ref myScript.randomObjects,i);
                 }
                 else
                 {
@@ -435,7 +443,7 @@ public class OptionsManager_Editor : Editor
                     EditorGUILayout.LabelField(myScript.randomObjects[i].name, GUILayout.MinWidth(30f));
                     EditorGUILayout.LabelField(labelType, GUILayout.Width(70f));
                     int val = ro.objects == null ? 0 : ro.objects.Count;
-                    EditorGUILayout.LabelField(val.ToString(), val == 0 ? styleWrong:styleCorrect, GUILayout.Width(70f));
+                    EditorGUILayout.LabelField(val.ToString(), val == 0 ? styleWrong : styleCorrect, GUILayout.Width(70f));
 
 
                     if (GUILayout.Button("View", GUILayout.Width(60f))) Selection.activeGameObject = myScript.randomObjects[i];
@@ -443,7 +451,7 @@ public class OptionsManager_Editor : Editor
                     {
                         Undo.RegisterFullObjectHierarchyUndo(myScript.optionsHolder, "Remove Random Options");
                         Undo.RecordObject(myScript, "Remove Random Options");
-                        myScript.RemoveRandomObjectOption(i);
+                        myScript.RemoveElement(ref myScript.randomObjects, i);
                     }
                     EditorGUILayout.EndHorizontal();
                 }
@@ -517,7 +525,7 @@ public class OptionsManager_Editor : Editor
             {
                 if (myScript.actionCallers[i] == null)
                 {
-                    myScript.RemoveActionCaller(i);
+                    myScript.RemoveElement(ref myScript.actionCallers, i);
                 }
                 else
                 {
@@ -542,7 +550,7 @@ public class OptionsManager_Editor : Editor
 
                     EditorGUILayout.BeginHorizontal();
                     EditorGUILayout.LabelField(myScript.actionCallers[i].name, ac.IsValidTrait() ? styleCorrect : styleWrong, GUILayout.MinWidth(30f));
-                    EditorGUILayout.LabelField(labelType,styleTitle, GUILayout.Width(60f));
+                    EditorGUILayout.LabelField(labelType, styleTitle, GUILayout.Width(60f));
                     if (ac.randomTarget == null)
                         EditorGUILayout.LabelField("--", GUILayout.Width(100f));
                     else
@@ -553,7 +561,7 @@ public class OptionsManager_Editor : Editor
                     {
                         Undo.RegisterFullObjectHierarchyUndo(myScript.actionsHolder, "Remove Random Options");
                         Undo.RecordObject(myScript, "Remove Random Options");
-                        myScript.RemoveActionCaller(i);
+                        myScript.RemoveElement(ref myScript.actionCallers, i);
                     }
                     EditorGUILayout.EndHorizontal();
                 }
@@ -561,6 +569,70 @@ public class OptionsManager_Editor : Editor
         }
     }
 
+    string ruleIdentifier = "";
+    private void RulesSetup()
+    {
+        GoBackButton();
+        GUILayout.Space(5f);
+        GUILayout.Label("=Instructions= " +
+            "\n\nAdd Rules, what options can exist and cannot when other options are chosen.\n", styleCentered);
+        GUILayout.Space(5f);
+
+        
+        ruleIdentifier = EditorGUILayout.TextField("Rule Name: ", ruleIdentifier);
+
+
+        if (ruleIdentifier.Length == 0)
+            GUI.enabled = false;
+        else
+            GUI.enabled = true;
+        if (GUILayout.Button("Add New Rule", GUILayout.Height(30f)))
+        {
+            GameObject newObj = myScript.AddRule(ruleIdentifier);
+            Undo.RegisterCreatedObjectUndo(newObj, "New Super Rule");
+            ruleIdentifier = "";
+            GUI.FocusControl(null);
+        }
+        GUILayout.Space(5f);
+
+
+        GUI.enabled = true;
+        if (myScript.superRules?.Count > 0)
+        {
+            EditorGUILayout.LabelField("== Current Rules ==", styleCentered, GUILayout.Height(20f));
+            EditorGUILayout.LabelField("\nIf text displays red, it means some values are still required for this rules to apply and green color means it's ready\n", styleCentered);
+
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("Name", styleTitle, GUILayout.MinWidth(30f));
+            EditorGUILayout.LabelField("Edit", styleTitleCentered, GUILayout.Width(50f));
+            EditorGUILayout.LabelField("X", styleTitleCentered, GUILayout.Width(20f));
+            EditorGUILayout.EndHorizontal();
+
+
+            for (int i = 0; i < myScript.superRules.Count; i++)
+            {
+                if (myScript.superRules[i] == null)
+                {
+                    myScript.RemoveElement(ref myScript.superRules, i);
+                }
+                else
+                {
+                    SuperRules rule = myScript.superRules[i].GetComponent<SuperRules>();
+
+                    EditorGUILayout.BeginHorizontal();
+                    EditorGUILayout.LabelField(myScript.superRules[i].name, rule.IsActiveRule() ? styleCorrect : styleWrong, GUILayout.MinWidth(30f));
+                    if (GUILayout.Button("Edit", GUILayout.Width(50f))) Selection.activeGameObject = myScript.superRules[i];
+                    if (GUILayout.Button("X", GUILayout.Width(20f)))
+                    {
+                        Undo.RegisterFullObjectHierarchyUndo(myScript.rulesHolder, "Remove Rule GameObject");
+                        Undo.RecordObject(myScript, "Remove Super Rule");
+                        myScript.RemoveElement(ref myScript.superRules, i);
+                    }
+                    EditorGUILayout.EndHorizontal();
+                }
+            }
+        }
+    }
     private void GoBackButton()
     {
         

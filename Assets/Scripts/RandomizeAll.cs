@@ -69,6 +69,7 @@ public class RandomizeAll : MonoBehaviour
     private string RandomizeParentGetJsonData()
     {
         ActionCaller[] traits = parentRandomTraitCaller.GetComponentsInChildren<ActionCaller>(true);
+        SuperRules[] rules = parentRandomTraitCaller.GetComponentsInChildren<SuperRules>(true);
         string result = "";
         List<Object> extraData = new List<Object>();
         foreach (ActionCaller t in traits)
@@ -77,7 +78,16 @@ public class RandomizeAll : MonoBehaviour
         }
         foreach (ActionCaller t in traits)
         {
-            t.SetRandomTrait();
+            t.SetRandomTrait(); 
+        }
+        foreach (SuperRules r in rules)
+        {
+            r.ApplyRule();
+        }
+        //call rules here
+        foreach (ActionCaller t in traits)
+        {
+            t.SetAction();
             result += t.GetJsonedObject(true, 1);
             extraData.AddRange(t.GetExtraData());
         }
