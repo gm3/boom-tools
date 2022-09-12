@@ -16,22 +16,24 @@ public class RandomTexture_Editor : RandomObject_Editor
     {
         base.ValidateListSize();
 
-        if (txrScript.metallicProperty == null) txrScript.metallicProperty = new List<float>(txrScript.objects.Count);
-        if (txrScript.smoothnessProperty == null) txrScript.smoothnessProperty = new List<float>(txrScript.objects.Count);
+        if (txrScript.objects != null) {
+            if (txrScript.metallicProperty == null) txrScript.metallicProperty = new List<float>(txrScript.objects.Count);
+            if (txrScript.smoothnessProperty == null) txrScript.smoothnessProperty = new List<float>(txrScript.objects.Count);
 
-        if (txrScript.metallicProperty.Count != txrScript.objects.Count)
-        {
-            for (int i = txrScript.metallicProperty.Count; i < txrScript.objects.Count; i++)
+            if (txrScript.metallicProperty.Count != txrScript.objects.Count)
             {
-                txrScript.metallicProperty.Add(0f);
+                for (int i = txrScript.metallicProperty.Count; i < txrScript.objects.Count; i++)
+                {
+                    txrScript.metallicProperty.Add(0f);
+                }
+
             }
-
-        }
-        if (txrScript.smoothnessProperty.Count != txrScript.objects.Count)
-        {
-            for (int i = txrScript.smoothnessProperty.Count; i < txrScript.objects.Count; i++)
+            if (txrScript.smoothnessProperty.Count != txrScript.objects.Count)
             {
-                txrScript.smoothnessProperty.Add(0f);
+                for (int i = txrScript.smoothnessProperty.Count; i < txrScript.objects.Count; i++)
+                {
+                    txrScript.smoothnessProperty.Add(0f);
+                }
             }
         }
     }

@@ -25,8 +25,9 @@ public class RandomObject_Editor : Editor
         operationOptions[0] = "equals";
         operationOptions[1] = "smaller";
         operationOptions[2] = "greater";
-
     }
+
+    
     protected virtual void ValidateListSize()
     {
         if (myScript.objects != null)
@@ -106,6 +107,7 @@ public class RandomObject_Editor : Editor
                     }
                 }
                 EditorUtility.SetDirty(myScript);
+                OnAddObjectClick();
             }
             if (GUILayout.Button("Remove All", GUILayout.Height(30f)))
             {
@@ -154,7 +156,10 @@ public class RandomObject_Editor : Editor
             EditorGUILayout.LabelField("*No options. Click Edit button to start adding options", style);
         }
     }
-
+    protected virtual void OnAddObjectClick()
+    {
+        /*override*/
+    }
     protected virtual void DisplayAllOptions()
     {
         GUILayout.Space(5f);
@@ -188,6 +193,12 @@ public class RandomObject_Editor : Editor
 
             EditorGUILayout.EndHorizontal();
         }
+        GUILayout.Space(5f);
+        PostOptions();
+    }
+    protected virtual void PostOptions()
+    {
+        /* override for buttons */
     }
 
     protected virtual void Titles()

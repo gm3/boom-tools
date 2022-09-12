@@ -97,7 +97,7 @@ public class SuperRules_Editor : Editor
             EditorGUILayout.Space(5f);
             if (myScript.randomObject != myScript.optionsManager.mainCharacterOptions)
             {
-                int newSelected = EditorGUILayout.Popup("Target Options", curRandomSelected, allRandombjects);
+                int newSelected = EditorGUILayout.Popup("Target Action", curRandomSelected, allRandombjects);
                 if (newSelected != curRandomSelected)
                 {
                     RandomObject ro = myScript.optionsManager.randomObjects[newSelected].GetComponent<RandomObject>();
@@ -111,7 +111,7 @@ public class SuperRules_Editor : Editor
             else
             {
                 EditorGUILayout.BeginHorizontal();
-                EditorGUILayout.LabelField("Target Options", GUILayout.Width(120f));
+                EditorGUILayout.LabelField("Target Action", GUILayout.Width(120f));
                 EditorGUILayout.LabelField("Character", BoomToolsGUIStyles.CustomLabel(false,true,false));
                 EditorGUILayout.EndHorizontal();
             }

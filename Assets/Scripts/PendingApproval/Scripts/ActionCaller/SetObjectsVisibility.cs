@@ -55,18 +55,17 @@ public class SetObjectsVisibility : ActionCaller
 
             RandomGameObject randomGameObject = randomTarget as RandomGameObject;
             string parentName = randomGameObject.setNewParent ? randomGameObject.parentName[randomGameObject.currentSelected] : newParentName;
-            Debug.Log(parentName);
+
+            GameObject parent = parentObject;
             if (parentName != "")
             {
-                GameObject parent = GetObjectByName(parentObject, parentName);
-                Debug.Log(parent);
-                if (parent != null)
-                {
-                    
-                    SaveParentPosition(selectedGameObject.transform);
-                    selectedGameObject.transform.parent = parent.transform;
-                }
+                parent = GetObjectByName(parentObject, parentName);
+                if (parent == null) parent = parentObject;
             }
+
+            SaveParentPosition(selectedGameObject.transform);
+            selectedGameObject.transform.parent = parent.transform;
+
             if (setbonesSkinToVRM)
             {
                 ParentBonesToVRM(parentObject, selectedGameObject);

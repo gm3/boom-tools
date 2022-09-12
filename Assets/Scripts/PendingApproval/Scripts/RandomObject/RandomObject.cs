@@ -15,6 +15,14 @@ public class RandomObject : MonoBehaviour
 
     public string objectName = "Object";
 
+    public virtual bool HasCorrectSetup()
+    {
+        if (objects == null)
+            return false;
+        if (objects.Count == 0)
+            return false;
+        return true;
+    }
     public Object GetRandomObject()
     {
         if (objects.Count == 0)
