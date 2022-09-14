@@ -58,6 +58,19 @@ Change the Format dropdown to chage the output format, then click Export to expo
 
 ![](https://i.imgur.com/Dgi5rp6.png)
 
+## Options Manager
+In addition to the layer system, the new option manager allows you to select multiple options such as gameObjects, Textures and Materials in a quick way, use this method in case you require alot of elements to add
+
+To start, open the Character Builder scene, and select _BoomTools from the hierarchy:
+
+![image](https://user-images.githubusercontent.com/1117257/190047442-feb8f429-5580-4148-8dd4-ac8d3fda79c6.png)
+
+To the left in the Inspector, you will see the options manager that will guide you through the process of creating randomizable vrm characters. Simply click on the Main Models option to start selecting your 3d models, the manager will automatically unlock the options and guide you in each step.
+
+![image](https://user-images.githubusercontent.com/1117257/190047962-e35c6e3f-bcd4-4452-b096-af01dda1e0a2.png)
+
+For further information refer to the wiki for a more detailed description of each step.
+
 ## Issues
 https://github.com/gm3/boom-tools/issues
 
