@@ -29,6 +29,28 @@ public class DNAManager_Editor : Editor
                 Selection.activeGameObject = myScript.optionsManager.gameObject;
             }
         }
+
+
+
+        if (myScript.vrmAuthoringManager == null)
+        {
+            if (GUILayout.Button("Add VRM meta data", GUILayout.Height(30f)))
+            {
+                GameObject vrmManagerGameObject = new GameObject("VRM Manager");
+                vrmManagerGameObject.transform.parent = myScript.transform.root;
+                vrmManagerGameObject.transform.SetAsFirstSibling();
+                myScript.vrmAuthoringManager = vrmManagerGameObject.AddComponent<VRMAuthoringManager>();
+                myScript.vrmAuthoringManager.dnaManager = myScript;
+                Selection.activeGameObject = vrmManagerGameObject;
+            }
+        }
+        else
+        {
+            if (GUILayout.Button("Select VRM meta data", GUILayout.Height(30f)))
+            {
+                Selection.activeGameObject = myScript.vrmAuthoringManager.gameObject;
+            }
+        }
         base.OnInspectorGUI();
     }
 }

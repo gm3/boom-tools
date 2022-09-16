@@ -5,7 +5,7 @@ using VRM;
 
 public class SetObjectsVisibility : ActionCaller
 {
-   // public GameObject[] SetOnNewParentIfActive;
+    public bool setbonesSkinToVRM = false;
 
     //new
     public RandomGameObject rootParentOnChosen;
@@ -13,6 +13,9 @@ public class SetObjectsVisibility : ActionCaller
 
     private Transform lastObject = null;
     private Transform lastObjectParent = null;
+
+    public List<Transform> lastChilds;
+    public List<Transform> lastChildParents;
 
     [HideInInspector]
     public List<BlendShapePreset> blendShapes;
@@ -23,38 +26,121 @@ public class SetObjectsVisibility : ActionCaller
     [HideInInspector]
     public List<BlendShapeClip> clips;
 
+    protected override void PreAction()
+    {
+        ResetParentsPositions();
+    }
     protected override void Action()
     {
         if (selectedObject != null)
         {
-            DisplayObject(selectedObject as GameObject);
-            CreateShapes();
-        }
-
-    }
-    protected override void PostAction()
-    {
-        if (rootParentOnChosen != null && newParentName != "")
-        {
-            //SetNewParent(GetObjectByName(rootParentOnChosen.GetSelectedObject() as GameObject, newParentName));
-            GameObject parent = GetObjectByName(rootParentOnChosen.GetSelectedObject() as GameObject, newParentName);
-            if (parent != null) {
-                GameObject sel = selectedObject as GameObject;
-                SaveParentPosition(sel.transform);
-                sel.transform.parent = parent.transform;
+            if (enableAction)
+            {
+                DisplayObject(selectedObject as GameObject);
+                CreateShapes();
+            }
+            else
+            {
+                DisplayObject(null);
             }
         }
     }
+    
+    protected override void PostAction()
+    {
+        if (rootParentOnChosen != null)
+        {
+            GameObject parentObject = rootParentOnChosen.GetSelectedObject() as GameObject;
+            GameObject selectedGameObject = selectedObject as GameObject;
+
+            RandomGameObject randomGameObject = randomTarget as RandomGameObject;
+            string parentName = randomGameObject.setNewParent ? randomGameObject.parentName[randomGameObject.currentSelected] : newParentName;
+
+            GameObject parent = parentObject;
+            if (parentName != "")
+            {
+                parent = GetObjectByName(parentObject, parentName);
+                if (parent == null) parent = parentObject;
+            }
+
+            SaveParentPosition(selectedGameObject.transform);
+            selectedGameObject.transform.parent = parent.transform;
+
+            if (setbonesSkinToVRM)
+            {
+                ParentBonesToVRM(parentObject, selectedGameObject);
+            }
+        }
+    }
+    private void ParentBonesToVRM(GameObject humanoid, GameObject target)
+    {
+        Animator anim = humanoid.GetComponent<Animator>();
+        if (anim == null) {
+            Debug.LogWarning("No animator in target humanoid vrm");
+            return; 
+        }
+        Avatar avatar = anim.avatar;
+        if (avatar == null)
+        {
+            Debug.LogWarning("No avatar in animator in target humanoid vrm");
+            return;
+        }
+        if (!avatar.isHuman || !avatar.isValid)
+        {
+            Debug.LogWarning("Error in humanoid setup in avatar");
+            return;
+        }
+
+        // Create a new List that will store the modified parents
+        lastChildParents = new List<Transform>();
+        lastChilds = new List<Transform>();
+
+        // Get the mapped bones from vrm
+        List<GameObject> gameobjectBones = new List<GameObject>();
+        Transform[] childs = humanoid.GetComponentsInChildren<Transform>();
+
+        for (int i =0; i < avatar.humanDescription.human.Length; i++)
+        {
+            HumanBone bone = avatar.humanDescription.human[i];
+            for (int j = 0; j < childs.Length; j++)
+            {
+                if (bone.boneName == childs[j].gameObject.name)
+                {
+                    gameobjectBones.Add(childs[j].gameObject);
+                    //very important break, as it will ONLY take the first found bone, in case another object was reparented before, it will no longer pick the bones from that reparenting
+                    break;
+                }
+            }
+        }
+        // Parent them to selected object
+        Transform[] targetChilds = target.GetComponentsInChildren<Transform>();
+        for (int i = 0; i < gameobjectBones.Count; i++)
+        {
+            Transform  boneParent = gameobjectBones[i].transform;
+            for (int j = 0; j < targetChilds.Length; j++)
+            {
+                if (targetChilds[j].gameObject.name == boneParent.gameObject.name)
+                {
+                    lastChildParents.Add(targetChilds[j].parent);
+                    lastChilds.Add(targetChilds[j]);
+
+                    targetChilds[j].parent = boneParent.transform;
+                    // set targetchilds as child of bone parent, but save its value to return it later
+                }
+            }
+        }
+
+    }
     private void DisplayObject(GameObject obj)
     {
-        ResetParentPosition();
-        foreach (GameObject go in randomTarget.objects)
+        for (int i =0; i < randomTarget.objects.Count;i++)
         {
-            go.SetActive(false);
+            GameObject go = randomTarget.objects[i] as GameObject;
+            if (go != null)
+                go.SetActive(false);
         }
-        obj.SetActive(true);
-        //if (SetOnNewParentIfActive.Length != 0)
-        //    SetNewParent(obj);
+        if (obj != null)
+            obj.SetActive(true);
  
     }
     private GameObject GetObjectByName(GameObject root, string name)
@@ -73,7 +159,7 @@ public class SetObjectsVisibility : ActionCaller
         return null;
     }
 
-    private void ResetParentPosition()
+    private void ResetParentsPositions()
     {
         if (lastObject != null)
         {
@@ -81,12 +167,21 @@ public class SetObjectsVisibility : ActionCaller
             lastObject = null;
             lastObjectParent = null;
         }
+        if (lastChilds != null)
+        {
+            for (int i =0; i < lastChilds.Count; i++)
+            {
+                lastChilds[i].SetParent(lastChildParents[i]);
+            }
+        }
     }
     private void SaveParentPosition(Transform target)
     {
         lastObject = target;
         lastObjectParent = target.parent;
+        //also set the bones
     }
+
     //private void SetNewParent(GameObject obj)
     //{
         

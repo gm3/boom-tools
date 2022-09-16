@@ -9,6 +9,7 @@ using TMPro;
 public class DNAManager : MonoBehaviour
 {
     public OptionsManager optionsManager;
+    public VRMAuthoringManager vrmAuthoringManager;
 
     public PrintRandomValue[] randomScriptReferences;
     public BGColorRandomizer randomBGScriptReferences;

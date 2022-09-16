@@ -12,17 +12,8 @@ public class OptionsManager_Editor : Editor
         myScript = (OptionsManager)target;
     }
 
-   
-    //int secondarySetup = 0;
-    GUIStyle styleCentered;
-    GUIStyle styleTitle;
-    GUIStyle styleTitleCentered;
-    GUIStyle styleCenteredYellow;
-    GUIStyle styleCorrect;
-    GUIStyle styleWarning;
-    GUIStyle styleWrong;
-    GUIStyle textFieldStyle;
-    GUIStyle buttonStyle;
+    GUIStyle styleCentered, styleTitle, styleTitleCentered, styleCorrect, styleWarning, styleWrong, textFieldStyle, buttonStyle;
+
     string newOptionsName = "";
     string identifierName = "";
     string traitName = "";
@@ -30,16 +21,15 @@ public class OptionsManager_Editor : Editor
     bool isEditing = false;
     public override void OnInspectorGUI()
     {
-        styleCentered = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter , wordWrap = true};
+        styleCentered = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, wordWrap = true };
         styleTitle = new GUIStyle(GUI.skin.label) { fontStyle = FontStyle.Bold };
         styleTitleCentered = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold };
-        styleCenteredYellow = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter , wordWrap = true, normal = { textColor = Color.yellow }, hover = { textColor = Color.yellow } };
         styleCorrect = new GUIStyle(GUI.skin.label) { normal = { textColor = Color.green } };
         styleWarning = new GUIStyle(GUI.skin.label) { normal = { textColor = Color.yellow } };
-        styleWrong = new GUIStyle(GUI.skin.label) { normal = { textColor = Color.red} };
+        styleWrong = new GUIStyle(GUI.skin.label) { normal = { textColor = Color.red } };
 
 
-        textFieldStyle = new GUIStyle(GUI.skin.textField) { alignment = TextAnchor.MiddleCenter};
+        textFieldStyle = new GUIStyle(GUI.skin.textField) { alignment = TextAnchor.MiddleCenter };
         buttonStyle = new GUIStyle(GUI.skin.button);
         //buttonStyle.normal.
         //base.OnInspectorGUI();
@@ -56,14 +46,17 @@ public class OptionsManager_Editor : Editor
             case 3:
                 ActionSetup();
                 break;
+            case 4:
+                RulesSetup();
+                break;
         }
-            
-    
+
+
     }
 
     private void InitialSetup()
     {
-        if (GUILayout.Button("Back to DNA manager", GUILayout.Height(30f)))
+        if (GUILayout.Button("Go to DNA manager", GUILayout.Height(30f)))
         {
             if (myScript.dnaManager == null)
             {
@@ -86,8 +79,8 @@ public class OptionsManager_Editor : Editor
             if (myScript.mainCharacterOptions.objects == null)
                 guiEnabled = false;
             else
-                if(myScript.mainCharacterOptions.objects.Count == 0)
-                    guiEnabled = false;
+                if (myScript.mainCharacterOptions.objects.Count == 0)
+                guiEnabled = false;
         }
         else
             guiEnabled = false;
@@ -113,11 +106,21 @@ public class OptionsManager_Editor : Editor
         {
             myScript.setupStage = 3;
         }
+
+        if (myScript.actionCallers == null)
+            guiEnabled = false;
+        else if (myScript.actionCallers.Count == 0)
+            guiEnabled = false;
+        GUI.enabled = guiEnabled;
+        if (GUILayout.Button("Rules", GUILayout.Height(30f)))
+        {
+            myScript.setupStage = 4;
+        }
     }
     private void CharacterSetup()
     {
-        
-       // GoBackButton();
+
+        // GoBackButton();
         GUILayout.Space(5f);
 
         #region Main Edit
@@ -131,7 +134,7 @@ public class OptionsManager_Editor : Editor
                 Selection.activeGameObject = myScript.gameObject;
             }
 
-            GUILayout.Label("EDIT MODE\n\n *Select gameObjects and click Add selected (you may choose more than 1 at a time)\n*Use Add blendshape only if any of your characters contain this information\n", styleCenteredYellow);
+            GUILayout.Label("EDIT MODE\n\n *Select gameObjects and click Add selected (you may choose more than 1 at a time)\n*Use Add blendshape only if any of your characters contain this information\n", BoomToolsGUIStyles.CustomColorLabel(true,false,true,Color.yellow));
 
             // add new options
             EditorGUILayout.BeginHorizontal();
@@ -192,96 +195,160 @@ public class OptionsManager_Editor : Editor
             GUILayout.Space(5f);
             EditorGUILayout.LabelField("== Humanoid Options ==", styleCentered);
             GUILayout.Space(5f);
+
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("Humanoid", BoomToolsGUIStyles.CustomLabel(false, true, false), GUILayout.MinWidth(30f));
+            EditorGUILayout.LabelField("Trait Name", BoomToolsGUIStyles.CustomLabel(false, true, false), GUILayout.Width(200f));
+            EditorGUILayout.LabelField("Weight", BoomToolsGUIStyles.CustomLabel(true, true, false), GUILayout.Width(40f));
+            if (isEditing)
+                EditorGUILayout.LabelField("X", BoomToolsGUIStyles.CustomLabel(true,true,false), GUILayout.Width(20f));
+            EditorGUILayout.EndHorizontal();
         }
         bool fixables = false;
         for (int i = 0; i < myScript.mainCharacterOptions.objects.Count; i++)
         {
-
-            EditorGUILayout.BeginHorizontal();
-
-            EditorGUILayout.ObjectField(myScript.mainCharacterOptions.objects[i], typeof(Object), true);
-
-            GameObject go = myScript.mainCharacterOptions.objects[i] as GameObject;
-            Animator goAnim = go.GetComponent<Animator>();
-            Avatar animAvt = goAnim == null ? null : goAnim.avatar;
-           
-            if (isEditing)
+            if (myScript.mainCharacterOptions.objects[i] != null)
             {
-                if (animAvt != null)
+
+                EditorGUILayout.BeginHorizontal();
+
+                EditorGUILayout.ObjectField(myScript.mainCharacterOptions.objects[i], typeof(Object), true);
+
+                GameObject go = myScript.mainCharacterOptions.objects[i] as GameObject;
+                Animator goAnim = go.GetComponent<Animator>();
+                Avatar animAvt = goAnim == null ? null : goAnim.avatar;
+
+                string errorField = "";
+                if (goAnim == null) errorField = "No animator in gameObject";
+                else if (goAnim.avatar == null) errorField = "No Avatar in Animator";
+                else if (!goAnim.avatar.isHuman) errorField = "Non Human Avatar setup";
+                else if (!goAnim.avatar.isValid) errorField = "Non Valid Animator Avatar setup";
+
+                SkinnedMeshRenderer rend = go.GetComponentInChildren<SkinnedMeshRenderer>();
+                bool correctRend = true;
+                if (rend == null)
                 {
-                    string trait = EditorGUILayout.TextField(myScript.mainCharacterOptions.nameTraits[i], GUILayout.Width(200f));
-                    if (trait != myScript.mainCharacterOptions.nameTraits[i])
-                    {
-                        Undo.RecordObject(myScript.mainCharacterOptions, "Set Trait Name Value");
-                        myScript.mainCharacterOptions.nameTraits[i] = trait;
-                    }
-                    int weight = EditorGUILayout.IntField(myScript.mainCharacterOptions.weights[i], GUILayout.Width(40f));
-                    if (weight != myScript.mainCharacterOptions.weights[i])
-                    {
-                        Undo.RecordObject(myScript.mainCharacterOptions, "Set Weight Value");
-                        myScript.mainCharacterOptions.weights[i] = weight;
-                    }
-                    if (GUILayout.Button("x", GUILayout.Width(20f)))
-                    {
-                        Undo.RecordObject(myScript.mainCharacterOptions, "Remove Object");
-                        myScript.mainCharacterOptions.RemoveAtIndex(i);
-                    }
+                    errorField = "No skinned mesh render";
+                    correctRend = false;
                 }
                 else
                 {
-                    
-                    string errorField = "Deleted gameObject";
-                    if (goAnim == null) errorField = "No animator in gameObject";
-                    if (goAnim == null) errorField = "No Avatar in Animator";
-                    EditorGUILayout.LabelField(errorField, GUILayout.Width(200f));
-
-                    if (PrefabUtility.IsPartOfModelPrefab(go))
+                    if (!rend.sharedMesh.isReadable)
                     {
-                        fixables = true;
-                        if (GUILayout.Button("Fix", GUILayout.Width(40f)))
+                        errorField = "Non readable mesh";
+                        correctRend = false;
+                    }
+                }
+
+                if (isEditing)
+                {
+                    if (errorField == "")
+                    {
+                        string trait = EditorGUILayout.TextField(myScript.mainCharacterOptions.nameTraits[i], GUILayout.Width(200f));
+                        if (trait != myScript.mainCharacterOptions.nameTraits[i])
                         {
-                            //Undo.RecordObject(go, "Remove Object");
-                            TryFixHumanoidOptions(go);
+                            Undo.RecordObject(myScript.mainCharacterOptions, "Set Trait Name Value");
+                            myScript.mainCharacterOptions.nameTraits[i] = trait;
+                        }
+                        int weight = EditorGUILayout.IntField(myScript.mainCharacterOptions.weights[i], BoomToolsGUIStyles.CustomLabel(true,false,false), GUILayout.Width(40f));
+                        if (weight != myScript.mainCharacterOptions.weights[i])
+                        {
+                            Undo.RecordObject(myScript.mainCharacterOptions, "Set Weight Value");
+                            myScript.mainCharacterOptions.weights[i] = weight;
+                        }
+                        if (GUILayout.Button("x", GUILayout.Width(20f)))
+                        {
+                            Undo.RecordObject(myScript.mainCharacterOptions, "Remove Object");
+                            myScript.mainCharacterOptions.RemoveAtIndex(i);
                         }
                     }
                     else
                     {
-                        EditorGUILayout.LabelField("Fix", GUILayout.Width(40f));
+
+                        EditorGUILayout.LabelField(errorField, BoomToolsGUIStyles.CustomColorLabel(false, false, false, Color.red), GUILayout.Width(200f));
+
+                        if (PrefabUtility.IsPartOfModelPrefab(go))
+                        {
+                            if (goAnim == null || goAnim.avatar == null)
+                            {
+                                fixables = true;
+                                if (GUILayout.Button("Fix", GUILayout.Width(40f)))
+                                {
+                                    TryFixHumanoidOptions(go);
+                                }
+                            }
+                            else
+                            {
+                                if (GUILayout.Button("MFix", GUILayout.Width(40f)))
+                                {
+                                    Object obj = PrefabUtility.GetCorrespondingObjectFromOriginalSource(go);
+                                    ActiveEditorTracker.sharedTracker.isLocked = false;
+                                    EditorGUIUtility.PingObject(obj);
+                                    Selection.activeObject = obj;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            EditorGUILayout.LabelField("Fix", GUILayout.Width(40f));
+                        }
+                        if (GUILayout.Button("x", GUILayout.Width(20f)))
+                        {
+                            Undo.RecordObject(myScript.mainCharacterOptions, "Remove Object");
+                            myScript.mainCharacterOptions.RemoveAtIndex(i);
+                        }
+
                     }
-                    if (GUILayout.Button("x", GUILayout.Width(20f)))
-                    {
-                        Undo.RecordObject(myScript.mainCharacterOptions, "Remove Object");
-                        myScript.mainCharacterOptions.RemoveAtIndex(i);
-                    }
-                    
-                }
-                 
-            }
-            else
-            {
-                if (animAvt != null) { 
-                    EditorGUILayout.LabelField(myScript.mainCharacterOptions.nameTraits[i], GUILayout.Width(200f));
-                    EditorGUILayout.LabelField(myScript.mainCharacterOptions.weights[i].ToString(), GUILayout.Width(40f));
+
                 }
                 else
                 {
-                    EditorGUILayout.LabelField("Non humanoid gameObject", GUILayout.Width(200f));
-                    if (PrefabUtility.IsPartOfModelPrefab(go))
+                    if (errorField == "")
                     {
-                        fixables = true;
-                        if (GUILayout.Button("Fix", GUILayout.Width(40f)))
+                        EditorGUILayout.LabelField(myScript.mainCharacterOptions.nameTraits[i], BoomToolsGUIStyles.CustomColorLabel(false, false, false, Color.green), GUILayout.Width(200f));
+                        EditorGUILayout.LabelField(myScript.mainCharacterOptions.weights[i].ToString(), GUILayout.Width(40f));
+                    }
+                    else
+                    {
+                        EditorGUILayout.LabelField(errorField, BoomToolsGUIStyles.CustomColorLabel(false, false, false, Color.red), GUILayout.Width(200f));
+                        if (PrefabUtility.IsPartOfModelPrefab(go))
                         {
-                            TryFixHumanoidOptions(go);
+                            if (goAnim == null || goAnim.avatar == null || !correctRend)
+                            {
+                                fixables = true;
+                                if (GUILayout.Button("Fix", GUILayout.Width(40f)))
+                                {
+                                    TryFixHumanoidOptions(go);
+                                }
+                            }
+                            else
+                            {
+                                if (GUILayout.Button("MFix", GUILayout.Width(40f)))
+                                {
+                                    Object obj = PrefabUtility.GetCorrespondingObjectFromOriginalSource(go);
+                                    ActiveEditorTracker.sharedTracker.isLocked = false;
+                                    EditorGUIUtility.PingObject(obj);
+                                    Selection.activeObject = obj;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            EditorGUILayout.LabelField("Fix", GUILayout.Width(40f));
                         }
                     }
                 }
+                EditorGUILayout.EndHorizontal();
             }
-            EditorGUILayout.EndHorizontal();
+            else
+            {
+                myScript.mainCharacterOptions.RemoveAtIndex(i);
+            }
         }
         if (fixables)
         {
             EditorGUILayout.LabelField("*Objects are required to be humanoid");
-            if (GUILayout.Button("Try quick fix"))
+            if (GUILayout.Button("Try quick fix", GUILayout.Height(30f)))
             {
                 FixAllHumanoids(myScript.mainCharacterOptions.objects);
             }
@@ -292,7 +359,7 @@ public class OptionsManager_Editor : Editor
         GUILayout.Space(5f);
         if (isEditing)
         {
-            
+
             if (myScript.mainCharacterAction.blendShapes?.Count > 0)
             {
                 GUIStyle style = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter };
@@ -346,14 +413,21 @@ public class OptionsManager_Editor : Editor
 
         if (importer == null)
         {
-            if (debug)Debug.LogWarning("Cant fix, require manual fixing");
+            if (debug) Debug.LogWarning("Cant fix, require manual fixing");
         }
         else
         {
-            Debug.Log("fixing");
             importer.animationType = ModelImporterAnimationType.Human;
+            importer.isReadable = true;
             importer.autoGenerateAvatarMappingIfUnspecified = true;
+
             AssetDatabase.ImportAsset(path);
+
+            Animator anim = go.GetComponent<Animator>();
+            if (anim == null)
+                anim = go.AddComponent<Animator>();
+            if (anim.avatar == null)
+                anim.avatar = importer.sourceAvatar;
         }
     }
     private void OptionSetup()
@@ -410,7 +484,7 @@ public class OptionsManager_Editor : Editor
             {
                 if (myScript.randomObjects[i] == null)
                 {
-                    myScript.RemoveRandomObjectOption(i);
+                    myScript.RemoveElement(ref myScript.randomObjects,i);
                 }
                 else
                 {
@@ -433,10 +507,10 @@ public class OptionsManager_Editor : Editor
                             break;
                     }
                     EditorGUILayout.BeginHorizontal();
-                    EditorGUILayout.LabelField(myScript.randomObjects[i].name, GUILayout.MinWidth(30f));
+                    EditorGUILayout.LabelField(myScript.randomObjects[i].name, BoomToolsGUIStyles.CustomColorLabel(false,false,false, ro.HasCorrectSetup() ? Color.green:Color.red), GUILayout.MinWidth(30f));
                     EditorGUILayout.LabelField(labelType, GUILayout.Width(70f));
                     int val = ro.objects == null ? 0 : ro.objects.Count;
-                    EditorGUILayout.LabelField(val.ToString(), val == 0 ? styleWrong:styleCorrect, GUILayout.Width(70f));
+                    EditorGUILayout.LabelField(val.ToString(), val == 0 ? styleWrong : styleCorrect, GUILayout.Width(70f));
 
 
                     if (GUILayout.Button("View", GUILayout.Width(60f))) Selection.activeGameObject = myScript.randomObjects[i];
@@ -444,7 +518,7 @@ public class OptionsManager_Editor : Editor
                     {
                         Undo.RegisterFullObjectHierarchyUndo(myScript.optionsHolder, "Remove Random Options");
                         Undo.RecordObject(myScript, "Remove Random Options");
-                        myScript.RemoveRandomObjectOption(i);
+                        myScript.RemoveElement(ref myScript.randomObjects, i);
                     }
                     EditorGUILayout.EndHorizontal();
                 }
@@ -508,16 +582,17 @@ public class OptionsManager_Editor : Editor
 
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("Name", styleTitle, GUILayout.MinWidth(30f));
+            EditorGUILayout.LabelField("Type", styleTitle, GUILayout.Width(60f));
             EditorGUILayout.LabelField("Option", styleTitle, GUILayout.Width(100f));
             EditorGUILayout.LabelField("Trait", styleTitle, GUILayout.Width(70f));
-            EditorGUILayout.LabelField("Edit", styleTitleCentered, GUILayout.Width(60f));
+            EditorGUILayout.LabelField("Edit", styleTitleCentered, GUILayout.Width(50f));
             EditorGUILayout.LabelField("X", styleTitleCentered, GUILayout.Width(20f));
             EditorGUILayout.EndHorizontal();
             for (int i = 0; i < myScript.actionCallers.Count; i++)
             {
                 if (myScript.actionCallers[i] == null)
                 {
-                    myScript.RemoveActionCaller(i);
+                    myScript.RemoveElement(ref myScript.actionCallers, i);
                 }
                 else
                 {
@@ -542,17 +617,18 @@ public class OptionsManager_Editor : Editor
 
                     EditorGUILayout.BeginHorizontal();
                     EditorGUILayout.LabelField(myScript.actionCallers[i].name, ac.IsValidTrait() ? styleCorrect : styleWrong, GUILayout.MinWidth(30f));
+                    EditorGUILayout.LabelField(labelType, styleTitle, GUILayout.Width(60f));
                     if (ac.randomTarget == null)
-                        EditorGUILayout.LabelField(labelType, styleWarning, GUILayout.Width(100f));
+                        EditorGUILayout.LabelField("--", GUILayout.Width(100f));
                     else
                         EditorGUILayout.LabelField(ac.randomTarget.gameObject.name, GUILayout.Width(100f));
                     EditorGUILayout.LabelField(ac.traitName, GUILayout.Width(70f));
-                    if (GUILayout.Button("Edit", GUILayout.Width(60f))) Selection.activeGameObject = myScript.actionCallers[i];
+                    if (GUILayout.Button("Edit", GUILayout.Width(50f))) Selection.activeGameObject = myScript.actionCallers[i];
                     if (GUILayout.Button("X", GUILayout.Width(20f)))
                     {
                         Undo.RegisterFullObjectHierarchyUndo(myScript.actionsHolder, "Remove Random Options");
                         Undo.RecordObject(myScript, "Remove Random Options");
-                        myScript.RemoveActionCaller(i);
+                        myScript.RemoveElement(ref myScript.actionCallers, i);
                     }
                     EditorGUILayout.EndHorizontal();
                 }
@@ -560,6 +636,70 @@ public class OptionsManager_Editor : Editor
         }
     }
 
+    string ruleIdentifier = "";
+    private void RulesSetup()
+    {
+        GoBackButton();
+        GUILayout.Space(5f);
+        GUILayout.Label("=Instructions= " +
+            "\n\nAdd Rules, what options can exist and cannot when other options are chosen.\n", styleCentered);
+        GUILayout.Space(5f);
+
+        
+        ruleIdentifier = EditorGUILayout.TextField("Rule Name: ", ruleIdentifier);
+
+
+        if (ruleIdentifier.Length == 0)
+            GUI.enabled = false;
+        else
+            GUI.enabled = true;
+        if (GUILayout.Button("Add New Rule", GUILayout.Height(30f)))
+        {
+            GameObject newObj = myScript.AddRule(ruleIdentifier);
+            Undo.RegisterCreatedObjectUndo(newObj, "New Super Rule");
+            ruleIdentifier = "";
+            GUI.FocusControl(null);
+        }
+        GUILayout.Space(5f);
+
+
+        GUI.enabled = true;
+        if (myScript.superRules?.Count > 0)
+        {
+            EditorGUILayout.LabelField("== Current Rules ==", styleCentered, GUILayout.Height(20f));
+            EditorGUILayout.LabelField("\nIf text displays red, it means some values are still required for this rules to apply and green color means it's ready\n", styleCentered);
+
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("Name", styleTitle, GUILayout.MinWidth(30f));
+            EditorGUILayout.LabelField("Edit", styleTitleCentered, GUILayout.Width(50f));
+            EditorGUILayout.LabelField("X", styleTitleCentered, GUILayout.Width(20f));
+            EditorGUILayout.EndHorizontal();
+
+
+            for (int i = 0; i < myScript.superRules.Count; i++)
+            {
+                if (myScript.superRules[i] == null)
+                {
+                    myScript.RemoveElement(ref myScript.superRules, i);
+                }
+                else
+                {
+                    SuperRules rule = myScript.superRules[i].GetComponent<SuperRules>();
+
+                    EditorGUILayout.BeginHorizontal();
+                    EditorGUILayout.LabelField(myScript.superRules[i].name, rule.IsActiveRule() ? styleCorrect : styleWrong, GUILayout.MinWidth(30f));
+                    if (GUILayout.Button("Edit", GUILayout.Width(50f))) Selection.activeGameObject = myScript.superRules[i];
+                    if (GUILayout.Button("X", GUILayout.Width(20f)))
+                    {
+                        Undo.RegisterFullObjectHierarchyUndo(myScript.rulesHolder, "Remove Rule GameObject");
+                        Undo.RecordObject(myScript, "Remove Super Rule");
+                        myScript.RemoveElement(ref myScript.superRules, i);
+                    }
+                    EditorGUILayout.EndHorizontal();
+                }
+            }
+        }
+    }
     private void GoBackButton()
     {
         

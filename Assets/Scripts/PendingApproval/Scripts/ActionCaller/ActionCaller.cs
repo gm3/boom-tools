@@ -15,25 +15,44 @@ public class ActionCaller : MonoBehaviour
     [HideInInspector]
     public string selectedTrait;
 
+    public bool enableAction = true;
+
+    public void SetPreSetup()
+    {
+        if (randomTarget != null)
+            PreAction();
+    }
     public void SetPostSetup()
     {
         if (randomTarget != null)
             PostAction();
     }
+    public void SetAction()
+    {
+        if (randomTarget != null)
+            Action();
+    }
+    public void DisableByRule()
+    {
+        enableAction = false;
+    }
     public void SetRandomTrait()
     {
+        enableAction = true;
         if (randomTarget != null)
         {
             selectedObject = randomTarget.GetRandomObject();
             selectedTrait = randomTarget.GetObjectTraitName();
-            Action();
         }
         else
         {
             Debug.LogWarning("No random target set in script SetObjectsVisibility in: " + gameObject.name);
         }
     }
-    
+    protected virtual void PreAction()
+    {
+        //override//
+    }
     protected virtual void PostAction()
     {
         //override//
@@ -41,7 +60,6 @@ public class ActionCaller : MonoBehaviour
     protected virtual void Action()
     {
         //override//
-        Debug.Log(selectedObject.name);
     }
 
     /// <summary>

@@ -21,9 +21,10 @@ public class SetTextureToMaterial_Editor : ActionCaller_Editor
             bool hasRend = myScript.HasRenderer();
             if (hasRend)
             {
-                
                 for (int i =0; i < myScript.targetRenderers.Count; i++)
                 {
+                    if (myScript.targetRenderers[i] == null)
+                        myScript.targetRenderers.RemoveAt(i);
                     EditorGUILayout.BeginHorizontal();
                     EditorGUILayout.ObjectField("Renderer: " + (i+1).ToString(), myScript.targetRenderers[i], typeof(Renderer), true);
                     if (GUILayout.Button("X", GUILayout.Width(20f))) {
