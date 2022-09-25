@@ -12,9 +12,9 @@ public class SetMaterialToMesh_Editor : ActionCaller_Editor
         base.OnEnable();
         myScript = (SetMaterialToMesh)target;
     }
-    public override void OnInspectorGUI()
+    protected override void MainUI()
     {
-        base.OnInspectorGUI();
+        base.MainUI();
 
         if (myScript.optionsManager != null)
         {

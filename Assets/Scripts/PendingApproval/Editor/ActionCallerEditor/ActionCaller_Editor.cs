@@ -22,15 +22,39 @@ public class ActionCaller_Editor : Editor
     }
     public override void OnInspectorGUI()
     {
-        //temporal
-        //base.OnInspectorGUI();
-
+        string info = !myScript.selectionMode ? "Back to create actions" : "Back to select actions";
         if (myScript.optionsManager != null)
         {
-            if (GUILayout.Button("Back to create actions", GUILayout.Height(30f)))
+            if (GUILayout.Button(info, GUILayout.Height(30f)))
             {
                 Selection.activeObject = myScript.optionsManager.gameObject;
             }
+        }
+
+
+        if (!myScript.selectionMode)
+        {
+            MainUI();
+        }
+        else
+        {
+            SelectionModeUI();
+        }
+
+        if (myScript.randomTarget != null)
+        {
+            if (!myScript.IsValidType())
+            {
+                myScript.randomTarget = null;
+                Debug.LogWarning("Not a valid type of script for targetRandom in: " + myScript.gameObject.name);
+            }
+        }
+    }
+    protected virtual void MainUI()
+    {
+
+        if (myScript.optionsManager != null)
+        {
 
             int newRandom = EditorGUILayout.Popup("Target Options: ", curRandom, options);
             if (newRandom != curRandom)
@@ -51,19 +75,34 @@ public class ActionCaller_Editor : Editor
         {
             base.OnInspectorGUI();
         }
-
-
-
+    }
+    protected virtual void SelectionModeUI()
+    {
+        EditorGUILayout.LabelField("*Selection Mode: Click the button to trigger the action for that specific option", BoomToolsGUIStyles.CustomLabel(true,true,true));
+        GUILayout.Space(5f);
+        if (GUILayout.Button("none"))
+        {
+            myScript.SetTargetTrait(-1);
+            myScript.SetAction();
+        }
         if (myScript.randomTarget != null)
         {
-            if (!myScript.IsValidType())
+            for (int i =0;i< myScript.randomTarget.objects.Count; i++)
             {
-                myScript.randomTarget = null;
-                Debug.LogWarning("Not a valid type of script for targetRandom in: " + myScript.gameObject.name);
+                //EditorGUILayout.BeginHorizontal();
+                if (GUILayout.Button(myScript.randomTarget.nameTraits[i])){
+                    myScript.SetTargetTrait(i);
+                    myScript.SetAction();
+                }
+                //EditorGUILayout.EndHorizontal();
             }
         }
+        
     }
-
+    private void OnDisable()
+    {
+        myScript.selectionMode = false;
+    }
 
     private void FetchRandomOptions(OptionsManager optionManager, System.Type type)
     {

@@ -44,6 +44,10 @@ public class SetObjectsVisibility : ActionCaller
                 DisplayObject(null);
             }
         }
+        else
+        {
+            DisplayObject(null);
+        }
     }
     
     protected override void PostAction()
@@ -63,12 +67,15 @@ public class SetObjectsVisibility : ActionCaller
                 if (parent == null) parent = parentObject;
             }
 
-            SaveParentPosition(selectedGameObject.transform);
-            selectedGameObject.transform.parent = parent.transform;
-
-            if (setbonesSkinToVRM)
+            if (selectedGameObject != null)
             {
-                ParentBonesToVRM(parentObject, selectedGameObject);
+                SaveParentPosition(selectedGameObject.transform);
+                selectedGameObject.transform.parent = parent.transform;
+
+                if (setbonesSkinToVRM)
+                {
+                    ParentBonesToVRM(parentObject, selectedGameObject);
+                }
             }
         }
     }
@@ -123,12 +130,23 @@ public class SetObjectsVisibility : ActionCaller
                 {
                     lastChildParents.Add(targetChilds[j].parent);
                     lastChilds.Add(targetChilds[j]);
+                    targetChilds[j].name += "_p";
 
                     targetChilds[j].parent = boneParent.transform;
                     // set targetchilds as child of bone parent, but save its value to return it later
                 }
             }
         }
+        SkinnedMeshRenderer skin = target.GetComponentInChildren<SkinnedMeshRenderer>();
+        if (skin != null)
+        {
+            lastChildParents.Add(skin.transform.parent);
+            lastChilds.Add(skin.transform);
+            skin.transform.name += "_p";
+
+            skin.transform.parent = humanoid.transform;
+        }
+
 
     }
     private void DisplayObject(GameObject obj)
@@ -172,6 +190,7 @@ public class SetObjectsVisibility : ActionCaller
             for (int i =0; i < lastChilds.Count; i++)
             {
                 lastChilds[i].SetParent(lastChildParents[i]);
+                lastChilds[i].name = lastChilds[i].name.Substring(0, lastChilds[i].name.Length - 2);
             }
         }
     }
@@ -212,6 +231,8 @@ public class SetObjectsVisibility : ActionCaller
     }
     protected override bool IsActiveTrait()
     {
+        if (selectedObject == null)
+            return false;
         GameObject go = (GameObject)selectedObject;
         if (go.activeInHierarchy)
             return true;

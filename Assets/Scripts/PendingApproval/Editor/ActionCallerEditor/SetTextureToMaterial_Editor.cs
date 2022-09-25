@@ -12,9 +12,9 @@ public class SetTextureToMaterial_Editor : ActionCaller_Editor
         base.OnEnable();
         myScript = (SetTextureToMaterial)target;
     }
-    public override void OnInspectorGUI()
+    protected override void MainUI()
     {
-        base.OnInspectorGUI();
+        base.MainUI();
 
         if (myScript.optionsManager != null)
         {

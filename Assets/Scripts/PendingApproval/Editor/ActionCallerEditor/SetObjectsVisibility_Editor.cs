@@ -18,9 +18,9 @@ public class SetObjectsVisibility_Editor : ActionCaller_Editor
                 myScript.rootParentOnChosen = myScript.optionsManager.mainCharacterOptions;
         }
     }
-    public override void OnInspectorGUI()
+    protected override void MainUI()
     {
-        base.OnInspectorGUI();
+        base.MainUI();
         // works only for manager
         if (myScript.optionsManager != null)
         {

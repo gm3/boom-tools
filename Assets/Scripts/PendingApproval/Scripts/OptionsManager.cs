@@ -182,6 +182,10 @@ public class OptionsManager : MonoBehaviour
         ConfigureRandomizer randomizer = dna.transform.parent.GetComponentInChildren<ConfigureRandomizer>();
         randomizer.exportVRMFromRandomTrait = mainCharacterAction;
 
+        VRMRuntimeExporter1 runtimeExporter = dna.transform.parent.GetComponentInChildren<VRMRuntimeExporter1>();
+        runtimeExporter.exportVRMFromRandomTrait = mainCharacterAction;
+        runtimeExporter.parentRandomTraitCaller = gameObject;
+
         RandomizeAll randomizeAll = dna.transform.parent.GetComponentInChildren<RandomizeAll>();
         randomizeAll.exportVRMFromRandomTrait = mainCharacterAction;
         randomizeAll.parentRandomTraitCaller = gameObject;

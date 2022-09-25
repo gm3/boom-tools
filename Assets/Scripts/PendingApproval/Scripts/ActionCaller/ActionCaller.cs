@@ -14,6 +14,8 @@ public class ActionCaller : MonoBehaviour
     public Object selectedObject;
     [HideInInspector]
     public string selectedTrait;
+    [HideInInspector]
+    public bool selectionMode = false;
 
     public bool enableAction = true;
 
@@ -42,6 +44,20 @@ public class ActionCaller : MonoBehaviour
         if (randomTarget != null)
         {
             selectedObject = randomTarget.GetRandomObject();
+            selectedTrait = randomTarget.GetObjectTraitName();
+        }
+        else
+        {
+            Debug.LogWarning("No random target set in script SetObjectsVisibility in: " + gameObject.name);
+        }
+    }
+    public void SetTargetTrait(int value)
+    {
+        enableAction = true;
+        if (randomTarget != null)
+        {
+            randomTarget.SetCurrentSelected(value);
+            selectedObject = randomTarget.GetSelectedObject();
             selectedTrait = randomTarget.GetObjectTraitName();
         }
         else

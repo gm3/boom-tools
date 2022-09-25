@@ -67,6 +67,7 @@ public class ConfigureRandomizer : MonoBehaviour
 
                     if (exportVRMFromRandomTrait != null)
                         modelToExportToVRM = exportVRMFromRandomTrait.selectedObject as GameObject;
+
                     cameraCaptureReference.Capture();
                     toTxtFileRef.CreateTextFile();
                     vrmRuntimeExporterRef.Export(modelToExportToVRM, true, dnaManagerReference.genID.ToString());

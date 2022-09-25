@@ -36,16 +36,23 @@ public class RandomObject : MonoBehaviour
         }
         return objects[currentSelected];
     }
+    public void SetCurrentSelected(int value)
+    {
+        currentSelected = value;
+    }
     public int GetObjectWeight()
     {
+        if (currentSelected < 0) return -1;
         return weights[currentSelected];
     }
     public string GetObjectTraitName()
     {
+        if (currentSelected < 0) return "";
         return nameTraits[currentSelected];
     }
     public Object GetSelectedObject()
     {
+        if (currentSelected < 0) return null;
         return objects[currentSelected];
     }
     public Object GetObjectAt(int index)

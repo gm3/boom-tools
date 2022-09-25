@@ -49,6 +49,9 @@ public class OptionsManager_Editor : Editor
             case 4:
                 RulesSetup();
                 break;
+            case 5:
+                SelectionMode();
+                break;
         }
 
 
@@ -115,6 +118,13 @@ public class OptionsManager_Editor : Editor
         if (GUILayout.Button("Rules", GUILayout.Height(30f)))
         {
             myScript.setupStage = 4;
+        }
+
+        GUILayout.Space(5f);
+
+        if (GUILayout.Button("Select Test", GUILayout.Height(30f)))
+        {
+            myScript.setupStage = 5;
         }
     }
     private void CharacterSetup()
@@ -623,7 +633,10 @@ public class OptionsManager_Editor : Editor
                     else
                         EditorGUILayout.LabelField(ac.randomTarget.gameObject.name, GUILayout.Width(100f));
                     EditorGUILayout.LabelField(ac.traitName, GUILayout.Width(70f));
-                    if (GUILayout.Button("Edit", GUILayout.Width(50f))) Selection.activeGameObject = myScript.actionCallers[i];
+                    if (GUILayout.Button("Edit", GUILayout.Width(50f))) { 
+                        Selection.activeGameObject = myScript.actionCallers[i];
+                        
+                    }
                     if (GUILayout.Button("X", GUILayout.Width(20f)))
                     {
                         Undo.RegisterFullObjectHierarchyUndo(myScript.actionsHolder, "Remove Random Options");
@@ -697,6 +710,96 @@ public class OptionsManager_Editor : Editor
                     }
                     EditorGUILayout.EndHorizontal();
                 }
+            }
+        }
+    }
+
+    bool selectingCharacter = false;
+    private void SelectionMode()
+    {
+        if (!selectingCharacter)
+        {
+            GoBackButton();
+
+            GUILayout.Space(5f);
+            GUILayout.Label("=Instructions= " +
+                "\n\nSelect a trait then select the option to manually place it.\n", styleCentered);
+            GUILayout.Space(5f);
+
+            if (myScript.actionCallers?.Count > 0)
+            {
+                EditorGUILayout.BeginHorizontal();
+                EditorGUILayout.LabelField("TYPE", BoomToolsGUIStyles.CustomLabel(false, true, false), GUILayout.Width(100f));
+                EditorGUILayout.LabelField("Button", BoomToolsGUIStyles.CustomLabel(true, true, false));
+                EditorGUILayout.EndHorizontal();
+
+                GUILayout.Space(5f);
+
+                EditorGUILayout.BeginHorizontal();
+                EditorGUILayout.LabelField("Character", BoomToolsGUIStyles.CustomLabel(false, true, false), GUILayout.Width(100f));
+                if (GUILayout.Button("Select Character"))
+                {
+                    selectingCharacter = true;
+                }
+                EditorGUILayout.EndHorizontal();
+
+
+                for (int i = 0; i < myScript.actionCallers.Count; i++)
+                {
+                    if (myScript.actionCallers[i] == null)
+                    {
+                        myScript.RemoveElement(ref myScript.actionCallers, i);
+                    }
+                    else
+                    {
+                        ActionCaller ac = myScript.actionCallers[i].GetComponent<ActionCaller>();
+                        string labelType;
+                        switch (ac.GetType().ToString())
+                        {
+                            case "SetObjectsVisibility":
+                                labelType = "GObject";
+                                break;
+                            case "SetTextureToMaterial":
+                                labelType = "Texture";
+                                break;
+                            case "SetMaterialToMesh":
+                                labelType = "Material";
+                                break;
+                            default:
+                                labelType = "Generic";
+                                break;
+                        }
+                        EditorGUILayout.BeginHorizontal();
+                        EditorGUILayout.LabelField(labelType, BoomToolsGUIStyles.CustomLabel(false, true, false), GUILayout.Width(100f));
+                        if (GUILayout.Button(myScript.actionCallers[i].name))
+                        {
+
+                            Selection.activeGameObject = myScript.actionCallers[i];
+                            ac.selectionMode = true;
+                        }
+                        EditorGUILayout.EndHorizontal();
+                    }
+                }
+            }
+        }
+        else
+        {
+            if (GUILayout.Button("Back to select actions", GUILayout.Height(30f)))
+            {
+                selectingCharacter = false;
+            }
+            EditorGUILayout.LabelField("*Selection Mode: Click the button to trigger the action for that specific option", BoomToolsGUIStyles.CustomLabel(true, true, true));
+            GUILayout.Space(5f);
+
+            for (int i = 0; i < myScript.mainCharacterOptions.objects.Count; i++)
+            {
+                //EditorGUILayout.BeginHorizontal();
+                if (GUILayout.Button(myScript.mainCharacterOptions.nameTraits[i]))
+                {
+                    myScript.mainCharacterAction.SetTargetTrait(i);
+                    myScript.mainCharacterAction.SetAction();
+                }
+                //EditorGUILayout.EndHorizontal();
             }
         }
     }
