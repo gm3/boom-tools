@@ -1,3 +1,9 @@
 /Library
 /Logs
 /Temp
+/Build
+/Builds
+/Ludiq*
+/ProjectSettings
+/UserSettings
+/Assets/AssetStoreTools*
