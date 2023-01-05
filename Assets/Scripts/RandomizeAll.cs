@@ -13,6 +13,7 @@ public class RandomizeAll : MonoBehaviour
     public PrintRandomValue[] randomScriptReferences;
     public BGColorRandomizer randomBGScriptReference;
     public BGColorRandomizer randomBodyTextureScriptReferences;
+    public BGColorRandomizer randomBoomboxTextureScriptReferences;
     public Button buttonReference;
     public DNAManager dnaManagerReference;
 
@@ -63,6 +64,7 @@ public class RandomizeAll : MonoBehaviour
         randomScriptReferences[6].RandomCheck();
         randomBGScriptReference.RandomCheck();
         randomBodyTextureScriptReferences.RandomCheck();
+        randomBoomboxTextureScriptReferences.RandomCheck();
         dnaManagerReference.ExportJsonToText(newTraits);
     }
 

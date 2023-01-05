@@ -1,0 +1,18 @@
+# Apple ModelI/O MTL File: 2.mtl
+
+newmtl BoxMaterial_1
+	map_Kd BoxMaterial_1-color.png
+	Kd 1 1 1
+	Ka 0 0 0
+	Ks 0
+	ao 0
+	subsurface 0
+	map_metallic BoxMaterial_1-metallic.png
+	specularTint 0
+	map_roughness BoxMaterial_1-roughness.png
+	anisotropicRotation 0
+	sheen 0.05
+	sheenTint 0
+	clearCoat 0
+	clearCoatGloss 0
+

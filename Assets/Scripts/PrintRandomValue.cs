@@ -81,7 +81,7 @@ public class PrintRandomValue : MonoBehaviour
 
     public void RandomCheck(){
         string randomValue = GetRandomValue(weightedValues);
-        Debug.Log(randomValue ?? "No entries found");
+        //Debug.Log(randomValue ?? "No entries found");
         
 
             for(int i = 0; i < totalObjectsInLayer.Length; i++)

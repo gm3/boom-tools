@@ -70,7 +70,7 @@ public class BGColorRandomizer : MonoBehaviour
     void TaskOnClick(){
         Debug.Log ("You have clicked the button!"); 
         string randomValue = GetRandomValue(weightedValues);
-        Debug.Log(randomValue ?? "No entries found");
+        //Debug.Log(randomValue ?? "No entries found");
         
 
         for(int i = 0; i < totalMaterials.Length; i++)
@@ -88,7 +88,7 @@ public class BGColorRandomizer : MonoBehaviour
 
     public void RandomCheck(){
         string randomValue = GetRandomValue(weightedValues);
-        Debug.Log(randomValue ?? "No entries found");
+        //Debug.Log(randomValue ?? "No entries found");
 
             for(int i = 0; i < totalMaterials.Length; i++)
             {

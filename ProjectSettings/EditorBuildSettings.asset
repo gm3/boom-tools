@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Boomboxheadsv2_Example.unity
+    guid: 54f3d549ffb771b44986b4dec2c3c90a
   m_configObjects: {}

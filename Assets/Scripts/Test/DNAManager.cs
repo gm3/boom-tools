@@ -14,6 +14,7 @@ public class DNAManager : MonoBehaviour
     public PrintRandomValue[] randomScriptReferences;
     public BGColorRandomizer randomBGScriptReferences;
     public BGColorRandomizer randomBodyTextureScriptReferences;
+    public BGColorRandomizer randomBoomboxTextureScriptReferences;
     public SuperRule superRuleReference;
    
     public string[] allLayerTraits;
@@ -117,7 +118,8 @@ public class DNAManager : MonoBehaviour
         randomScriptReferences[traitIndex].currentEntryValue 
         + "\"\n" +
 
-        "\t}\n";
+        "\t}";
+        //"\t}\n";
         // end trait function
 
         //set DNA value
@@ -145,7 +147,8 @@ public class DNAManager : MonoBehaviour
         randomBodyTextureScriptReferences.currentEntryValue 
         + "\"\n" +
 
-        "\t}\n";
+        "\t}";
+        //"\t}\n";
         // end trait function
 
         string traitDNA = randomBodyTextureScriptReferences.traitType + randomBodyTextureScriptReferences.currentEntryValue;
@@ -169,9 +172,34 @@ public class DNAManager : MonoBehaviour
         randomBGScriptReferences.currentEntryValue 
         + "\"\n" +
 
-        "\t}\n";
+        "\t}";
+        //"\t}\n";
         // end trait function
         string traitDNA = randomBGScriptReferences.traitType + randomBGScriptReferences.currentEntryValue;
+        DNACode += traitDNA;
+        return value;
+
+    }
+
+    public string GetBoomboxColorTrait()
+    {
+        string value;
+        value = "\t{\n" +
+
+        // trait type
+        "\t\t\"trait_type\"" + ": \"" + 
+        randomBoomboxTextureScriptReferences.traitType  
+        + "\",\n" +
+
+        // value
+        "\t\t\"value\"" + ": \"" + 
+        randomBoomboxTextureScriptReferences.currentEntryValue 
+        + "\"\n" +
+
+        "\t}";
+        //"\t}\n";
+        // end trait function
+        string traitDNA = randomBoomboxTextureScriptReferences.traitType + randomBoomboxTextureScriptReferences.currentEntryValue;
         DNACode += traitDNA;
         return value;
 
@@ -185,27 +213,29 @@ public class DNAManager : MonoBehaviour
         if(superRuleReference.CheckSuperRule1()){
 
         allTraits = 
-          GetTrait(0) + "," 
-        + GetTrait(1) + ","
-        + GetTrait(2) + ","
-        + GetTrait(3) + ","
-        + GetTrait(4) + ","
-        + GetTrait(5) + ","
-        + GetTrait(6) + ","
-        + GetRobotColorTrait() + ","
+          GetTrait(0) + ",\n" 
+        + GetTrait(1) + ",\n"
+        + GetTrait(2) + ",\n"
+        + GetTrait(3) + ",\n"
+        + GetTrait(4) + ",\n"
+        + GetTrait(5) + ",\n"
+        + GetTrait(6) + ",\n"
+        + GetRobotColorTrait() + ",\n"
+        + GetBoomboxColorTrait() + ",\n"
         + GetBGColorTrait();
         // end trait function
         }else{
 
         allTraits = 
-          GetTrait(0) + "," 
-        + GetTrait(1) + ","
-        + GetTrait(2) + ","
-        + GetTrait(3) + ","
-        + GetTrait(4) + ","
-        + GetTrait(5) + ","
-        + GetTrait(6) + ","
-        + GetRobotColorTrait() + ","
+          GetTrait(0) + ",\n" 
+        + GetTrait(1) + ",\n"
+        + GetTrait(2) + ",\n"
+        + GetTrait(3) + ",\n"
+        + GetTrait(4) + ",\n"
+        + GetTrait(5) + ",\n"
+        + GetTrait(6) + ",\n"
+        + GetRobotColorTrait() + ",\n"
+        + GetBoomboxColorTrait() + ",\n"
         + GetBGColorTrait();
 
         }
