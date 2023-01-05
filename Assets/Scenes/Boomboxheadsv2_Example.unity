@@ -4032,7 +4032,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dnaManagerReference: {fileID: 1437213998}
   UseNormalize: 1
-  m_model: {fileID: 0}
+  m_model: {fileID: 7877135478322448949}
   buttonReference: {fileID: 1797973353}
   cameraCaptureReference: {fileID: 2146681997}
   toTxtFileRef: {fileID: 1805947274}
