@@ -1,11 +1,18 @@
 # boom-tools: a.r.m. avatar randomizer machine
 ###### tags: `boom-tools` `Unity Layer Randomizer` `devlog` ```v.0.0.1-alpha```
 
-
 ![](https://i.imgur.com/qYqOZM5.gif)
+
+![](https://hackmd.io/_uploads/r1tnnr45i.png)
+https://i.imgur.com/qYqOZM5.gif)
 
 ## Summary
 This is a tool that can randomize layers in Unity using weighted randomization. It can export VRMs using uniVRM. The tool can be configured to export a batch of VRMs with erc-1155 metadata, along with an image. You can use this tool to randomize pretty much anything if customized. 
+![](https://hackmd.io/_uploads/rknRhrEqo.gif)
+
+You can use VRMs in Webaverse, Hyperfy, Monaverse, Unreal Engine, Unity3d and tons of other places on the web!
+![](https://hackmd.io/_uploads/SktZarEqo.gif)
+![](https://hackmd.io/_uploads/SyYt6rN9j.gif)
 
 ## Dependencies
 
@@ -24,6 +31,8 @@ This is a tool that can randomize layers in Unity using weighted randomization. 
 - You can also export a single VRM as well as just the JSON if you wish.
 ### Roll Mode (beta)
 - ```Roll``` mode is still being worked on. You can spin through a bunch and land on a random avatar.
+
+
 ## Layers and Heirechy
 ![](https://i.imgur.com/uwNNh34.png)
 All of the scripts are nested under the `_BoomTools` GameObject and the output can be configered there for the batch export.
