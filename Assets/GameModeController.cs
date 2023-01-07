@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public enum GameMode
 {
@@ -17,11 +18,30 @@ public class GameModeController : MonoBehaviour
     public GameObject ImportModeJSONUIReference;
     public ImportJSON ImportJSONScriptsReference;
     public TextMeshProUGUI modeValueTextReference;
+    public GameObject DropDownReference;
+    public TMP_Text TextBox;
 
     void Start()
     {
         currentGameMode = GameMode.Random;
         modeValueTextReference.text = currentGameMode.ToString();
+
+
+        var dropdown = DropDownReference.transform.GetComponent<TMP_Dropdown>();
+
+        List<string> items = new List<string>();
+
+        items.Add("Random");
+        items.Add("Input");
+
+        // fill dropdown with items
+        foreach(var item in items){
+            dropdown.options.Add(new TMP_Dropdown.OptionData() { text = item});
+        }
+
+        DropdownItemSelected(dropdown);
+
+        dropdown.onValueChanged.AddListener(delegate {DropdownItemSelected(dropdown); } );
     }
 
     public void SwitchGameMode(GameMode newGameMode)
@@ -50,6 +70,21 @@ public class GameModeController : MonoBehaviour
                 modeValueTextReference.text = currentGameMode.ToString();
                 
                 break;
+        }
+    }
+
+    void DropdownItemSelected(TMP_Dropdown dropdown)
+    {
+    int index = dropdown.value;
+        TextBox.text = dropdown.options[index].text;
+
+        if (dropdown.options[index].text == "Random")
+        {
+            currentGameMode = GameMode.Random;
+        }
+        else if (dropdown.options[index].text == "Input")
+        {
+            currentGameMode = GameMode.Import;
         }
     }
 }

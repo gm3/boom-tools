@@ -1,8 +1,8 @@
 { 
 "description": "This is a default description about this NFT",
 "external_url": "https://github.com/m3-org",
-"image": "https://www.ipfsreplacethis.com/imagefile7.png",
-"name": "Boomboxhead #7 ",
+"image": "https://www.ipfsreplacethis.com/imagefile1.png",
+"name": "Boomboxhead #1 ",
 "attributes": [
 	{
 		"trait_type": "Hat",
@@ -10,19 +10,19 @@
 	},
 	{
 		"trait_type": "Mouth",
-		"value": "Mouth2"
+		"value": "Mouth1"
 	},
 	{
 		"trait_type": "Glasses",
-		"value": "empty"
+		"value": "3dGlasses3"
 	},
 	{
 		"trait_type": "Weapon",
-		"value": "Sword"
+		"value": "Axe"
 	},
 	{
 		"trait_type": "Patches",
-		"value": "FacePatch"
+		"value": "BoomToolsPatch"
 	},
 	{
 		"trait_type": "Backpacks",
@@ -34,14 +34,14 @@
 	},
 	{
 		"trait_type": "BGColor",
-		"value": "20_Pottery"
+		"value": "6_AbstractPaint"
 	},
 	{
 		"trait_type": "BBTexture",
-		"value": "3"
+		"value": "8"
 	},
 	{
 		"trait_type": "BodyTexture",
-		"value": "1_Paint"
+		"value": "1Paint"
 	}	]
 }
