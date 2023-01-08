@@ -24,7 +24,7 @@ public class RandomizeAll : MonoBehaviour
     {
         Button btn = buttonReference.GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
-        RamdomizeAll();
+        //RamdomizeAll();
 
     }
 

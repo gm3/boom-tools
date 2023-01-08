@@ -1,0 +1,47 @@
+{ 
+"description": "This is a default description about this NFT",
+"external_url": "https://github.com/m3-org",
+"image": "https://www.ipfsreplacethis.com/imagefile4.png",
+"name": "Boomboxhead #4 ",
+"attributes": [
+	{
+		"trait_type": "Hat",
+		"value": "empty"
+	},
+	{
+		"trait_type": "Mouth",
+		"value": "empty"
+	},
+	{
+		"trait_type": "Glasses",
+		"value": "3dGlasses4"
+	},
+	{
+		"trait_type": "Weapon",
+		"value": "Sledgehammer"
+	},
+	{
+		"trait_type": "Patches",
+		"value": "empty"
+	},
+	{
+		"trait_type": "Backpacks",
+		"value": "Backpack5"
+	},
+	{
+		"trait_type": "Special",
+		"value": "empty"
+	},
+	{
+		"trait_type": "BGColor",
+		"value": "19_PlainWall"
+	},
+	{
+		"trait_type": "BBTexture",
+		"value": "16"
+	},
+	{
+		"trait_type": "BodyTexture",
+		"value": "3Red"
+	}	]
+}

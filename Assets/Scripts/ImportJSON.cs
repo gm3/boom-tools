@@ -7,9 +7,11 @@ using System.IO;
 using System;
 using TMPro;
 using UnityEngine.Networking;
+using VRM;
 
 public class ImportJSON : MonoBehaviour
 {
+    
     string[] jsonFileNames = { "JSON_Output1" };
     public static List<TraitsToLoad> TraitsToLoadList = new List<TraitsToLoad>();
     public static TextAsset jsonFile;
@@ -17,12 +19,12 @@ public class ImportJSON : MonoBehaviour
     public string filename;
     public Button buttonReference;
     public Button browseButtonReference;
-    public int totalNFTs;
+    public Button batchImportButtonReference;
     public DNAManager dnaManagerReference;
     public TMP_InputField inputField;
+    public TMP_InputField totalJsonFilesInputField;
     private string myString; 
     string path;    
-    public ImportMaterialsConfig ImportMaterialsConfigRef; // Add a reference to the other script as a public field
     public GameObject Object1Ref; // Add a public field for the first additional game object
     public GameObject Object2Ref; // Add a public field for the second additional game object
     public GameObject Object3Ref; // Add a public field for the third additional game object
@@ -38,32 +40,82 @@ public class ImportJSON : MonoBehaviour
     public int index2 = -1;
     public int index3 = -1;
 
+    private GameObject objectToChangeMaterialOf;
+
+    public int totalNFTs = 1;
+    int loadCount = 0;
+
+    // VRM Metadata feilds
+    public string vrmTitle = "";
+    public string vrmAuthor = "";
+    public string vrmContactInformation = "";
+    public string vrmReference = "";
+    public string vrmVersion = "0.x";
+
+    // CameraReference
+    public CameraCapture cameraCaptureReference;
+
+    // Export specific feilds
+    public ToTextFile toTxtFileRef;
+    private Coroutine delayCoroutine;
+    public float delaySpeed;
+    public VRMRuntimeExporter1 vrmRuntimeExporterRef;
+    public GameObject modelToExportToVRM;
+    public SetObjectsVisibility exportVRMFromRandomTrait;
+    //public gltfExporter gltfExporterRef;
+
+    public bool isExportingToFile = false; 
+    public bool isExportingScreenshots = false; 
+    
+
     void Start()
         {
             Button btn = buttonReference.GetComponent<Button>();
             btn.onClick.AddListener(TaskOnImportClick); 
             Button brzbtn = browseButtonReference.GetComponent<Button>();
             brzbtn.onClick.AddListener(TaskOnBrowseButtonClick); 
+
+            // set filename default
             filename = inputField.text;
+
+            Button batchbtn = batchImportButtonReference.GetComponent<Button>();
+            batchbtn.onClick.AddListener(TaskOnBatchImportClick); 
+
             inputField.onValueChanged.AddListener(OnPathValueChanged);
+            totalJsonFilesInputField.onValueChanged.AddListener(OnTotalJsonFilesValueChanged);
         }
 
     void TaskOnImportClick()
         {
-            Debug.Log ("You have imported a json text file"); 
-            LoadJSON();
+            //Debug.Log ("You have imported a json text file"); 
+            LoadJSON(filename);
+        }
+
+    void TaskOnBatchImportClick()
+        {
+            
+            //dnaManagerReference.genID = 1;
+            StartCoroutine(BatchLoadJSON());
+            Debug.Log ("You have imported a batch"); 
+            
         }
 
     void TaskOnBrowseButtonClick()
         {
             OpenFileExplorer();
-            Debug.Log ("You have clicked browse"); 
+            //Debug.Log ("You have clicked browse"); 
             GetJSONFile();
         }
 
     void OnPathValueChanged(string newValue)
         {   
             filename = inputField.text;
+        }
+
+    void OnTotalJsonFilesValueChanged(string newValue)
+        {   
+            
+            totalNFTs = int.Parse(totalJsonFilesInputField.text);
         }
     
     public void OpenFileExplorer()
@@ -74,82 +126,67 @@ public class ImportJSON : MonoBehaviour
             inputField.text = finalString;
         }
     
-   public void LoadJSON()
+   public void LoadJSON(string filename)
         {   
+            //Debug.Log(filename);
             jsonFile = Resources.Load(filename) as TextAsset;
             obj = JsonUtility.FromJson<TraitsToLoad>(jsonFile.text);
-            GameObject[] objects = (GameObject[])UnityEngine.Object.FindObjectsOfTypeAll(typeof(GameObject));
-        
+            GameObject[] objects = (GameObject[])Resources.FindObjectsOfTypeAll(typeof(GameObject));
+
             foreach (AttributeClass attr in obj.attributes)
             {
                 string traitType = attr.trait_type;
                 string value = attr.value;
 
-                
-
-                foreach (GameObject objs in objects)
+                if (traitType == "BGColor")
                 {
-                    if (objs.name == value)
+                    LoadMaterial(traitType, value, layerStringData1, totalMaterialsObject1, Object1Ref);
+                }
+                else if (traitType == "BodyTexture")
+                {
+                    LoadMaterial(traitType, value, layerStringData2, totalMaterialsObject2, Object2Ref);
+                }
+                else if (traitType == "BBTexture")
+                {
+                    LoadMaterial(traitType, value, layerStringData3, totalMaterialsObject3, Object3Ref);
+                }
+                else
+                {
+                    foreach (GameObject objs in objects)
                     {
-                        objs.SetActive(true);
-                    }
-
-                    if (traitType == "BGColor")
-                    {
-                        for (int i = 0; i < layerStringData1.Length; i++)
+                        if (objs.name == value)
                         {
-                            
-                            if (layerStringData1[i] == value)
-                            {
-                                index1 = i;
-                                 if (index1 >= 0)
-                                    {
-                                        Object1Ref.GetComponent<Renderer>().material =  totalMaterialsObject1[index1];
-                                        Debug.Log("Object1 Match " + traitType + " " + layerStringData1[i] + " " + value);
-                                    }
-                                
-                            }
+                            objs.SetActive(true);
                         }
                     }
-                    
-                    
-                    if (traitType == "BodyTexture")
-                    {
+                }
+            }
 
-                        for (int i = 0; i < layerStringData2.Length; i++)
-                        {
-                            if (layerStringData2[i] == value)
-                            {
-                                
-                                index2 = i;
-                                if (index2 >= 0)
-                                    {
-                                       Object2Ref.GetComponent<SkinnedMeshRenderer>().sharedMaterials = new Material[] { totalMaterialsObject2[index2] };
-                                    Debug.Log("Object2 Match " + traitType + " " + layerStringData2[i] + " " + value);
-                                    }
-                                
-                            }
-                        }
-                        
-                    }
+            
 
-                    if (traitType == "BBTexture")
+        
+        }
+
+    private void LoadMaterial(string traitType, string value, string[] layerStringData, Material[] materials, GameObject gameObject)
+        {
+            for (int i = 0; i < layerStringData.Length; i++)
+            {
+                if (layerStringData[i] == value)
+                {
+                    int index = i;
+                    if (index >= 0)
                     {
-                        for (int i = 0; i < layerStringData3.Length; i++)
+                        if (gameObject.GetComponent<SkinnedMeshRenderer>() != null)
                         {
-                            if (layerStringData3[i] == value)
-                            {
-                                index3 = i;
-                                if (index3 >= 0)
-                                {
-                                    Object3Ref.GetComponent<SkinnedMeshRenderer>().sharedMaterials = new Material[] { totalMaterialsObject3[index3] };
-                                    Debug.Log("BBTexture Match " + traitType + " " + layerStringData3[i] + " " + value);
-                                }
-                            }
+                            gameObject.GetComponent<SkinnedMeshRenderer>().sharedMaterials = new Material[] { materials[index] };
                         }
+                        else
+                        {
+                            gameObject.GetComponent<Renderer>().material = materials[index];
+                        }
+                        //Debug.Log(traitType + " Match " + layerStringData[i] + " " + value);
                     }
-                }    
-                
+                }
             }
         }
 
@@ -174,5 +211,100 @@ public class ImportJSON : MonoBehaviour
         }
 
 
+    public bool ExportVRM()
+        {
+             if(isExportingToFile)
+             {
+             
+                    // export vrm            
+                    if (exportVRMFromRandomTrait != null)
+
+                    
+                        modelToExportToVRM = exportVRMFromRandomTrait.selectedObject as GameObject;
+                        dnaManagerReference.genID++;
+                    vrmRuntimeExporterRef.Export(modelToExportToVRM, true, dnaManagerReference.genID.ToString());
+
+                    dnaManagerReference.jsonOutputPreview = jsonFile.text;
+
+                    loadCount++;
+                    dnaManagerReference.genID = loadCount;
+
+                    // eport json
+                    toTxtFileRef.CreateTextFile();
+
+                    // take screenshot
+                    if(isExportingScreenshots)
+                    {
+                    cameraCaptureReference.Capture();    
+                    }
+                    
+
+                    // export to file if condition is true
+                    
+             }
+                
+            // ...
+            Debug.Log("You exported VRM# " + loadCount);
+            // Return true if export was successful, false otherwise
+            return true;
+        }
+
+
+    IEnumerator BatchLoadJSON()
+        {
+            string path = "Assets/Resources/"; // Use a valid path
+            string[] info = Directory.GetFiles(path, "*.txt");
+
+           // string fileName = Path.GetFileNameWithoutExtension(path);
+
+            string[] fileEntries = info;
+        
+            foreach (string fileName in fileEntries)
+            {
+                string file = Path.GetFileNameWithoutExtension(fileName);
+                //string file = fileName.Substring(0, fileName.Length - 4);
+                //Debug.Log(file);
+                // Load first JSON file
+                LoadJSON(file);
+
+               
+                ExportVRM();
+
+                //update the genID
+                
+
+                //update the jsonOutputPrevie required for text output
+                
+
+                // Export VRM with null check
+                /* if ( == false)
+                {
+                    break;
+                } */
+                yield return new WaitForSeconds(1.0f);
+            }
+        }
+
+    /* public void AdddMetaData()
+        {
+            VRMMetaObject metaData = ScriptableObject.CreateInstance<VRMMetaObject>();
+            metaData.Title = vrmTitle;
+            metaData.Version = vrmVersion;
+            metaData.Author = vrmAuthor;
+            metaData.ContactInformation = vrmContactInformation;
+            metaData.Reference = vrmReference;
+
+            VRMMeta metaComponent = modelToExportToVRM.AddComponent<VRMMeta>();
+            metaComponent.Meta = metaData;   
+            //yield return new WaitForSeconds(.01f);    
+        }     */
 
 }
+
+
+
+
+
+
+
+

@@ -10,23 +10,23 @@
 	},
 	{
 		"trait_type": "Mouth",
-		"value": "Mouth1"
+		"value": "Mouth5"
 	},
 	{
 		"trait_type": "Glasses",
-		"value": "3dGlasses3"
+		"value": "empty"
 	},
 	{
 		"trait_type": "Weapon",
-		"value": "Axe"
+		"value": "Mace"
 	},
 	{
 		"trait_type": "Patches",
-		"value": "BoomToolsPatch"
+		"value": "FacePatch"
 	},
 	{
 		"trait_type": "Backpacks",
-		"value": "Backpack5"
+		"value": "Backpack1"
 	},
 	{
 		"trait_type": "Special",
@@ -34,14 +34,14 @@
 	},
 	{
 		"trait_type": "BGColor",
-		"value": "6_AbstractPaint"
+		"value": "20_Pottery"
 	},
 	{
 		"trait_type": "BBTexture",
-		"value": "8"
+		"value": "19"
 	},
 	{
 		"trait_type": "BodyTexture",
-		"value": "1Paint"
+		"value": "6Purple"
 	}	]
 }
