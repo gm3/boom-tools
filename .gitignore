@@ -6,6 +6,11 @@
 /Ludiq*
 /ProjectSettings
 /UserSettings
+/Assets/StreamingAssets/*
+/Assets/StreamingAssets/Images*
+/Assets/StreamingAssets/JSON_Output
+/Assets/StreamingAssets/VRM*
+/Assets/Resources/*
 /Assets/AssetStoreTools*
 .vs/boom-tools/v16/.suo
 *.sqlite

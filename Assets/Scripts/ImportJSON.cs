@@ -127,45 +127,55 @@ public class ImportJSON : MonoBehaviour
         }
     
    public void LoadJSON(string filename)
-        {   
-            //Debug.Log(filename);
-            jsonFile = Resources.Load(filename) as TextAsset;
-            obj = JsonUtility.FromJson<TraitsToLoad>(jsonFile.text);
-            GameObject[] objects = (GameObject[])Resources.FindObjectsOfTypeAll(typeof(GameObject));
+{   
+    Debug.Log(filename);
+    jsonFile = Resources.Load(filename) as TextAsset;
+    obj = JsonUtility.FromJson<TraitsToLoad>(jsonFile.text);
+    GameObject[] objects = (GameObject[])Resources.FindObjectsOfTypeAll(typeof(GameObject));
 
-            foreach (AttributeClass attr in obj.attributes)
+    GameObject[] objectsWithTraits = GameObject.FindGameObjectsWithTag("Traits");
+
+    foreach (GameObject objs in objectsWithTraits)
+                {
+                    Debug.Log(objs.name);
+                    objs.SetActive(false); 
+                }
+    
+    foreach (AttributeClass attr in obj.attributes)
+    {
+    
+        string traitType = attr.trait_type;
+        string value = attr.value;
+
+        if (traitType == "BGColor")
+        {
+            LoadMaterial(traitType, value, layerStringData1, totalMaterialsObject1, Object1Ref);
+        }
+        else if (traitType == "BodyTexture")
+        {
+            LoadMaterial(traitType, value, layerStringData2, totalMaterialsObject2, Object2Ref);
+        }
+        else if (traitType == "BBTexture")
+        {
+            LoadMaterial(traitType, value, layerStringData3, totalMaterialsObject3, Object3Ref);
+        }
+        else
+        {
+            
+            
+                // Find the object that matches the trait value and set it active
+            foreach (GameObject objs in objects)
             {
-                string traitType = attr.trait_type;
-                string value = attr.value;
-
-                if (traitType == "BGColor")
+                if (objs.name == value)
                 {
-                    LoadMaterial(traitType, value, layerStringData1, totalMaterialsObject1, Object1Ref);
-                }
-                else if (traitType == "BodyTexture")
-                {
-                    LoadMaterial(traitType, value, layerStringData2, totalMaterialsObject2, Object2Ref);
-                }
-                else if (traitType == "BBTexture")
-                {
-                    LoadMaterial(traitType, value, layerStringData3, totalMaterialsObject3, Object3Ref);
-                }
-                else
-                {
-                    foreach (GameObject objs in objects)
-                    {
-                        if (objs.name == value)
-                        {
-                            objs.SetActive(true);
-                        }
-                    }
+                    objs.SetActive(true);
                 }
             }
 
             
-
-        
         }
+    }
+}
 
     private void LoadMaterial(string traitType, string value, string[] layerStringData, Material[] materials, GameObject gameObject)
         {
@@ -281,7 +291,7 @@ public class ImportJSON : MonoBehaviour
                 {
                     break;
                 } */
-                yield return new WaitForSeconds(1.0f);
+                yield return new WaitForSeconds(.2f);
             }
         }
 

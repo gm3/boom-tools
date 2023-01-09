@@ -751,6 +751,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4ccb3f4bb0a64824eb56912f3fd75991,
+        type: 3}
+      propertyPath: m_TagString
+      value: Traits
+      objectReference: {fileID: 0}
     - target: {fileID: 2875181062541618512, guid: 4ccb3f4bb0a64824eb56912f3fd75991,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -2952,7 +2957,7 @@ GameObject:
   - component: {fileID: 166334147}
   m_Layer: 0
   m_Name: Mouth2
-  m_TagString: Untagged
+  m_TagString: Traits
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3640,7 +3645,7 @@ GameObject:
   - component: {fileID: 258714288}
   m_Layer: 0
   m_Name: empty
-  m_TagString: Untagged
+  m_TagString: Traits
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3671,7 +3676,7 @@ GameObject:
   - component: {fileID: 270157768}
   m_Layer: 0
   m_Name: Mouth5
-  m_TagString: Untagged
+  m_TagString: Traits
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4522,6 +4527,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fdf7a514f7ffce244aea5b065eeb3e91,
+        type: 3}
+      propertyPath: m_TagString
+      value: Traits
+      objectReference: {fileID: 0}
     - target: {fileID: 5389273720769730467, guid: fdf7a514f7ffce244aea5b065eeb3e91,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -4602,7 +4612,7 @@ GameObject:
   - component: {fileID: 382441662}
   m_Layer: 0
   m_Name: empty
-  m_TagString: Untagged
+  m_TagString: Traits
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8367,7 +8377,7 @@ GameObject:
   - component: {fileID: 766697372}
   m_Layer: 0
   m_Name: Mouth3
-  m_TagString: Untagged
+  m_TagString: Traits
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9650,7 +9660,7 @@ GameObject:
   - component: {fileID: 919006274}
   m_Layer: 0
   m_Name: empty
-  m_TagString: Untagged
+  m_TagString: Traits
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12491,7 +12501,7 @@ GameObject:
   - component: {fileID: 1080661889}
   m_Layer: 0
   m_Name: Mouth4
-  m_TagString: Untagged
+  m_TagString: Traits
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15198,7 +15208,7 @@ GameObject:
   - component: {fileID: 1278450857}
   m_Layer: 0
   m_Name: Mouth1
-  m_TagString: Untagged
+  m_TagString: Traits
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15670,6 +15680,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fdf7a514f7ffce244aea5b065eeb3e91,
+        type: 3}
+      propertyPath: m_TagString
+      value: Traits
+      objectReference: {fileID: 0}
     - target: {fileID: 5389273720769730467, guid: fdf7a514f7ffce244aea5b065eeb3e91,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -15903,7 +15918,7 @@ GameObject:
   - component: {fileID: 1316583619}
   m_Layer: 0
   m_Name: empty
-  m_TagString: Untagged
+  m_TagString: Traits
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18001,6 +18016,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fdf7a514f7ffce244aea5b065eeb3e91,
+        type: 3}
+      propertyPath: m_TagString
+      value: Traits
+      objectReference: {fileID: 0}
     - target: {fileID: 5389273720769730467, guid: fdf7a514f7ffce244aea5b065eeb3e91,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -18480,7 +18500,7 @@ GameObject:
   - component: {fileID: 1456706862}
   m_Layer: 0
   m_Name: CDTape
-  m_TagString: Untagged
+  m_TagString: Traits
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20953,7 +20973,7 @@ GameObject:
   - component: {fileID: 1688868581}
   m_Layer: 0
   m_Name: empty
-  m_TagString: Untagged
+  m_TagString: Traits
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21923,7 +21943,7 @@ GameObject:
   - component: {fileID: 1751626132}
   m_Layer: 0
   m_Name: empty
-  m_TagString: Untagged
+  m_TagString: Traits
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22576,6 +22596,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fdf7a514f7ffce244aea5b065eeb3e91,
+        type: 3}
+      propertyPath: m_TagString
+      value: Traits
       objectReference: {fileID: 0}
     - target: {fileID: 5389273720769730467, guid: fdf7a514f7ffce244aea5b065eeb3e91,
         type: 3}
@@ -25918,6 +25943,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fdf7a514f7ffce244aea5b065eeb3e91,
+        type: 3}
+      propertyPath: m_TagString
+      value: Traits
+      objectReference: {fileID: 0}
     - target: {fileID: 5389273720769730467, guid: fdf7a514f7ffce244aea5b065eeb3e91,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -28805,7 +28835,7 @@ GameObject:
   - component: {fileID: 1479007868808386504}
   m_Layer: 0
   m_Name: 3dGlasses5
-  m_TagString: Untagged
+  m_TagString: Traits
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29030,7 +29060,7 @@ GameObject:
   - component: {fileID: 3279741751597245194}
   m_Layer: 0
   m_Name: DabOil
-  m_TagString: Untagged
+  m_TagString: Traits
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29985,6 +30015,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2ab9815b4b902ec4d9e7d376f935e867,
+        type: 3}
+      propertyPath: m_TagString
+      value: Traits
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ab9815b4b902ec4d9e7d376f935e867, type: 3}
 --- !u!1001 &2803356194142027328
@@ -30079,6 +30114,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4f48f9877c220ba44a5179cca4ea71b2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Traits
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f48f9877c220ba44a5179cca4ea71b2, type: 3}
 --- !u!1001 &2803356194160184626
@@ -30095,6 +30135,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 3d8e471beb2d96e4da5dd43e672588fd, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3d8e471beb2d96e4da5dd43e672588fd, type: 3}
+      propertyPath: m_TagString
+      value: Traits
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3d8e471beb2d96e4da5dd43e672588fd, type: 3}
       propertyPath: m_RootOrder
@@ -30200,7 +30244,7 @@ GameObject:
   - component: {fileID: 2803356194235081821}
   m_Layer: 0
   m_Name: BoomToolsPatch
-  m_TagString: Untagged
+  m_TagString: Traits
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30232,7 +30276,7 @@ GameObject:
   - component: {fileID: 2803356194322461973}
   m_Layer: 0
   m_Name: GoldenTicket
-  m_TagString: Untagged
+  m_TagString: Traits
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30280,7 +30324,7 @@ GameObject:
   - component: {fileID: 2803356194388344200}
   m_Layer: 0
   m_Name: GodfreyPatch
-  m_TagString: Untagged
+  m_TagString: Traits
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30296,7 +30340,7 @@ GameObject:
   - component: {fileID: 2803356194411064286}
   m_Layer: 0
   m_Name: Plunger
-  m_TagString: Untagged
+  m_TagString: Traits
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30328,7 +30372,7 @@ GameObject:
   - component: {fileID: 2803356194414608613}
   m_Layer: 0
   m_Name: GoldenEyeValve
-  m_TagString: Untagged
+  m_TagString: Traits
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30376,7 +30420,7 @@ GameObject:
   - component: {fileID: 2803356194449325520}
   m_Layer: 0
   m_Name: FacePatch
-  m_TagString: Untagged
+  m_TagString: Traits
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30481,7 +30525,7 @@ GameObject:
   - component: {fileID: 2803356194538065975}
   m_Layer: 0
   m_Name: ArtPatch
-  m_TagString: Untagged
+  m_TagString: Traits
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30513,7 +30557,7 @@ GameObject:
   - component: {fileID: 2803356194621537015}
   m_Layer: 0
   m_Name: GoldenButton
-  m_TagString: Untagged
+  m_TagString: Traits
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30548,6 +30592,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 3d8e471beb2d96e4da5dd43e672588fd, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3d8e471beb2d96e4da5dd43e672588fd, type: 3}
+      propertyPath: m_TagString
+      value: Traits
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3d8e471beb2d96e4da5dd43e672588fd, type: 3}
       propertyPath: m_RootOrder
@@ -30790,6 +30838,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 356b0935e7aca99459db81d37401dbe7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Traits
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 356b0935e7aca99459db81d37401dbe7, type: 3}
 --- !u!1001 &2803356194912883367
@@ -30806,6 +30859,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 3d8e471beb2d96e4da5dd43e672588fd, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3d8e471beb2d96e4da5dd43e672588fd, type: 3}
+      propertyPath: m_TagString
+      value: Traits
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3d8e471beb2d96e4da5dd43e672588fd, type: 3}
       propertyPath: m_RootOrder
@@ -30937,7 +30994,7 @@ GameObject:
   - component: {fileID: 2803356194981954538}
   m_Layer: 0
   m_Name: HaterGoggles
-  m_TagString: Untagged
+  m_TagString: Traits
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31288,6 +31345,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3d8e471beb2d96e4da5dd43e672588fd, type: 3}
+      propertyPath: m_TagString
+      value: Traits
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3d8e471beb2d96e4da5dd43e672588fd, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -31480,6 +31541,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: af08815e0b5b21748a98e2ef5eac28ce,
+        type: 3}
+      propertyPath: m_TagString
+      value: Traits
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af08815e0b5b21748a98e2ef5eac28ce, type: 3}
 --- !u!1 &2803356195633490488
@@ -31493,7 +31559,7 @@ GameObject:
   - component: {fileID: 2803356195633490489}
   m_Layer: 0
   m_Name: Face2Patch
-  m_TagString: Untagged
+  m_TagString: Traits
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31841,7 +31907,7 @@ GameObject:
   - component: {fileID: 2408648335259827677}
   m_Layer: 0
   m_Name: Sword
-  m_TagString: Untagged
+  m_TagString: Traits
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32941,7 +33007,7 @@ GameObject:
   - component: {fileID: 8081503890757730796}
   m_Layer: 0
   m_Name: GoldenEyePlate
-  m_TagString: Untagged
+  m_TagString: Traits
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

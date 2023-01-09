@@ -8,6 +8,7 @@ TagManager:
   - LookAtTarget
   - UpVector
   - NFTOutput
+  - Traits
   layers:
   - Default
   - TransparentFX
