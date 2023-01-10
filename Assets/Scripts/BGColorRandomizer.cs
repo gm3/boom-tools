@@ -22,13 +22,17 @@ public class BGColorRandomizer : MonoBehaviour
     void Start(){
         Button btn = buttonReference.GetComponent<Button>();
 		btn.onClick.AddListener(TaskOnClick);
-        randomValue = GetRandomValue(weightedValues);
+
+        // this code was to initialize a texture oon startup
+        /* randomValue = GetRandomValue(weightedValues);
         for(int i = 0; i < totalMaterials.Length; i++)
         {
            if(randomValue == layerStringData[i]){
                 ObjectToChangeMatReference.GetComponent<Renderer>().material = totalMaterials[i];
             }
-        }
+        } */
+
+
     }
 
     void Update()

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ToggleControls : MonoBehaviour
 {
@@ -20,14 +21,29 @@ public class ToggleControls : MonoBehaviour
 			public GameObject UIReference;
 			private bool isUIOn = true;
 
+			public GameObject consoleUIReference;
+			private bool isConsoleUIOn = true;
+
 			public RandomizeAll randomizeAllref;
             
-
+			public GameObject TraitListUIReference;
+			private bool isTraitlistUIOn = true;
+			public Button traitsButtonReference;
 
     void Start()
     {
-        
+        	Button traitsbtn = traitsButtonReference.GetComponent<Button>();
+            traitsbtn.onClick.AddListener(TaskOnShowTraitsClick); 
     }
+
+	void TaskOnShowTraitsClick()
+        {
+            
+            TraitListUIReference.SetActive(isTraitlistUIOn);
+			isTraitlistUIOn = !isTraitlistUIOn;
+        }
+
+		
 
     void Update()
     {
@@ -43,6 +59,18 @@ public class ToggleControls : MonoBehaviour
              UIReference.SetActive(true);
 				else
              UIReference.SetActive(false);
+				
+			}
+
+			// toggle ui
+            if (Input.GetKeyDown(KeyCode.BackQuote))
+			{
+				isConsoleUIOn = !isConsoleUIOn;
+				
+				if (isConsoleUIOn) 
+             consoleUIReference.SetActive(true);
+				else
+             consoleUIReference.SetActive(false);
 				
 			}
 

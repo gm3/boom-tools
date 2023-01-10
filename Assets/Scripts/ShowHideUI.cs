@@ -16,21 +16,7 @@ public class ShowHideUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // toggle UI
-			if (Input.GetKeyDown(KeyCode.Tilde))
-			{
-				
-				isUIOn = !isUIOn;
-				
-				if (isUIOn)
-				{ 
-             UIReference.SetActive(true);
-			
-				}else{
-             UIReference.SetActive(false);
-			
-				}
-			}
+        
     }
 
    

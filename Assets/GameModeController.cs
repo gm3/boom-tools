@@ -32,7 +32,7 @@ public class GameModeController : MonoBehaviour
         List<string> items = new List<string>();
 
         items.Add("Random");
-        items.Add("Input");
+        items.Add("Import");
 
         // fill dropdown with items
         foreach(var item in items){
@@ -82,7 +82,7 @@ public class GameModeController : MonoBehaviour
         {
             currentGameMode = GameMode.Random;
         }
-        else if (dropdown.options[index].text == "Input")
+        else if (dropdown.options[index].text == "Import")
         {
             currentGameMode = GameMode.Import;
         }

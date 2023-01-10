@@ -274,10 +274,13 @@ public class ImportJSON : MonoBehaviour
                 string file = Path.GetFileNameWithoutExtension(fileName);
                 //string file = fileName.Substring(0, fileName.Length - 4);
                 //Debug.Log(file);
+                
                 // Load first JSON file
                 LoadJSON(file);
 
-               
+                //Add VRMMetadata to the VRM
+                AdddMetaData();
+
                 ExportVRM();
 
                 //update the genID
@@ -295,7 +298,7 @@ public class ImportJSON : MonoBehaviour
             }
         }
 
-    /* public void AdddMetaData()
+    public void AdddMetaData()
         {
             VRMMetaObject metaData = ScriptableObject.CreateInstance<VRMMetaObject>();
             metaData.Title = vrmTitle;
@@ -307,7 +310,7 @@ public class ImportJSON : MonoBehaviour
             VRMMeta metaComponent = modelToExportToVRM.AddComponent<VRMMeta>();
             metaComponent.Meta = metaData;   
             //yield return new WaitForSeconds(.01f);    
-        }     */
+        }  
 
 }
 

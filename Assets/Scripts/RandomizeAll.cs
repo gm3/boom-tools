@@ -28,14 +28,6 @@ public class RandomizeAll : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-
-
-    }
-
     void TaskOnClick()
     {
         //Debug.Log ("You have randomized All!"); 
