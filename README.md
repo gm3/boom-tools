@@ -1,7 +1,8 @@
 # boom-tools: a.r.m. avatar randomizer machine
 ###### tags: `boom-tools` `Unity Layer Randomizer` `devlog` ```v.0.0.1-alpha```
 
-![](https://i.imgur.com/qYqOZM5.gif)
+Wiki / API Docs https://github.com/gm3/boom-tools/wiki
+
 
 ![](https://hackmd.io/_uploads/r1tnnr45i.png)
 
@@ -55,8 +56,6 @@ All of the scripts are nested under the `_BoomTools` GameObject and the output c
 
 Then the Random ```once, batch or roll``` can be chosen to trigger the randomization.
 
-![](https://i.imgur.com/rIEIeJS.png)
-![](https://i.imgur.com/CQ0Q5j8.png)
 
 For the JSON string output, it is created and formatted in the script ```DNAManager```  
 
@@ -88,6 +87,7 @@ This project is available under the MIT CC0 licence
 ![](https://i.imgur.com/pYkqt1h.png)
 
 ## Contact
-@godfreymeyer http://www.twitter.com/godfreymeyer
+@boomboxheads http://www.twitter.com/boomboxheads
 
 
+![](https://hackmd.io/_uploads/HkGwhBhqj.png)
