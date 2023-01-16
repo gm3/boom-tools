@@ -1,0 +1,18 @@
+# Apple ModelI/O MTL File: 8track10.mtl
+
+newmtl Mat_1
+	map_Kd Mat_1-color.png
+	Kd 1 1 1
+	Ka 0 0 0
+	Ks 0
+	ao 0
+	subsurface 0
+	map_metallic Mat_1-metallic.png
+	specularTint 0
+	map_roughness Mat_1-roughness.png
+	anisotropicRotation 0
+	sheen 0.05
+	sheenTint 0
+	clearCoat 0
+	clearCoatGloss 0
+
