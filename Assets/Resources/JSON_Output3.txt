@@ -6,31 +6,31 @@
 "attributes": [
 	{
 		"trait_type": "Hat",
-		"value": "Plunger"
+		"value": "Wick"
 	},
 	{
 		"trait_type": "Mouth",
-		"value": "Mouth1"
+		"value": "EQ"
 	},
 	{
-		"trait_type": "Glasses",
-		"value": "3dGlasses5"
+		"trait_type": "Eyes",
+		"value": "X"
 	},
 	{
 		"trait_type": "Weapon",
-		"value": "empty"
+		"value": "Axe"
 	},
 	{
 		"trait_type": "Patches",
 		"value": "Face2Patch"
 	},
 	{
-		"trait_type": "Backpacks",
-		"value": "Backpack5"
+		"trait_type": "Back",
+		"value": "Backpack"
 	},
 	{
 		"trait_type": "Special",
-		"value": "empty"
+		"value": "GoldenTicket"
 	},
 	{
 		"trait_type": "BGColor",
@@ -38,10 +38,10 @@
 	},
 	{
 		"trait_type": "BBTexture",
-		"value": "11"
+		"value": "19"
 	},
 	{
 		"trait_type": "BodyTexture",
-		"value": "7Blue"
+		"value": "Orange"
 	}	]
 }

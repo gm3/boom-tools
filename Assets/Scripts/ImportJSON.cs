@@ -66,6 +66,10 @@ public class ImportJSON : MonoBehaviour
 
     public bool isExportingToFile = false; 
     public bool isExportingScreenshots = false; 
+
+    public string materialTraitNameToLoad1;
+    public string materialTraitNameToLoad2;
+    public string materialTraitNameToLoad3;
     
 
     void Start()
@@ -147,15 +151,15 @@ public class ImportJSON : MonoBehaviour
         string traitType = attr.trait_type;
         string value = attr.value;
 
-        if (traitType == "BGColor")
+        if (traitType == materialTraitNameToLoad1)
         {
             LoadMaterial(traitType, value, layerStringData1, totalMaterialsObject1, Object1Ref);
         }
-        else if (traitType == "BodyTexture")
+        else if (traitType == materialTraitNameToLoad2)
         {
             LoadMaterial(traitType, value, layerStringData2, totalMaterialsObject2, Object2Ref);
         }
-        else if (traitType == "BBTexture")
+        else if (traitType == materialTraitNameToLoad3)
         {
             LoadMaterial(traitType, value, layerStringData3, totalMaterialsObject3, Object3Ref);
         }

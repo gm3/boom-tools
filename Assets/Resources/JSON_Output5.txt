@@ -6,42 +6,42 @@
 "attributes": [
 	{
 		"trait_type": "Hat",
-		"value": "empty"
+		"value": "Arrow"
 	},
 	{
 		"trait_type": "Mouth",
 		"value": "Mouth1"
 	},
 	{
-		"trait_type": "Glasses",
-		"value": "empty"
+		"trait_type": "Eyes",
+		"value": "EyesVisemes"
 	},
 	{
 		"trait_type": "Weapon",
-		"value": "empty"
+		"value": "Bat"
 	},
 	{
 		"trait_type": "Patches",
 		"value": "GodfreyPatch"
 	},
 	{
-		"trait_type": "Backpacks",
-		"value": "Backpack1"
+		"trait_type": "Back",
+		"value": "MetaRickBox"
 	},
 	{
 		"trait_type": "Special",
-		"value": "empty"
+		"value": "Chain"
 	},
 	{
 		"trait_type": "BGColor",
-		"value": "19_PlainWall"
+		"value": "6_AbstractPaint"
 	},
 	{
 		"trait_type": "BBTexture",
-		"value": "12"
+		"value": "17"
 	},
 	{
 		"trait_type": "BodyTexture",
-		"value": "7Blue"
+		"value": "15Body"
 	}	]
 }

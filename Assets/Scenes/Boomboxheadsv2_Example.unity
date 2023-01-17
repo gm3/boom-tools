@@ -2126,7 +2126,7 @@ GameObject:
   - component: {fileID: 133848041}
   - component: {fileID: 133848042}
   m_Layer: 0
-  m_Name: _RandomizeBoomBoxTexture
+  m_Name: _Layer_Random_BoomBox_Texture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3354,7 +3354,12 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d68c2f990a6ad11408dce44fdd8ecea8,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d68c2f990a6ad11408dce44fdd8ecea8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Traits
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d68c2f990a6ad11408dce44fdd8ecea8, type: 3}
@@ -3583,7 +3588,7 @@ GameObject:
   - component: {fileID: 257746832}
   - component: {fileID: 257746833}
   m_Layer: 0
-  m_Name: _Layer_4_Random_Weapons_Script
+  m_Name: _Layer_4_Random_Script
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3751,7 +3756,7 @@ GameObject:
   - component: {fileID: 287855034}
   - component: {fileID: 287855035}
   m_Layer: 0
-  m_Name: _Layer_6_Random_Backpacks_Script
+  m_Name: _Layer_6_Random_Script
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3797,7 +3802,7 @@ MonoBehaviour:
   - Backpack
   - MetaRickBox
   traitLayerText: {fileID: 145264327}
-  traitType: Backpacks
+  traitType: Back
   currentEntryValue: 
   dnaManagerReference: {fileID: 1437213998}
 --- !u!1 &295678778
@@ -3811,7 +3816,7 @@ GameObject:
   - component: {fileID: 295678779}
   m_Layer: 0
   m_Name: X
-  m_TagString: Untagged
+  m_TagString: Traits
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4507,6 +4512,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d81a384d6212644499796eeb1d89abae,
+        type: 3}
+      propertyPath: m_TagString
+      value: Traits
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d81a384d6212644499796eeb1d89abae, type: 3}
 --- !u!4 &341648189 stripped
@@ -4658,6 +4668,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d8c742a20d560dd4f9ca200d37f8f3f6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Traits
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8c742a20d560dd4f9ca200d37f8f3f6, type: 3}
 --- !u!4 &375085855 stripped
@@ -4757,7 +4772,12 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3b3bdf3ff195e634395e0b96630945d3,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3b3bdf3ff195e634395e0b96630945d3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Traits
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b3bdf3ff195e634395e0b96630945d3, type: 3}
@@ -4784,7 +4804,7 @@ GameObject:
   - component: {fileID: 385524039}
   - component: {fileID: 385524040}
   m_Layer: 0
-  m_Name: _Layer_7_Random_Special_Script
+  m_Name: _Layer_7_Random_Script
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5816,7 +5836,7 @@ GameObject:
   - component: {fileID: 471963756}
   m_Layer: 0
   m_Name: Screws
-  m_TagString: Untagged
+  m_TagString: Traits
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6111,6 +6131,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f40327259a8818e42847650765823b99,
+        type: 3}
+      propertyPath: m_TagString
+      value: Traits
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f40327259a8818e42847650765823b99, type: 3}
@@ -6424,7 +6449,7 @@ GameObject:
   - component: {fileID: 515605672}
   - component: {fileID: 515605673}
   m_Layer: 0
-  m_Name: _Layer_Random_BG_Color
+  m_Name: _Layer_Random_BG_Texture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6848,6 +6873,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9d6fb247dcb525e4996de50754f6acd3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Traits
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d6fb247dcb525e4996de50754f6acd3, type: 3}
 --- !u!1 &560868599
@@ -7232,6 +7262,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1214a78c8bfcfb64db5d639d21a5f028,
+        type: 3}
+      propertyPath: m_TagString
+      value: Traits
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1214a78c8bfcfb64db5d639d21a5f028, type: 3}
@@ -7737,7 +7772,7 @@ GameObject:
   - component: {fileID: 640784475}
   - component: {fileID: 640784476}
   m_Layer: 0
-  m_Name: _Layer_1_Random_Hat_Script
+  m_Name: _Layer_1_Random_Script
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8816,6 +8851,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5dd7a6d40c280d34f8627291892fa5c8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Traits
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5dd7a6d40c280d34f8627291892fa5c8, type: 3}
 --- !u!4 &726580119 stripped
@@ -9100,6 +9140,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7aa471843e8b72a4daa3428b0cd00518,
+        type: 3}
+      propertyPath: m_TagString
+      value: Traits
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7aa471843e8b72a4daa3428b0cd00518, type: 3}
@@ -10370,6 +10415,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0946dcff7c9d74540b6dbfbd75b43c71,
+        type: 3}
+      propertyPath: m_TagString
+      value: Traits
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0946dcff7c9d74540b6dbfbd75b43c71, type: 3}
 --- !u!4 &876009032 stripped
@@ -10549,7 +10599,12 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 95d4c4c0a767b93449af3241183dd789,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 95d4c4c0a767b93449af3241183dd789,
+        type: 3}
+      propertyPath: m_TagString
+      value: Traits
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95d4c4c0a767b93449af3241183dd789, type: 3}
@@ -11528,6 +11583,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 10defe467c4cd3449a503edc2856f4c4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Traits
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10defe467c4cd3449a503edc2856f4c4, type: 3}
 --- !u!4 &959453289 stripped
@@ -12167,6 +12227,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7e488e1e15007f64785129408989db81,
+        type: 3}
+      propertyPath: m_TagString
+      value: Traits
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e488e1e15007f64785129408989db81, type: 3}
 --- !u!1 &996953370
@@ -12383,6 +12448,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 17f2b895f4fa42844bdfbbafccae3ce0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Traits
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17f2b895f4fa42844bdfbbafccae3ce0, type: 3}
@@ -13397,6 +13467,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9f3fa600e79eefd459fbd3a71c38ecce,
+        type: 3}
+      propertyPath: m_TagString
+      value: Traits
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f3fa600e79eefd459fbd3a71c38ecce, type: 3}
 --- !u!1 &1057309513
@@ -14093,7 +14168,7 @@ GameObject:
   - component: {fileID: 1079227680}
   - component: {fileID: 1079227681}
   m_Layer: 0
-  m_Name: _RandomizeBodyTexture
+  m_Name: _Layer_Random_Body_Texture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14128,46 +14203,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weightedValues:
   - value: 1Body
-    weight: 5
+    weight: 10
   - value: 2Body
-    weight: 5
+    weight: 10
   - value: 3Body
-    weight: 5
+    weight: 10
   - value: 4Body
-    weight: 5
+    weight: 10
   - value: 5Body
-    weight: 5
+    weight: 10
   - value: 6Body
-    weight: 5
+    weight: 10
   - value: 7Body
-    weight: 5
+    weight: 10
   - value: 8Body
-    weight: 5
+    weight: 10
   - value: 9Body
-    weight: 5
+    weight: 10
   - value: 10Body
-    weight: 5
+    weight: 10
   - value: 11Body
-    weight: 5
+    weight: 10
   - value: 12Body
-    weight: 5
+    weight: 10
   - value: 13Body
-    weight: 5
+    weight: 10
   - value: 14Body
-    weight: 5
+    weight: 10
   - value: 15Body
-    weight: 5
+    weight: 10
   - value: 16Body
-    weight: 5
+    weight: 10
   - value: 17Body
-    weight: 5
+    weight: 10
   - value: 18Body
-    weight: 5
+    weight: 10
   - value: 19Body
-    weight: 5
+    weight: 10
   - value: 20Body
-    weight: 5
+    weight: 10
   - value: Gold
+    weight: 1
+  - value: Yellow
+    weight: 20
+  - value: Red
+    weight: 20
+  - value: Pink
+    weight: 20
+  - value: Purple
+    weight: 20
+  - value: Orange
     weight: 20
   buttonReference: {fileID: 97809251}
   totalMaterials:
@@ -14192,6 +14277,11 @@ MonoBehaviour:
   - {fileID: 2100000, guid: d4eb2af6d9281b04496584b07a85facd, type: 2}
   - {fileID: 2100000, guid: f694e06f1d112264793e7e2ba76195b4, type: 2}
   - {fileID: 2100000, guid: ec8c14b019f8e664aa72aaceb3323015, type: 2}
+  - {fileID: 2100000, guid: 4d77e5e02ee978d478b2ed1ca23a0995, type: 2}
+  - {fileID: 2100000, guid: 89508599f7bf1f94ca161b369e27c6bd, type: 2}
+  - {fileID: 2100000, guid: 30454df54b221c047b4050b8163503e4, type: 2}
+  - {fileID: 2100000, guid: 5776a6d24b7d17149b0b6d40e4a46f18, type: 2}
+  - {fileID: 2100000, guid: 379a3077a83dff14fba5b3d5cfb29017, type: 2}
   layerStringData:
   - 1Body
   - 2Body
@@ -14214,6 +14304,11 @@ MonoBehaviour:
   - 19Body
   - 20Body
   - Gold
+  - Yellow
+  - Red
+  - Pink
+  - Purple
+  - Orange
   traitLayerText: {fileID: 492100807}
   traitType: BodyTexture
   currentEntryValue: 
@@ -15037,7 +15132,12 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 436b13ee8fc9b0d4b97ad01b7b8b3166,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 436b13ee8fc9b0d4b97ad01b7b8b3166,
+        type: 3}
+      propertyPath: m_TagString
+      value: Traits
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 436b13ee8fc9b0d4b97ad01b7b8b3166, type: 3}
@@ -15352,7 +15452,7 @@ GameObject:
   - component: {fileID: 1134245130}
   - component: {fileID: 1134245131}
   m_Layer: 0
-  m_Name: _Layer_5_Random_Patches_Script
+  m_Name: _Layer_5_Random_Script
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16863,6 +16963,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 74f9523559408574b801bf157124d9b7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Traits
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74f9523559408574b801bf157124d9b7, type: 3}
@@ -18897,6 +19002,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 78657fc10c1b27d4aaaf90d953e36b92,
+        type: 3}
+      propertyPath: m_TagString
+      value: Traits
+      objectReference: {fileID: 0}
     - target: {fileID: 3031731908914455168, guid: 78657fc10c1b27d4aaaf90d953e36b92,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -20488,6 +20598,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5a1c71bf4140e1447ae050a5e8007cf8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Traits
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a1c71bf4140e1447ae050a5e8007cf8, type: 3}
 --- !u!4 &1458642152 stripped
@@ -21642,6 +21757,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7ddbd79d120a69a4da28275fc090c9d5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Traits
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ddbd79d120a69a4da28275fc090c9d5, type: 3}
 --- !u!4 &1547932421 stripped
@@ -22191,6 +22311,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 18e246468f154524895f8f78769458c3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Traits
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18e246468f154524895f8f78769458c3, type: 3}
@@ -22961,7 +23086,7 @@ GameObject:
   - component: {fileID: 1658080055}
   - component: {fileID: 1658080056}
   m_Layer: 0
-  m_Name: _Layer_2_Random_Mouth_Script
+  m_Name: _Layer_2_Random_Script
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24036,6 +24161,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 58696795505fa5440a2c8dbc358acafb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Traits
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58696795505fa5440a2c8dbc358acafb, type: 3}
 --- !u!4 &1735933326 stripped
@@ -24050,100 +24180,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1735933325}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1736349284
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 4673299507996803974}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 238fe3363fa03604f918208609f96da9,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 238fe3363fa03604f918208609f96da9,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 156.03304
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 238fe3363fa03604f918208609f96da9,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 752.54047
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 238fe3363fa03604f918208609f96da9,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 135.88582
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 238fe3363fa03604f918208609f96da9,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.018
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 238fe3363fa03604f918208609f96da9,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.124
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 238fe3363fa03604f918208609f96da9,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.136
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 238fe3363fa03604f918208609f96da9,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.67141527
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 238fe3363fa03604f918208609f96da9,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.74103767
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 238fe3363fa03604f918208609f96da9,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.0000124126655
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 238fe3363fa03604f918208609f96da9,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.0080521805
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 238fe3363fa03604f918208609f96da9,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -95.681
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 238fe3363fa03604f918208609f96da9,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -6.934021
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 238fe3363fa03604f918208609f96da9,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 6.2819977
-      objectReference: {fileID: 0}
-    - target: {fileID: -7511558181221131132, guid: 238fe3363fa03604f918208609f96da9,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: ec8c14b019f8e664aa72aaceb3323015, type: 2}
-    - target: {fileID: 919132149155446097, guid: 238fe3363fa03604f918208609f96da9,
-        type: 3}
-      propertyPath: m_Name
-      value: foam_finger
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 238fe3363fa03604f918208609f96da9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 238fe3363fa03604f918208609f96da9, type: 3}
 --- !u!1 &1740877367
 GameObject:
   m_ObjectHideFlags: 0
@@ -27594,12 +27630,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1938589873}
   m_CullTransparentMesh: 0
---- !u!4 &1938977391 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 238fe3363fa03604f918208609f96da9,
-    type: 3}
-  m_PrefabInstance: {fileID: 1736349284}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1939463055
 GameObject:
   m_ObjectHideFlags: 0
@@ -28952,7 +28982,7 @@ GameObject:
   - component: {fileID: 2019177078}
   - component: {fileID: 2019177079}
   m_Layer: 0
-  m_Name: _Layer_3_Random_Glasses_Script
+  m_Name: _Layer_3_Random_Script
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29030,7 +29060,7 @@ MonoBehaviour:
   - Zoom
   - EyesVisemes
   traitLayerText: {fileID: 1287146891}
-  traitType: Glasses
+  traitType: Eyes
   currentEntryValue: 
   dnaManagerReference: {fileID: 1437213998}
 --- !u!1 &2022321180
@@ -29259,6 +29289,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 92181bf0e5ccf994293ba66de633b654,
+        type: 3}
+      propertyPath: m_TagString
+      value: Traits
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92181bf0e5ccf994293ba66de633b654, type: 3}
@@ -29899,6 +29934,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e1de3fc7aeaad08419864a2339608658,
+        type: 3}
+      propertyPath: m_TagString
+      value: Traits
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1de3fc7aeaad08419864a2339608658, type: 3}
@@ -30887,25 +30927,59 @@ MonoBehaviour:
   - 19_PlainWall
   - 20_Pottery
   totalMaterialsObject2:
-  - {fileID: 2100000, guid: 1a3318bdf5196274ab3d626a7e80a07f, type: 2}
-  - {fileID: 2100000, guid: 9c97e440373406148becafe3432a234c, type: 2}
-  - {fileID: 2100000, guid: c2063c236748f2947a05069bf81a9b4f, type: 2}
-  - {fileID: 2100000, guid: 0a0a9e884cf568f45a5dcb1b5c1b48b4, type: 2}
-  - {fileID: 2100000, guid: 8034102aba54e2f4f9d9c77d3f6366cc, type: 2}
-  - {fileID: 2100000, guid: 68b11c4ca2357cc4885c83208e065ec5, type: 2}
-  - {fileID: 2100000, guid: ab0d0a873bdb0fc48b3ba3ab0b993da8, type: 2}
-  - {fileID: 2100000, guid: 58a1eb014e538a947a195eb9011a7d31, type: 2}
-  - {fileID: 2100000, guid: 5ff01f5f0a74de5408b7a171ab7201cb, type: 2}
+  - {fileID: 2100000, guid: c8ebb144ce153144c807856b3b84102c, type: 2}
+  - {fileID: 2100000, guid: b02291896ff38d84c8ab0d42b7128cf6, type: 2}
+  - {fileID: 2100000, guid: 713e9ff28e07a4746ab11a13bd225de6, type: 2}
+  - {fileID: 2100000, guid: 291a5693b66058e4ab54fa8c501e6f37, type: 2}
+  - {fileID: 2100000, guid: 82202f743748dbd419221576f5f4c3da, type: 2}
+  - {fileID: 2100000, guid: be429648bbbed14418fb320c893fed38, type: 2}
+  - {fileID: 2100000, guid: 11a61fe4045a39d428e352d49d50f8ae, type: 2}
+  - {fileID: 2100000, guid: 1c97e8e1b2f4a7d4eae228c161576bef, type: 2}
+  - {fileID: 2100000, guid: 3e28017860ed4544f89a2fc95a8c8e7f, type: 2}
+  - {fileID: 2100000, guid: 681e6a2fa0d74b64fa201b010a91a4a0, type: 2}
+  - {fileID: 2100000, guid: 44be254049a57654585cfef8e0565e08, type: 2}
+  - {fileID: 2100000, guid: efc6d00601a4b7a40a0ef70df4a4813d, type: 2}
+  - {fileID: 2100000, guid: 8513e7e5c10ae1943b5feb7b2276cc50, type: 2}
+  - {fileID: 2100000, guid: 974ed141db9fa464abc931e4467f2f8e, type: 2}
+  - {fileID: 2100000, guid: ef8793fd7702f384299b883c1b963b71, type: 2}
+  - {fileID: 2100000, guid: 87b0b99c6d34d9846858fb48dc8cb8c9, type: 2}
+  - {fileID: 2100000, guid: fb06981f5c281a649a5571f3ba86c792, type: 2}
+  - {fileID: 2100000, guid: 857cc1d0ca3e61249bee431640ac5961, type: 2}
+  - {fileID: 2100000, guid: d4eb2af6d9281b04496584b07a85facd, type: 2}
+  - {fileID: 2100000, guid: f694e06f1d112264793e7e2ba76195b4, type: 2}
+  - {fileID: 2100000, guid: ec8c14b019f8e664aa72aaceb3323015, type: 2}
+  - {fileID: 2100000, guid: 4d77e5e02ee978d478b2ed1ca23a0995, type: 2}
+  - {fileID: 2100000, guid: 89508599f7bf1f94ca161b369e27c6bd, type: 2}
+  - {fileID: 2100000, guid: 30454df54b221c047b4050b8163503e4, type: 2}
+  - {fileID: 2100000, guid: 5776a6d24b7d17149b0b6d40e4a46f18, type: 2}
+  - {fileID: 2100000, guid: 379a3077a83dff14fba5b3d5cfb29017, type: 2}
   layerStringData2:
-  - 1Paint
-  - 2Paint
-  - 3Red
-  - 4Yellow
-  - 5Black
-  - 6Purple
-  - 7Blue
+  - 1Body
+  - 2Body
+  - 3Body
+  - 4Body
+  - 5Body
+  - 6Body
+  - 7Body
   - 8Body
   - 9Body
+  - 10Body
+  - 11Body
+  - 12Body
+  - 13Body
+  - 14Body
+  - 15Body
+  - 16Body
+  - 17Body
+  - 18Body
+  - 19Body
+  - 20Body
+  - Gold
+  - Yellow
+  - Red
+  - Pink
+  - Purple
+  - Orange
   totalMaterialsObject3:
   - {fileID: 2100000, guid: e87fba14243730a4e8a3bac4d36cb15b, type: 2}
   - {fileID: 2100000, guid: db53c92490bd5b2449c9e18d25e938af, type: 2}
@@ -30922,10 +30996,12 @@ MonoBehaviour:
   - {fileID: 2100000, guid: ea1b9271c312dab45bd21c935d0b111e, type: 2}
   - {fileID: 2100000, guid: 04b6946c93c6cb84697bd3df5518d84e, type: 2}
   - {fileID: 2100000, guid: 846b19cb9e25cb04f88dcce5feeb4793, type: 2}
+  - {fileID: 2100000, guid: 527ccaef2ce948c46b8a606d13abf22f, type: 2}
   - {fileID: 2100000, guid: af56a407cde68b34a9bbdeef5d2dd133, type: 2}
   - {fileID: 2100000, guid: d2a987cdc08b2234f9c69081b1984a5a, type: 2}
   - {fileID: 2100000, guid: f10dc79227a78f049a6b9f021816973f, type: 2}
   - {fileID: 2100000, guid: 368aab611f82ba245b506ecaaf857463, type: 2}
+  - {fileID: 2100000, guid: ec8c14b019f8e664aa72aaceb3323015, type: 2}
   layerStringData3:
   - 1
   - 2
@@ -30946,6 +31022,8 @@ MonoBehaviour:
   - 17
   - 18
   - 19
+  - 20
+  - Gold
   index1: -1
   index2: -1
   index3: -1
@@ -30963,6 +31041,9 @@ MonoBehaviour:
   exportVRMFromRandomTrait: {fileID: 0}
   isExportingToFile: 1
   isExportingScreenshots: 1
+  materialTraitNameToLoad1: BGColor
+  materialTraitNameToLoad2: BodyTexture
+  materialTraitNameToLoad3: BBTexture
 --- !u!1 &2142862062
 GameObject:
   m_ObjectHideFlags: 0
@@ -32031,7 +32112,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2803356194235081821
 Transform:
   m_ObjectHideFlags: 0
@@ -32063,7 +32144,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2803356194322461973
 Transform:
   m_ObjectHideFlags: 0
@@ -32078,7 +32159,7 @@ Transform:
   m_Children:
   - {fileID: 1101673285}
   m_Father: {fileID: 4673299507996803974}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -12.9, y: 84.208, z: 7.006}
 --- !u!4 &2803356194388344200
 Transform:
@@ -32470,7 +32551,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 356b0935e7aca99459db81d37401dbe7,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 356b0935e7aca99459db81d37401dbe7,
         type: 3}
@@ -33499,7 +33580,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1938977391}
   - {fileID: 2803356194322461973}
   m_Father: {fileID: 1553897285130826086}
   m_RootOrder: 0
@@ -34414,11 +34494,11 @@ GameObject:
   - component: {fileID: 656232091559079518}
   m_Layer: 0
   m_Name: Chains
-  m_TagString: Untagged
+  m_TagString: Traits
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &8081503890757730796
 MeshRenderer:
   m_ObjectHideFlags: 0
