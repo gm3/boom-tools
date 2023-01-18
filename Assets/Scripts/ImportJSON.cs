@@ -8,11 +8,12 @@ using System;
 using TMPro;
 using UnityEngine.Networking;
 using VRM;
+using System.Linq;
 
 public class ImportJSON : MonoBehaviour
 {
     
-    string[] jsonFileNames = { "JSON_Output1" };
+    string[] jsonFileNames = { "1" };
     public static List<TraitsToLoad> TraitsToLoadList = new List<TraitsToLoad>();
     public static TextAsset jsonFile;
     public static TraitsToLoad obj;
@@ -190,14 +191,9 @@ public class ImportJSON : MonoBehaviour
                     int index = i;
                     if (index >= 0)
                     {
-                        if (gameObject.GetComponent<SkinnedMeshRenderer>() != null)
-                        {
-                            gameObject.GetComponent<SkinnedMeshRenderer>().sharedMaterials = new Material[] { materials[index] };
-                        }
-                        else
-                        {
+                        
                             gameObject.GetComponent<Renderer>().material = materials[index];
-                        }
+                        
                         //Debug.Log(traitType + " Match " + layerStringData[i] + " " + value);
                     }
                 }
@@ -269,12 +265,27 @@ public class ImportJSON : MonoBehaviour
             string path = "Assets/Resources/"; // Use a valid path
             string[] info = Directory.GetFiles(path, "*.txt");
 
-           // string fileName = Path.GetFileNameWithoutExtension(path);
+            int totalFiles = info.Length;
 
             string[] fileEntries = info;
+            Array.Sort(fileEntries);
         
-            foreach (string fileName in fileEntries)
+            
+            
+            for (int i = 1; i < totalFiles+1; i++) 
+                {
+                LoadJSON(i.ToString());
+                AdddMetaData();
+                ExportVRM();
+
+                yield return new WaitForSeconds(.2f);
+                }  
+            
+            // load in by strings insteaod of by numbers
+           /*  foreach (string fileName in fileEntries)
             {
+                
+
                 string file = Path.GetFileNameWithoutExtension(fileName);
                 //string file = fileName.Substring(0, fileName.Length - 4);
                 //Debug.Log(file);
@@ -297,9 +308,10 @@ public class ImportJSON : MonoBehaviour
                 /* if ( == false)
                 {
                     break;
-                } */
+                } 
                 yield return new WaitForSeconds(.2f);
-            }
+            }*/
+
         }
 
     public void AdddMetaData()

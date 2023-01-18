@@ -25,7 +25,7 @@ public class ToTextFile : MonoBehaviour
     public void CreateTextFile(){
 
         // name it
-        string txtDocumentName = Application.streamingAssetsPath + "/JSON_Output/JSON_Output" + dnaIDReference.genID + ".txt";
+        string txtDocumentName = Application.streamingAssetsPath + "/JSON_Output/" + dnaIDReference.genID + ".txt";
         // string txtDocumentName = Application.streamingAssetsPath + "/JSON_Output/JSON_Output" + dnaIDReference.genID + ".json"; had to change to text
 
         // check to see if exists
