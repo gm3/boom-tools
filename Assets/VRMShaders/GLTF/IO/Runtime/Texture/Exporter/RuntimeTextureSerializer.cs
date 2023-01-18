@@ -14,10 +14,10 @@ namespace VRMShaders
         {
             try
             {
-                var png = texture.EncodeToPNG();
-                if (png != null)
+                var jpg = texture.EncodeToJPG();
+                if (jpg != null)
                 {
-                    return (png, "image/png");
+                    return (jpg, "image/jpg");
                 }
                 else
                 {
@@ -47,7 +47,7 @@ namespace VRMShaders
         {
             var needsAlpha = texture.format != TextureFormat.RGB24;
             var copiedTex = TextureConverter.CopyTexture(texture, colorSpace, needsAlpha, null);
-            var bytes = copiedTex.EncodeToPNG();
+            var bytes = copiedTex.EncodeToJPG();
             if (Application.isPlaying)
             {
                 UnityEngine.Object.Destroy(copiedTex);
@@ -57,7 +57,7 @@ namespace VRMShaders
                 UnityEngine.Object.DestroyImmediate(copiedTex);
             }
 
-            return (bytes, "image/png");
+            return (bytes, "image/jpg");
         }
     }
 }

@@ -5000,7 +5000,7 @@ Transform:
   - {fileID: 508020244}
   - {fileID: 1873839923}
   m_Father: {fileID: 7819721868971637632}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 1.183, y: 0, z: 0}
 --- !u!1 &403072249
 GameObject:
@@ -8446,7 +8446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afcdd36593d31ba42adf6400d6fcf8bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalNFTs: 10
+  totalNFTs: 100
   dnaManagerReference: {fileID: 1437213998}
   randomizeAllScriptReference: {fileID: 1420815688}
   buttonReference: {fileID: 1932940080}
@@ -30969,7 +30969,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7819721868971637632}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 1.183, y: 0, z: 0}
 --- !u!4 &580301814527124392
 Transform:
@@ -31954,7 +31954,7 @@ Transform:
   m_Children:
   - {fileID: 656232091559079518}
   m_Father: {fileID: 5977256738950199386}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2803356194235081820
 GameObject:
@@ -31971,7 +31971,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2803356194235081821
 Transform:
   m_ObjectHideFlags: 0
@@ -32019,7 +32019,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &2803356194414608612
 GameObject:
   m_ObjectHideFlags: 0
@@ -32083,7 +32083,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1001 &2803356194488893990
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32188,7 +32188,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2803356194538065975
 Transform:
   m_ObjectHideFlags: 0
@@ -32410,9 +32410,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2803356194946645843}
-  m_LocalRotation: {x: -0, y: -1.1388335e-14, z: 8.650116e-14, w: 1}
-  m_LocalPosition: {x: 8.915091e-14, y: 0.00000007210067, z: 0.000000019143824}
-  m_LocalScale: {x: 0.19977699, y: 0.199777, z: 0.199777}
+  m_LocalRotation: {x: -0.15483281, y: 2.6273999e-15, z: 1.440626e-13, w: 0.98794067}
+  m_LocalPosition: {x: 0, y: -0.18637563, z: 0.0061291642}
+  m_LocalScale: {x: 0.199777, y: 0.19977702, z: 0.19977702}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2803356194538065975}
@@ -32420,8 +32420,8 @@ Transform:
   - {fileID: 2803356194388344200}
   - {fileID: 2803356194449325520}
   - {fileID: 2803356195633490489}
-  m_Father: {fileID: 5977256738950199386}
-  m_RootOrder: 4
+  m_Father: {fileID: 7819721868971637632}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2803356195005582233
 GameObject:
@@ -32795,7 +32795,7 @@ Transform:
   - {fileID: 1735933326}
   - {fileID: 959453289}
   m_Father: {fileID: 7819721868971637632}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 1.183, y: 0, z: 0}
 --- !u!1001 &2803356195571719484
 PrefabInstance:
@@ -32911,7 +32911,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2803356195633490489
 Transform:
   m_ObjectHideFlags: 0
@@ -32958,7 +32958,7 @@ Transform:
   m_Children:
   - {fileID: 1057309514}
   m_Father: {fileID: 5977256738950199386}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2803356195904597280
 GameObject:
@@ -32999,7 +32999,7 @@ Transform:
   - {fileID: 998249153}
   - {fileID: 1547932421}
   m_Father: {fileID: 7819721868971637632}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 1.183, y: 0, z: 0}
 --- !u!4 &2810640446266569267
 Transform:
@@ -33801,7 +33801,6 @@ Transform:
   - {fileID: 3776782167905603289}
   - {fileID: 3241905113027556635}
   - {fileID: 2803356195349884933}
-  - {fileID: 2803356194946645844}
   - {fileID: 2803356195895942034}
   - {fileID: 2803356194191297454}
   m_Father: {fileID: 2006573537551294943}
@@ -34246,6 +34245,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4813273668522486989}
+  - {fileID: 2803356194946645844}
   - {fileID: 392628723}
   - {fileID: 2803356195509413467}
   - {fileID: 2803356195904597281}
