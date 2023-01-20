@@ -206,105 +206,104 @@ public class DNAManager : MonoBehaviour
     }
 
     public string GetAllTraits()
+{
+    string allTraits = "";
+    int attributeCount = 0;
+    if (superRuleReference.CheckSuperRule1())
     {
-        string allTraits;
-        
-        // check if superrule 1 is true or false
-        if(superRuleReference.CheckSuperRule1()){
-
-        allTraits = 
-          GetTrait(0) + ",\n" 
-        + GetTrait(1) + ",\n"
-        + GetTrait(2) + ",\n"
-        + GetTrait(3) + ",\n"
-        + GetTrait(4) + ",\n"
-        + GetTrait(5) + ",\n"
-        + GetTrait(6) + ",\n"
-        + GetRobotColorTrait() + ",\n"
-        + GetBoomboxColorTrait() + ",\n"
-        + GetBGColorTrait();
-        // end trait function
-        }else{
-
-        allTraits = 
-          GetTrait(0) + ",\n" 
-        + GetTrait(1) + ",\n"
-        + GetTrait(2) + ",\n"
-        + GetTrait(3) + ",\n"
-        + GetTrait(4) + ",\n"
-        + GetTrait(5) + ",\n"
-        + GetTrait(6) + ",\n"
-        + GetRobotColorTrait() + ",\n"
-        + GetBoomboxColorTrait() + ",\n"
-        + GetBGColorTrait();
-
+        for (int i = 0; i < randomScriptReferences.Length; i++)
+        {
+            if (randomScriptReferences[i].currentEntryValue != "0")
+            {
+                if (attributeCount > 0)
+                {
+                    allTraits += ",\n";
+                }
+                allTraits += GetTrait(i);
+                attributeCount++;
+            }
         }
-
-        //  assign the DNACode generated to the currentDNA string to be stored in a list assigned to the genID
-        string CurrentDNA = DNACode;
-        if(!DNAList.Contains(CurrentDNA)){
-            DNAList.Add(CurrentDNA);
+        if (randomBGScriptReferences.currentEntryValue != "0")
+        {
+            if (attributeCount > 0)
+            {
+                allTraits += ",\n";
+            }
+            allTraits += GetBGColorTrait();
+            attributeCount++;
         }
-    
-        Debug.Log ("CurrentDNA is " + CurrentDNA); 
-
-        /// Clear DNA Code
-        DNACode = "";
-
-        return allTraits;
-
-        /* string allTraits;
-        allTraits = 
-          GetTrait(0) + "," 
-        + GetTrait(1) + ","
-        + GetTrait(2) + ","
-        + GetTrait(3) + ","
-        + GetTrait(4) + ","
-        + GetTrait(5) + ","
-        + GetTrait(6) + ","
-        + GetRobotColorTrait() + ","
-        + GetBGColorTrait();
-        // end trait function
-        return allTraits; */
-
+        if (randomBodyTextureScriptReferences.currentEntryValue != "0")
+        {
+            if (attributeCount > 0)
+            {
+                allTraits += ",\n";
+            }
+            allTraits += GetRobotColorTrait();
+            attributeCount++;
+        }
+        if (randomBoomboxTextureScriptReferences.currentEntryValue != "0")
+        {
+            if (attributeCount > 0)
+            {
+                allTraits += ",\n";
+            }
+            allTraits += GetBoomboxColorTrait();
+            attributeCount++;
+        }
     }
-
-    /* public string CreateDNAString(){
-        string DNA;
-        
-        if(superRuleReference.CheckSuperRule1()){
-
-        DNA = 
-          GetTraitDNA(0) + "," 
-        + GetTraitDNA(1) + ","
-        + GetTraitDNA(2) + ","
-        + GetTraitDNA(3) + ","
-        + GetTraitDNA(4) + ","
-        + GetTraitDNA(5) + ","
-        + GetTraitDNA(6) + ","
-        + GetRobotColorTraitDNA() + ","
-        + GetBGColorTraitDNA();
-        // end trait function
-        }else{
-
-        DNA = 
-          GetTrait(0) + "," 
-        + GetTrait(1) + ","
-        + GetTrait(2) + ","
-        + GetTrait(3) + ","
-        + GetTrait(4) + ","
-        + GetTrait(5) + ","
-        + GetTrait(6) + ","
-        + GetRobotColorTrait() + ","
-        + GetBGColorTrait();
-
+    else
+    {
+        for (int i = 0; i < randomScriptReferences.Length; i++)
+        {
+          if (randomScriptReferences[i].currentEntryValue != "0")
+            {
+                if (attributeCount > 0)
+                {
+                    allTraits += ",\n";
+                }
+                allTraits += GetTrait(i);
+                attributeCount++;
+            }
         }
-
-
-
-        return DNA;
-    } */
-
+        if (randomBGScriptReferences.currentEntryValue != "0")
+        {
+            if (attributeCount > 0)
+            {
+                allTraits += ",\n";
+            }
+            allTraits += GetBGColorTrait();
+            attributeCount++;
+        }
+        if (randomBodyTextureScriptReferences.currentEntryValue != "0")
+        {
+            if (attributeCount > 0)
+            {
+                allTraits += ",\n";
+            }
+            allTraits += GetRobotColorTrait();
+            attributeCount++;
+        }
+        if (randomBoomboxTextureScriptReferences.currentEntryValue != "0")
+        {
+            if (attributeCount > 0)
+            {
+                allTraits += ",\n";
+            }
+            allTraits += GetBoomboxColorTrait();
+            attributeCount++;
+        }
+    }
+    //  assign the DNACode generated to the currentDNA string to be stored in a list assigned to the genID
+    string CurrentDNA = DNACode;
+    if (!DNAList.Contains(CurrentDNA))
+    {
+        DNAList.Add(CurrentDNA);
+    }
+    Debug.Log("CurrentDNA is " + CurrentDNA);
+    // Clear DNA Code
+    DNACode = "";
+    return allTraits;
+}
    
 }
 
