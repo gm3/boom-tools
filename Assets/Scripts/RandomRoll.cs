@@ -47,8 +47,6 @@ public class RandomRoll : MonoBehaviour
                     isRolling = true;
         }
         
-        // Generate NFTs Fast
-		//GenerateAllNFTs(totalNFTs);
     }
 
     IEnumerator Roll(int totalSpins)

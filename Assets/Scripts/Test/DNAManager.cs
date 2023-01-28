@@ -15,6 +15,9 @@ public class DNAManager : MonoBehaviour
     public BGColorRandomizer randomBGScriptReferences;
     public BGColorRandomizer randomBodyTextureScriptReferences;
     public BGColorRandomizer randomBoomboxTextureScriptReferences;
+    public PoseRandomizer randomPoseScriptReferences;
+
+    public RandomizeAll randomizeAllScriptReference;
     public SuperRule superRuleReference;
    
     public string[] allLayerTraits;
@@ -33,6 +36,9 @@ public class DNAManager : MonoBehaviour
     public TextMeshProUGUI[] traitLabel;
     public TextMeshProUGUI BGTraitLabel;
     public TextMeshProUGUI BGTraitValue;
+
+    public TextMeshProUGUI DescriptionTraitLabel;
+    public TextMeshProUGUI DescriptionTraitValue;
     public TextMeshProUGUI URLTraitValue;
     public string DNACode;
     public List<string> DNAList = new List<string>();
@@ -68,6 +74,8 @@ public class DNAManager : MonoBehaviour
 
         BGTraitLabel.text = randomBGScriptReferences.traitType;
         BGTraitValue.text = randomBGScriptReferences.currentEntryValue;
+        DescriptionTraitLabel.text = "Description";
+        DescriptionTraitValue.text = description;
         genIDLabel.text = genID.ToString();
         URLTraitValue.text = externalUrl.ToString();
         
@@ -205,6 +213,30 @@ public class DNAManager : MonoBehaviour
 
     }
 
+    public string GetPoseTrait()
+    {
+        string value;
+        value = "\t{\n" +
+
+        // trait type
+        "\t\t\"trait_type\"" + ": \"" + 
+        randomPoseScriptReferences.traitType  
+        + "\",\n" +
+
+        // value
+        "\t\t\"value\"" + ": \"" + 
+        randomPoseScriptReferences.currentEntryValue 
+        + "\"\n" +
+
+        "\t}";
+        //"\t}\n";
+        // end trait function
+        string traitDNA = randomPoseScriptReferences.traitType + randomPoseScriptReferences.currentEntryValue;
+        DNACode += traitDNA;
+        return value;
+
+    }
+
     public string GetAllTraits()
 {
     string allTraits = "";
@@ -230,6 +262,15 @@ public class DNAManager : MonoBehaviour
                 allTraits += ",\n";
             }
             allTraits += GetBGColorTrait();
+            attributeCount++;
+        }
+        if (randomPoseScriptReferences.currentEntryValue != "0")
+        {
+            if (attributeCount > 0)
+            {
+                allTraits += ",\n";
+            }
+            allTraits += GetPoseTrait();
             attributeCount++;
         }
         if (randomBodyTextureScriptReferences.currentEntryValue != "0")
@@ -272,6 +313,15 @@ public class DNAManager : MonoBehaviour
                 allTraits += ",\n";
             }
             allTraits += GetBGColorTrait();
+            attributeCount++;
+        }
+        if (randomPoseScriptReferences.currentEntryValue != "0")
+        {
+            if (attributeCount > 0)
+            {
+                allTraits += ",\n";
+            }
+            allTraits += GetPoseTrait();
             attributeCount++;
         }
         if (randomBodyTextureScriptReferences.currentEntryValue != "0")

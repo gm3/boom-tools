@@ -17,7 +17,7 @@ namespace VRMShaders
                 var jpg = texture.EncodeToJPG();
                 if (jpg != null)
                 {
-                    return (jpg, "image/jpg");
+                    return (jpg, "image/jpeg");
                 }
                 else
                 {
@@ -57,7 +57,7 @@ namespace VRMShaders
                 UnityEngine.Object.DestroyImmediate(copiedTex);
             }
 
-            return (bytes, "image/jpg");
+            return (bytes, "image/jpeg");
         }
     }
 }

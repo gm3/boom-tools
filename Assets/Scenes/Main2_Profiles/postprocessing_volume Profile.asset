@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6050e2d5de785ce4d931e4dbdbf2d755, type: 3}
   m_Name: ChromaticAberration
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
@@ -22,7 +22,7 @@ MonoBehaviour:
     defaultState: 1
   intensity:
     overrideState: 1
-    value: 0.023
+    value: 0.16
   fastMode:
     overrideState: 1
     value: 0
@@ -44,10 +44,10 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 9.83
+    value: 1.2
   threshold:
     overrideState: 1
-    value: 1.11
+    value: 0.96
   softKnee:
     overrideState: 1
     value: 0.5
@@ -88,10 +88,10 @@ MonoBehaviour:
   active: 0
   enabled:
     overrideState: 1
-    value: 1
-  intensity:
-    overrideState: 0
     value: 0
+  intensity:
+    overrideState: 1
+    value: -33
   intensityX:
     overrideState: 0
     value: 1
@@ -162,10 +162,10 @@ MonoBehaviour:
     value: 1
   mode:
     overrideState: 1
-    value: 1
+    value: 0
   intensity:
     overrideState: 1
-    value: 1.05
+    value: 0.54
   color:
     overrideState: 1
     value: {r: 0, g: 0, b: 0, a: 1}
@@ -189,10 +189,10 @@ MonoBehaviour:
     value: 0
   radius:
     overrideState: 1
-    value: 0.27
+    value: 0.4
   quality:
     overrideState: 1
-    value: 2
+    value: 4
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,16 +240,16 @@ MonoBehaviour:
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.187
+    value: 0.28
   smoothness:
     overrideState: 1
-    value: 0.2
+    value: 0.86
   roundness:
     overrideState: 1
     value: 1
   rounded:
     overrideState: 1
-    value: 0
+    value: 1
   mask:
     overrideState: 1
     value: {fileID: 0}
@@ -269,19 +269,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 556797029e73b2347956b6579e77e05b, type: 3}
   m_Name: DepthOfField
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
   focusDistance:
     overrideState: 1
-    value: 13.2
+    value: 1.17
   aperture:
     overrideState: 1
-    value: 18.7
+    value: 12.8
   focalLength:
     overrideState: 1
-    value: 72
+    value: 41
   kernelSize:
     overrideState: 1
-    value: 1
+    value: 0
