@@ -15,6 +15,7 @@ public class DNAManager : MonoBehaviour
     public BGColorRandomizer randomBGScriptReferences;
     public BGColorRandomizer randomBodyTextureScriptReferences;
     public BGColorRandomizer randomBoomboxTextureScriptReferences;
+    public BGColorRandomizer randomBorderTextureScriptReferences;
     public PoseRandomizer randomPoseScriptReferences;
 
     public RandomizeAll randomizeAllScriptReference;
@@ -89,7 +90,7 @@ public class DNAManager : MonoBehaviour
         "\"description\": " + "\"" + description + "\",\n" +
         "\"external_url\": " + "\"" + externalUrl + "\",\n" +
         "\"image\": " + "\"" + ipfsUrl + "/imagefile" + (genID+1).ToString() + ".png" + "\",\n" +
-        "\"name\": " + "\"" + name + " #" + (genID+1).ToString() + " \",\n" +
+        "\"name\": " + "\"" + name + " #" + (genID+1).ToString() + "\",\n" +
         
         
         // open attributes array
@@ -237,6 +238,30 @@ public class DNAManager : MonoBehaviour
 
     }
 
+    public string GetBorderTrait()
+    {
+        string value;
+        value = "\t{\n" +
+
+        // trait type
+        "\t\t\"trait_type\"" + ": \"" + 
+        randomBorderTextureScriptReferences.traitType  
+        + "\",\n" +
+
+        // value
+        "\t\t\"value\"" + ": \"" + 
+        randomBorderTextureScriptReferences.currentEntryValue 
+        + "\"\n" +
+
+        "\t}";
+        //"\t}\n";
+        // end trait function
+        string traitDNA = randomBorderTextureScriptReferences.traitType + randomBorderTextureScriptReferences.currentEntryValue;
+        DNACode += traitDNA;
+        return value;
+
+    }
+
     public string GetAllTraits()
 {
     string allTraits = "";
@@ -291,6 +316,15 @@ public class DNAManager : MonoBehaviour
             allTraits += GetBoomboxColorTrait();
             attributeCount++;
         }
+        if (randomBorderTextureScriptReferences.currentEntryValue != "0")
+        {
+            if (attributeCount > 0)
+            {
+                allTraits += ",\n";
+            }
+            allTraits += GetBorderTrait();
+            attributeCount++;
+        }
     }
     else
     {
@@ -340,6 +374,15 @@ public class DNAManager : MonoBehaviour
                 allTraits += ",\n";
             }
             allTraits += GetBoomboxColorTrait();
+            attributeCount++;
+        }
+        if (randomBorderTextureScriptReferences.currentEntryValue != "0")
+        {
+            if (attributeCount > 0)
+            {
+                allTraits += ",\n";
+            }
+            allTraits += GetBorderTrait();
             attributeCount++;
         }
     }

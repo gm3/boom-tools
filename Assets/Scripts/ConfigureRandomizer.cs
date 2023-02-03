@@ -59,7 +59,7 @@ public class ConfigureRandomizer : MonoBehaviour
         metaData.Reference = vrmReference;
         //metaData.Lice = vrmReference;
         VRMMeta metaComponent = modelToExportToVRM.AddComponent<VRMMeta>();
-        metaComponent.Meta = metaData;
+        
 
         //reset GenID
         dnaManagerReference.genID = 0;
@@ -67,6 +67,8 @@ public class ConfigureRandomizer : MonoBehaviour
             for (int i = 0; i < totalNFTs; i++) 
             {
                
+                    vrmTitle = dnaManagerReference.name + " #" + (dnaManagerReference.genID+1).ToString();
+                    metaComponent.Meta = metaData;
 
                     if(!dnaManagerReference.DNAList.Contains(dnaManagerReference.DNACode)){
 
