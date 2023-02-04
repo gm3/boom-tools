@@ -8,15 +8,15 @@ using VRM;
 public class RandomizeAll : MonoBehaviour
 {
     public GameObject parentRandomTraitCaller;
-
     public List<WeightedValue> weightedValues;
     public PrintRandomValue[] randomScriptReferences;
     public BGColorRandomizer randomBGScriptReference;
     public BGColorRandomizer randomBodyTextureScriptReferences;
     public BGColorRandomizer randomBoomboxTextureScriptReferences;
+     public BGColorRandomizer randomBorderTextureScriptReferences;
+    public PoseRandomizer randomPoseScriptReferences;
     public Button buttonReference;
     public DNAManager dnaManagerReference;
-
     public SetObjectsVisibility exportVRMFromRandomTrait;
 
     // Start is called before the first frame update
@@ -25,7 +25,6 @@ public class RandomizeAll : MonoBehaviour
         Button btn = buttonReference.GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
         //RamdomizeAll();
-
     }
 
     void TaskOnClick()
@@ -39,14 +38,12 @@ public class RandomizeAll : MonoBehaviour
         } else {
             RamdomizeAll();
         }
-
-
     }
 
     public void RamdomizeAll() {
         string newTraits = "";
         if (parentRandomTraitCaller != null)
-            newTraits = RandomizeParentGetJsonData();
+        newTraits = RandomizeParentGetJsonData();
         randomScriptReferences[0].RandomCheck();
         randomScriptReferences[1].RandomCheck();
         randomScriptReferences[2].RandomCheck();
@@ -54,9 +51,12 @@ public class RandomizeAll : MonoBehaviour
         randomScriptReferences[4].RandomCheck();
         randomScriptReferences[5].RandomCheck();
         randomScriptReferences[6].RandomCheck();
+        randomScriptReferences[7].RandomCheck();
+        randomPoseScriptReferences.RandomCheck();
         randomBGScriptReference.RandomCheck();
         randomBodyTextureScriptReferences.RandomCheck();
         randomBoomboxTextureScriptReferences.RandomCheck();
+        randomBorderTextureScriptReferences.RandomCheck();
         dnaManagerReference.ExportJsonToText(newTraits);
     }
 

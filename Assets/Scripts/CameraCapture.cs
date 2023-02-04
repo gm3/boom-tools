@@ -31,10 +31,10 @@ public class CameraCapture : MonoBehaviour
         image.Apply();
         RenderTexture.active = activeRenderTexture;
  
-        byte[] bytes = image.EncodeToPNG();
+        byte[] bytes = image.EncodeToJPG();
         Destroy(image);
  
-        File.WriteAllBytes(Application.dataPath + "/StreamingAssets/Images/" + dnaManagerReference.genID + ".png", bytes);
+        File.WriteAllBytes(Application.dataPath + "/StreamingAssets/Images/" + dnaManagerReference.genID + ".jpg", bytes);
         //fileCounter++;
     }
 }
