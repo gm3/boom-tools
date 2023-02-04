@@ -77,17 +77,3 @@ To the left in the Inspector, you will see the options manager that will guide y
 ![image](https://user-images.githubusercontent.com/1117257/190047962-e35c6e3f-bcd4-4452-b096-af01dda1e0a2.png)
 
 For further information refer to the wiki for a more detailed description of each step.
-
-## Issues
-https://github.com/gm3/boom-tools/issues
-
-## License
-This project is available under the MIT CC0 licence 
-
-![](https://i.imgur.com/pYkqt1h.png)
-
-## Contact
-@boomboxheads http://www.twitter.com/boomboxheads
-
-
-![](https://hackmd.io/_uploads/HkGwhBhqj.png)
