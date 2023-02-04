@@ -3,15 +3,10 @@
 
 Wiki / API Docs https://github.com/gm3/boom-tools/wiki
 
-![](https://hackmd.io/_uploads/r1tnnr45i.png)
-
 ## Summary
 This is a tool that can randomize layers in Unity using weighted randomization. It can export VRMs using uniVRM. The tool can be configured to export a batch of VRMs with erc-1155 metadata, along with an image. You can use this tool to randomize pretty much anything if customized. 
-![](https://hackmd.io/_uploads/rknRhrEqo.gif)
 
 You can use VRMs in Webaverse, Hyperfy, Monaverse, Unreal Engine, Unity3d and tons of other places on the web!
-![](https://hackmd.io/_uploads/SktZarEqo.gif)
-![](https://hackmd.io/_uploads/SyYt6rN9j.gif)
 
 ## Dependencies
 
