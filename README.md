@@ -3,7 +3,6 @@
 
 Wiki / API Docs https://github.com/gm3/boom-tools/wiki
 
-
 ![](https://hackmd.io/_uploads/r1tnnr45i.png)
 
 ## Summary
@@ -29,51 +28,6 @@ You can use VRMs in Webaverse, Hyperfy, Monaverse, Unreal Engine, Unity3d and to
 - In Batch mode you can export a VRM, the JSON, and an image, total of X times you can set in the batch export configuration script.
 ### Single Export
 - You can also export a single VRM as well as just the JSON if you wish.
-### Roll Mode (beta)
-- ```Roll``` mode is still being worked on. You can spin through a bunch and land on a random avatar.
 
 
-## Layers and Heirechy
-![](https://i.imgur.com/uwNNh34.png)
-All of the scripts are nested under the `_BoomTools` GameObject and the output can be configered there for the batch export.
 
-## Setting up Layers
-* Configure the weights for each layer in the inspector panel on the DNAManager sript
-* Configure corresponding value associated with the weights
-* Define the string data the meta-data the JSON output will contain
-* Assign references to the 3d layers that will be randomized. 
-
----
-
-1. Each Layer has a configuration script where you set up all your ```Values and Weights``` for each variation in a layer. 
-
-![](https://i.imgur.com/OOB8U85.png)
-
-2. Drag references to 3d gameObjects / layers into the ``"Total Objects In Layer"`` array. 
-
-3. Setup the ``Layer String Data`` by matching the names of the values of the layers, that will be used to create the string JSON output.
-
-
-Then the Random ```once, batch or roll``` can be chosen to trigger the randomization.
-
-
-For the JSON string output, it is created and formatted in the script ```DNAManager```  
-
-All of the output goes to the StreamingAssets folder in the Assets folder. Inside you will find the VRMs, JSON, and Images that were generated.
-
-Change the Format dropdown to chage the output format, then click Export to export a single generated instance, or configure the tool to do a batch export! (Make sure you have enough hard drive space and do small tests first)
-
-![](https://i.imgur.com/Dgi5rp6.png)
-
-## Options Manager
-In addition to the layer system, the new option manager allows you to select multiple options such as gameObjects, Textures and Materials in a quick way, use this method in case you require alot of elements to add
-
-To start, open the Character Builder scene, and select _BoomTools from the hierarchy:
-
-![image](https://user-images.githubusercontent.com/1117257/190047442-feb8f429-5580-4148-8dd4-ac8d3fda79c6.png)
-
-To the left in the Inspector, you will see the options manager that will guide you through the process of creating randomizable vrm characters. Simply click on the Main Models option to start selecting your 3d models, the manager will automatically unlock the options and guide you in each step.
-
-![image](https://user-images.githubusercontent.com/1117257/190047962-e35c6e3f-bcd4-4452-b096-af01dda1e0a2.png)
-
-For further information refer to the wiki for a more detailed description of each step.
