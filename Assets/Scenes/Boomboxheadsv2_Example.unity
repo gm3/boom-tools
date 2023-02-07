@@ -41285,6 +41285,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7357444003773091983}
   - component: {fileID: 3529353725359737589}
+  - component: {fileID: 7877135478322448950}
   m_Layer: 0
   m_Name: Avatar
   m_TagString: Untagged
@@ -41292,6 +41293,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7877135478322448950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7877135478322448949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b678c1df50cfb547990db24a32856da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BlendShapeAvatar: {fileID: 11400000, guid: 95f5e0be3d38aee4fb99800583292ddc, type: 2}
 --- !u!4 &7937801991757370269
 Transform:
   m_ObjectHideFlags: 0
