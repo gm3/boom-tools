@@ -11178,10 +11178,15 @@ MonoBehaviour:
   vrmTitle: Boomboxhead v2
   vrmAuthor: Boomboxhead
   vrmContactInformation: http://twitter.com/boomboxheads
-  vrmReference: cc0
+  vrmReference: https://github.com/gm3/boom-tools
+  license: 1
+  violentUssage: 0
+  sexualUssage: 0
+  commercialUssage: 1
   vrmVersion: 0.x
   exportPNG: 0
   exportJPEG: 1
+  vrmAuthoringManager: {fileID: 2043501886}
 --- !u!1 &706826952
 GameObject:
   m_ObjectHideFlags: 0
@@ -23524,6 +23529,7 @@ Transform:
   - {fileID: 68587741}
   - {fileID: 782941014}
   - {fileID: 156861130}
+  - {fileID: 2043501885}
   m_Father: {fileID: 1140322407}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -24436,10 +24442,13 @@ MonoBehaviour:
   - 
   - 
   - 
-  description: 420 Boomboxhead v2 NFTs
+  description: Boomboxheads V2 is a 3d generative project of VRM avatars created
+    using boom-tools.
   name: Boomboxhead
   externalUrl: https://twitter.com/boomboxheads
   ipfsUrl: https://www.ipfsreplacethis.com
+  vrmUrl: vrm_url
+  createdBy: Boomboxhead
   jsonOutputPreview: 
   genID: 0
   genIDLabel: {fileID: 1638163007}
@@ -36331,6 +36340,66 @@ Transform:
   m_Father: {fileID: 2803356195509413467}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2043501884
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2043501885}
+  - component: {fileID: 2043501886}
+  m_Layer: 0
+  m_Name: _VRMAutheringManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2043501885
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043501884}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1398159772}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2043501886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043501884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 904afc56c8b678440a41996fe5871a1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dnaManager: {fileID: 1437213998}
+  title: Boomboxhead
+  creator: 0x670a6eb62f5146d4b3b40c7b58aa31d175e3d6fb
+  contactInformation: http://twitter.com/boomboxheads
+  reference: https://github.com/gm3/boom-tools
+  version: 1
+  additionalLicenseInfoURL: https://creativecommons.org/share-your-work/public-domain/cc0/
+  depictionOfViolence: 0
+  depictionOfSexualActs: 0
+  commercialUse: 1
+  allowedUser: 2
+  license: 1
+  violentUssage: 0
+  sexualUssage: 0
+  commercialUssage: 1
+  storeScreenshotsInVRM: 1
 --- !u!1 &2052080611 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 62b0048479f49c24197df184fd0336af,
