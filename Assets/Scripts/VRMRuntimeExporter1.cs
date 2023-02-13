@@ -148,7 +148,7 @@ using VRM;
 #if false
         var path = FileDialogForWindows.SaveDialog("save VRM", Application.dataPath + "/export.vrm");
 #else
-            var path = Application.dataPath + "/StreamingAssets/VRM/export" + edition + ".0x" + ".vrm"; // i edited this line
+            var path = Application.dataPath + "/StreamingAssets/VRM/boomboxhead_" + edition + ".vrm"; // i edited this line
 #endif
             if (string.IsNullOrEmpty(path))
             {

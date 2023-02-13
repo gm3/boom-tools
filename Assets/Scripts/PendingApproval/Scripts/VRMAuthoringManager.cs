@@ -14,6 +14,10 @@ public class VRMAuthoringManager : MonoBehaviour
     public AllowedUser allowedUser = AllowedUser.OnlyAuthor;
     public LicenseType license = LicenseType.CC0;
 
+    public UssageLicense violentUssage = UssageLicense.Disallow;
+    public UssageLicense sexualUssage = UssageLicense.Disallow;
+    public UssageLicense commercialUssage = UssageLicense.Allow;
+
     public bool storeScreenshotsInVRM = false;
 
 }

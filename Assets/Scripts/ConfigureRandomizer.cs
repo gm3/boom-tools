@@ -25,11 +25,19 @@ public class ConfigureRandomizer : MonoBehaviour
     public string vrmAuthor = "";
     public string vrmContactInformation = "";
     public string vrmReference = "";
+
+    public LicenseType license = LicenseType.CC0;
+
+     public UssageLicense violentUssage = UssageLicense.Disallow;
+    public UssageLicense sexualUssage = UssageLicense.Disallow;
+    public UssageLicense commercialUssage = UssageLicense.Allow;
     public string vrmVersion = "0.x";
     private string currentAnimationStateValue;
 
     public bool exportPNG = false;
     public bool exportJPEG = true;
+
+    public VRMAuthoringManager vrmAuthoringManager;
     
     // Start is called before the first frame update
     void Start()
@@ -57,6 +65,12 @@ public class ConfigureRandomizer : MonoBehaviour
         metaData.Author = vrmAuthor;
         metaData.ContactInformation = vrmContactInformation;
         metaData.Reference = vrmReference;
+        metaData.LicenseType = vrmAuthoringManager.license;
+        metaData.OtherLicenseUrl = vrmAuthoringManager.additionalLicenseInfoURL;
+        metaData.AllowedUser = vrmAuthoringManager.allowedUser;
+        metaData.ViolentUssage = violentUssage;
+        metaData.SexualUssage = sexualUssage;
+        metaData.CommercialUssage = commercialUssage;
         //metaData.Lice = vrmReference;
         VRMMeta metaComponent = modelToExportToVRM.AddComponent<VRMMeta>();
         

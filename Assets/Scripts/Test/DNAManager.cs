@@ -27,6 +27,8 @@ public class DNAManager : MonoBehaviour
     public string name;
     public string externalUrl;
     public string ipfsUrl;
+    public string vrmUrl;
+    public string createdBy;
 
     [TextArea(10,10)]
     public string jsonOutputPreview;
@@ -87,10 +89,14 @@ public class DNAManager : MonoBehaviour
        
         jsonOutputPreview = "{ \n" + 
         //"\"editionId\": " + "\"" + (genID+1).ToString() + "\",\n" +
-        "\"description\": " + "\"" + description + "\",\n" +
-        "\"external_url\": " + "\"" + externalUrl + "\",\n" +
-        "\"image\": " + "\"" + ipfsUrl + "/imagefile" + (genID+1).ToString() + ".png" + "\",\n" +
         "\"name\": " + "\"" + name + " #" + (genID+1).ToString() + "\",\n" +
+        "\"created_by\": " + "\"" + createdBy + "\",\n" +
+        "\"external_url\": " + "\"" + externalUrl + "\",\n" +
+        "\"description\": " + "\"" + description + "\",\n" +
+        "\"vrm_url\": " + "\"" + vrmUrl + "\",\n" +
+        
+        "\"image\": " + "\"" + ipfsUrl + "/imagefile" + (genID+1).ToString() + ".png" + "\",\n" +
+        
         
         
         // open attributes array
