@@ -34,7 +34,7 @@ public class CameraCapture : MonoBehaviour
         byte[] bytes = image.EncodeToJPG();
         Destroy(image);
  
-        File.WriteAllBytes(Application.dataPath + "/StreamingAssets/Images/" + dnaManagerReference.genID + ".jpg", bytes);
+        File.WriteAllBytes(Application.dataPath + "/StreamingAssets/Images/boomboxhead" + dnaManagerReference.genID + ".jpg", bytes);
         //fileCounter++;
     }
 }

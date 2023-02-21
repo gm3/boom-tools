@@ -93,9 +93,8 @@ public class DNAManager : MonoBehaviour
         "\"created_by\": " + "\"" + createdBy + "\",\n" +
         "\"external_url\": " + "\"" + externalUrl + "\",\n" +
         "\"description\": " + "\"" + description + "\",\n" +
-        "\"vrm_url\": " + "\"" + vrmUrl + "\",\n" +
-        
-        "\"image\": " + "\"" + ipfsUrl + "/imagefile" + (genID+1).ToString() + ".png" + "\",\n" +
+        "\"vrm_url\": " + "\"" + vrmUrl + "/boomboxhead" + (genID+1).ToString() + ".vrm" + "\",\n" +
+        "\"image\": " + "\"" + ipfsUrl + "/boomboxhead" + (genID+1).ToString() + ".jpg" + "\",\n" +
         
         
         
