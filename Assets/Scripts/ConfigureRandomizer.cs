@@ -102,10 +102,21 @@ public class ConfigureRandomizer : MonoBehaviour
                             }
                             yield return new WaitForSeconds(delaySpeed+(int)Random.value);
                         cameraCaptureReference.Capture();
+                        
+                        vrmTitle = dnaManagerReference.name + "glb#" + (dnaManagerReference.genID).ToString();
+                        metaComponent.Meta = metaData;
+
+                        vrmRuntimeExporterRef.Export(modelToExportToVRM, true, vrmTitle);
+
+
                         toTxtFileRef.CreateTextFile();
                         
                             if (exportVRMFromRandomTrait != null)
                             modelToExportToVRM = exportVRMFromRandomTrait.selectedObject as GameObject;
+
+                            
+                            
+
                             animationComponent.SetTrigger("TPose");
                             
 
