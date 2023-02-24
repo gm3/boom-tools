@@ -10915,7 +10915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afcdd36593d31ba42adf6400d6fcf8bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalNFTs: 420
+  totalNFTs: 10
   dnaManagerReference: {fileID: 1437213998}
   animationComponent: {fileID: 3529353725359737589}
   randomizeAllScriptReference: {fileID: 1420815688}
