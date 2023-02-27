@@ -15,12 +15,6 @@ MonoBehaviour:
   m_prefab: {fileID: 0}
   BlendShapeName: Joy
   Preset: 8
-  Values:
-  - RelativePath: Hips_bind/Spine_bind/Spine1_bind/Spine2_bind/Neck_bind/Head_bind/Boomboxhead
-    Index: 6
-    Weight: 92.4
-  - RelativePath: Hips_bind/Spine_bind/Spine1_bind/Spine2_bind/Neck_bind/Head_bind/Boomboxhead
-    Index: 8
-    Weight: 38.1
+  Values: []
   MaterialValues: []
   IsBinary: 0

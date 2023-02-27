@@ -15,9 +15,6 @@ MonoBehaviour:
   m_prefab: {fileID: 0}
   BlendShapeName: Sorrow
   Preset: 10
-  Values:
-  - RelativePath: Hips_bind/Spine_bind/Spine1_bind/Spine2_bind/Neck_bind/Head_bind/Boomboxhead
-    Index: 11
-    Weight: 69.2
+  Values: []
   MaterialValues: []
   IsBinary: 0

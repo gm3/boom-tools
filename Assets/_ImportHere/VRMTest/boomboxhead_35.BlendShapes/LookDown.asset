@@ -15,9 +15,6 @@ MonoBehaviour:
   m_prefab: {fileID: 0}
   BlendShapeName: LookDown
   Preset: 13
-  Values:
-  - RelativePath: Hips_bind/Spine_bind/Spine1_bind/Spine2_bind/Neck_bind/Head_bind/Boomboxhead
-    Index: 4
-    Weight: 100
+  Values: []
   MaterialValues: []
   IsBinary: 0

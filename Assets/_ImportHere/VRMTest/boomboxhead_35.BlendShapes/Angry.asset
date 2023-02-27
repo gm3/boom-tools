@@ -15,12 +15,6 @@ MonoBehaviour:
   m_prefab: {fileID: 0}
   BlendShapeName: Angry
   Preset: 9
-  Values:
-  - RelativePath: Hips_bind/Spine_bind/Spine1_bind/Spine2_bind/Neck_bind/Head_bind/Boomboxhead
-    Index: 5
-    Weight: 36.5
-  - RelativePath: Hips_bind/Spine_bind/Spine1_bind/Spine2_bind/Neck_bind/Head_bind/Boomboxhead
-    Index: 11
-    Weight: 94.5
+  Values: []
   MaterialValues: []
   IsBinary: 0

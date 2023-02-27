@@ -29,6 +29,7 @@ public class DNAManager : MonoBehaviour
     public string ipfsUrl;
     public string vrmUrl;
     public string createdBy;
+    public string aniamtionUrl;
 
     [TextArea(10,10)]
     public string jsonOutputPreview;
@@ -94,6 +95,7 @@ public class DNAManager : MonoBehaviour
         "\"external_url\": " + "\"" + externalUrl + "\",\n" +
         "\"description\": " + "\"" + description + "\",\n" +
         "\"vrm_url\": " + "\"" + vrmUrl + "/boomboxhead" + (genID+1).ToString() + ".vrm" + "\",\n" +
+        "\"animation_url\": " + "\"" + aniamtionUrl + "/boomboxhead" + (genID+1).ToString() + ".glb" + "\",\n" +
         "\"image\": " + "\"" + ipfsUrl + "/boomboxhead" + (genID+1).ToString() + ".jpg" + "\",\n" +
         
         

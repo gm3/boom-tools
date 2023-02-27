@@ -15,15 +15,6 @@ MonoBehaviour:
   m_prefab: {fileID: 0}
   BlendShapeName: U
   Preset: 4
-  Values:
-  - RelativePath: Hips_bind/Spine_bind/Spine1_bind/Spine2_bind/Neck_bind/Head_bind/Boomboxhead
-    Index: 0
-    Weight: 39.1
-  - RelativePath: Hips_bind/Spine_bind/Spine1_bind/Spine2_bind/Neck_bind/Head_bind/Boomboxhead
-    Index: 6
-    Weight: 28.4
-  - RelativePath: Hips_bind/Spine_bind/Spine1_bind/Spine2_bind/Neck_bind/Head_bind/Boomboxhead
-    Index: 8
-    Weight: 91.8
+  Values: []
   MaterialValues: []
   IsBinary: 0
