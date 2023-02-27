@@ -1,4 +1,4 @@
-# boom-tools: a.r.m. avatar randomizer machine
+# boom-tools
 ###### tags: `boom-tools` `Unity Layer Randomizer` `devlog` ```v.0.0.1-alpha```
 
 ![](https://hackmd.io/_uploads/SyI1s490o.gif)
