@@ -6407,7 +6407,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &433267890
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7820,224 +7820,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weightedValues:
-  - value: AbstractPaint
-    weight: 1
-  - value: Artwork1
-    weight: 1
-  - value: Artwork2
-    weight: 1
-  - value: Artwork3
-    weight: 1
-  - value: Artwork4
-    weight: 1
-  - value: Artwork5
-    weight: 1
-  - value: Artwork6
-    weight: 1
-  - value: Artwork7
-    weight: 1
-  - value: Artwork8
-    weight: 1
-  - value: Artwork9
-    weight: 1
-  - value: Artwork10
-    weight: 1
-  - value: Artwork11
-    weight: 1
-  - value: Artwork12
-    weight: 1
-  - value: Artwork13
-    weight: 1
-  - value: Artwork14
-    weight: 1
-  - value: Artwork15
-    weight: 1
-  - value: Artwork16
-    weight: 1
-  - value: Artwork17
-    weight: 1
-  - value: BlueWall
-    weight: 1
-  - value: Brick
-    weight: 1
-  - value: BrickWall
-    weight: 1
-  - value: Cyberpunk
-    weight: 1
-  - value: Deco
-    weight: 1
-  - value: Eth
-    weight: 1
-  - value: Fancy
-    weight: 1
-  - value: Frozen
-    weight: 1
-  - value: Gizmos
-    weight: 1
-  - value: GlitchBlue
-    weight: 1
-  - value: GoldFlower
-    weight: 1
-  - value: Grids
-    weight: 1
-  - value: Ground
-    weight: 1
-  - value: Grunge
-    weight: 1
-  - value: GrungeWall
-    weight: 1
-  - value: Heart
-    weight: 1
-  - value: InteriorWall
-    weight: 1
-  - value: LightWood
-    weight: 1
-  - value: Liquid
-    weight: 1
-  - value: Lucky
-    weight: 1
-  - value: Moss
-    weight: 1
-  - value: OldWall
-    weight: 1
-  - value: Ornate
-    weight: 1
-  - value: Panels
-    weight: 1
-  - value: Pebble
-    weight: 1
-  - value: PinkSwirl
-    weight: 1
-  - value: Pottery
-    weight: 1
-  - value: RustSteel
-    weight: 1
-  - value: Smear
-    weight: 1
-  - value: Steel
-    weight: 1
-  - value: Swirls
-    weight: 1
-  - value: Trippy
-    weight: 1
-  - value: Wall
-    weight: 1
-  - value: William
-    weight: 1
-  - value: WoodFloor
-    weight: 1
+  - value: Blue
+    weight: 50
+  - value: Green
+    weight: 50
+  - value: Purple
+    weight: 50
+  - value: Teal
+    weight: 50
+  - value: White
+    weight: 50
+  - value: Yellow
+    weight: 50
   - value: Black
     weight: 95
   buttonReference: {fileID: 1685077563}
   totalMaterials:
-  - {fileID: 2100000, guid: 0124eb31f3d2ede4ab7b50e3b3444b43, type: 2}
-  - {fileID: 2100000, guid: 0962e569adba5eb4f8a67b3ed3703b5b, type: 2}
-  - {fileID: 2100000, guid: 95d0580f9e2bc824c8d7dec2756a8df7, type: 2}
-  - {fileID: 2100000, guid: d266ff09f135df74b9df87a70589f503, type: 2}
-  - {fileID: 2100000, guid: e4333ce23c2011048a76ab018bda4642, type: 2}
-  - {fileID: 2100000, guid: 8988f21420b529b42ae4f606fe3aabb4, type: 2}
-  - {fileID: 2100000, guid: f9046b810374f094c8f9b63af0eb173f, type: 2}
-  - {fileID: 2100000, guid: 794dff8a0be9df041a9bbf8797e5a260, type: 2}
-  - {fileID: 2100000, guid: c08a2099f0e63e645b2d07cc9a045465, type: 2}
-  - {fileID: 2100000, guid: 7a596c614b6b6414494d06e3ac7cde9e, type: 2}
-  - {fileID: 2100000, guid: a960c5604ec5ae546bc9cccd4be4588b, type: 2}
-  - {fileID: 2100000, guid: b06417194ad09a3429ed9c87af321fa4, type: 2}
-  - {fileID: 2100000, guid: 42d9ee9d764462b40bc2b59433a9a231, type: 2}
-  - {fileID: 2100000, guid: 942575accfba2e3498afbd7140749b1e, type: 2}
-  - {fileID: 2100000, guid: 0939a6556fce5c744972f287bd68cb3c, type: 2}
-  - {fileID: 2100000, guid: 82ade4eb8bdab7241a1523079b7b99c2, type: 2}
-  - {fileID: 2100000, guid: 05ae140741563ee4285d5d322442a425, type: 2}
-  - {fileID: 2100000, guid: 3beee842466a7eb47851ddff1193154e, type: 2}
-  - {fileID: 2100000, guid: 931ae8869ef6c4e41a8a85767e594a19, type: 2}
-  - {fileID: 2100000, guid: f4942c917734778418eded9a363533d9, type: 2}
-  - {fileID: 2100000, guid: 79b9016c9e1f2544398e6c0c34324448, type: 2}
-  - {fileID: 2100000, guid: 25420445f3322834e9200b2c53abd6cf, type: 2}
-  - {fileID: 2100000, guid: 3be0bfb0a01ac7e43864d3add5ad864a, type: 2}
-  - {fileID: 2100000, guid: 068a894c725679b4b8ea127f78a54238, type: 2}
-  - {fileID: 2100000, guid: c1b4b5f110fa10946bcefe6fc8f1ad38, type: 2}
-  - {fileID: 2100000, guid: e01a595b662fa1f4b898da43c39a9bbf, type: 2}
-  - {fileID: 2100000, guid: b93fd523acd79cf42ad6c714252f10fa, type: 2}
-  - {fileID: 2100000, guid: 3e4806f4870ca2240b51ad59f639437a, type: 2}
-  - {fileID: 2100000, guid: 7c7fcc2c614f6d54ab29aeb5f86381df, type: 2}
-  - {fileID: 2100000, guid: 62714e6412bfd6d4cbf303cd679ed482, type: 2}
-  - {fileID: 2100000, guid: 1eb32c0773141f843b8e8e6e69bb65ce, type: 2}
-  - {fileID: 2100000, guid: 3cffe518477dd1649872201334a2604d, type: 2}
-  - {fileID: 2100000, guid: bcec2123b1fb4ae4c952024a91864b52, type: 2}
-  - {fileID: 2100000, guid: ca219d0c6a6bdc74893fd486c5b99c34, type: 2}
-  - {fileID: 2100000, guid: 22befa10675c1c543b2da03650247bd7, type: 2}
-  - {fileID: 2100000, guid: 8238d3bc142cb9045a37e14ff210d42c, type: 2}
-  - {fileID: 2100000, guid: 222e479a24c10b44b9b5d8dc625ec24b, type: 2}
-  - {fileID: 2100000, guid: c5348fd5aa774d148b71b756eb365e0e, type: 2}
-  - {fileID: 2100000, guid: 3e4b012c08964584b81c5a3d8e0a02c6, type: 2}
-  - {fileID: 2100000, guid: a7254564f8cb6b0479e5b9b7b5706019, type: 2}
-  - {fileID: 2100000, guid: c20c8cb1b94f78d44a9af41d0ca8f086, type: 2}
-  - {fileID: 2100000, guid: bdedafcd18d2ed044b37bbf3ca83fe98, type: 2}
-  - {fileID: 2100000, guid: 1dcea6a750eca9c4fa9e4b6b5dfaef21, type: 2}
-  - {fileID: 2100000, guid: 7f5b79ca58bdcce4792404a04db40df8, type: 2}
-  - {fileID: 2100000, guid: 6d55ed80d566e0c4986501b1dfaea114, type: 2}
-  - {fileID: 2100000, guid: b4fde3b580baf25428ee317a802d433f, type: 2}
-  - {fileID: 2100000, guid: c4fb8d7b45d5c6840b2af63d781a0df1, type: 2}
-  - {fileID: 2100000, guid: 1766dc6510d21d6428198b5dffe90df1, type: 2}
-  - {fileID: 2100000, guid: 06560dc2b9bf0f444b47e4ab4ece38ce, type: 2}
-  - {fileID: 2100000, guid: 86723e8cb726a32479e5d52dd2a1c52c, type: 2}
-  - {fileID: 2100000, guid: 83a6ab83a9d91784b91e70ebe5a05734, type: 2}
-  - {fileID: 2100000, guid: 44fde53da5238484a9cff0073913e038, type: 2}
-  - {fileID: 2100000, guid: ec7f34dd90a1c0545ad9a0129e1a3f19, type: 2}
-  - {fileID: 2100000, guid: d0d1ebfa48b742d4f9bfd4eb79830170, type: 2}
+  - {fileID: 2100000, guid: 91fc4ca1038415f4894c207e506249aa, type: 2}
+  - {fileID: 2100000, guid: fb4a5586818fe9547831d80c8d021cc5, type: 2}
+  - {fileID: 2100000, guid: 2e6716fd062e546448e270e6d5861664, type: 2}
+  - {fileID: 2100000, guid: 517983d8f67b63b41ad665ce5cdc091c, type: 2}
+  - {fileID: 2100000, guid: 281f714cecbc483429e6353954b22fd8, type: 2}
+  - {fileID: 2100000, guid: f06293750f0f04a4b930365f8e34ec87, type: 2}
+  - {fileID: 2100000, guid: e66f15d5b954bde4089b38caab6526af, type: 2}
   layerStringData:
-  - AbstractPaint
-  - Artwork1
-  - Artwork2
-  - Artwork3
-  - Artwork4
-  - Artwork5
-  - Artwork6
-  - Artwork7
-  - Artwork8
-  - Artwork9
-  - Artwork10
-  - Artwork11
-  - Artwork12
-  - Artwork13
-  - Artwork14
-  - Artwork15
-  - Artwork16
-  - Artwork17
-  - BlueWall
-  - Brick
-  - BrickWall
-  - Cyberpunk
-  - Deco
-  - Eth
-  - Fancy
-  - Frozen
-  - Gizmos
-  - GlitchBlue
-  - GoldFlower
-  - Grids
-  - Ground
-  - Grunge
-  - GrungeWall
-  - Heart
-  - InteriorWall
-  - LightWood
-  - Liquid
-  - Lucky
-  - Moss
-  - OldWall
-  - Ornate
-  - Panels
-  - Pebble
-  - PinkSwirl
-  - Pottery
-  - RustSteel
-  - Smear
-  - Steel
-  - Swirls
-  - Trippy
-  - Wall
-  - William
-  - WoodFloor
+  - Blue
+  - Green
+  - Purple
+  - Teal
+  - White
+  - Yellow
   - Black
   traitLayerText: {fileID: 1000962292}
   traitType: BGColor
@@ -8877,7 +8689,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &590421193
 Transform:
   m_ObjectHideFlags: 0
@@ -23506,7 +23318,7 @@ Light:
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
-    m_Resolution: -1
+    m_Resolution: 3
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
@@ -23603,7 +23415,6 @@ MonoBehaviour:
   - {fileID: 1134245131}
   - {fileID: 287855035}
   - {fileID: 385524040}
-  - {fileID: 1597300932}
   randomTextureScriptReferences:
   - {fileID: 515605673}
   - {fileID: 1079227681}
@@ -24124,7 +23935,6 @@ MonoBehaviour:
   - {fileID: 1134245131}
   - {fileID: 287855035}
   - {fileID: 385524040}
-  - {fileID: 1597300932}
   randomBGScriptReferences: {fileID: 515605673}
   randomBodyTextureScriptReferences: {fileID: 1079227681}
   randomBoomboxTextureScriptReferences: {fileID: 133848042}
@@ -24133,7 +23943,6 @@ MonoBehaviour:
   randomizeAllScriptReference: {fileID: 1420815688}
   superRuleReference: {fileID: 476205522}
   allLayerTraits:
-  - 
   - 
   - 
   - 
@@ -24161,7 +23970,6 @@ MonoBehaviour:
   - {fileID: 2100611046}
   - {fileID: 1187272460}
   - {fileID: 1095940838}
-  - {fileID: 1645649471}
   BGTraitLabel: {fileID: 91325786}
   BGTraitValue: {fileID: 1000962292}
   DescriptionTraitLabel: {fileID: 1126788838}
@@ -24504,7 +24312,7 @@ ReflectionProbe:
   m_TimeSlicingMode: 0
   m_Resolution: 2048
   m_UpdateFrequency: 0
-  m_BoxSize: {x: 10.62, y: 6.99, z: 20.55}
+  m_BoxSize: {x: 26.17, y: 6.99, z: 79.09}
   m_BoxOffset: {x: 0.08781004, y: -0.2524581, z: 0.71238065}
   m_NearClip: 0.3
   m_FarClip: 1000
@@ -25552,8 +25360,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1491315889}
   m_LocalRotation: {x: 0.70710707, y: -0, z: -0, w: 0.7071066}
-  m_LocalPosition: {x: -0.2954, y: -0.05, z: -27.11}
-  m_LocalScale: {x: 3.3191981, y: 2.828015, z: 3.2664566}
+  m_LocalPosition: {x: -0.2954, y: -0.05, z: -7.12}
+  m_LocalScale: {x: 1.177552, y: 1.003295, z: 1.1588408}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 700942058}
@@ -27198,7 +27006,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1597300932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28185,8 +27993,8 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
+    m_Type: 2
+    m_Resolution: 3
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
@@ -28322,7 +28130,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1645649470
 RectTransform:
   m_ObjectHideFlags: 0
@@ -33272,7 +33080,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1928255894
 Transform:
   m_ObjectHideFlags: 0
@@ -37843,7 +37651,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2125116936
 Transform:
   m_ObjectHideFlags: 0
