@@ -10,10 +10,7 @@ public class RandomizeAll : MonoBehaviour
     public GameObject parentRandomTraitCaller;
     public List<WeightedValue> weightedValues;
     public PrintRandomValue[] randomScriptReferences;
-    public BGColorRandomizer randomBGScriptReference;
-    public BGColorRandomizer randomBodyTextureScriptReferences;
-    public BGColorRandomizer randomBoomboxTextureScriptReferences;
-     public BGColorRandomizer randomBorderTextureScriptReferences;
+    public BGColorRandomizer[] randomTextureScriptReferences;
     public PoseRandomizer randomPoseScriptReferences;
     public Button buttonReference;
     public DNAManager dnaManagerReference;
@@ -44,19 +41,27 @@ public class RandomizeAll : MonoBehaviour
         string newTraits = "";
         if (parentRandomTraitCaller != null)
         newTraits = RandomizeParentGetJsonData();
-        randomScriptReferences[0].RandomCheck();
-        randomScriptReferences[1].RandomCheck();
-        randomScriptReferences[2].RandomCheck();
-        randomScriptReferences[3].RandomCheck();
-        randomScriptReferences[4].RandomCheck();
-        randomScriptReferences[5].RandomCheck();
-        randomScriptReferences[6].RandomCheck();
-        randomScriptReferences[7].RandomCheck();
+
+        // randomize all the goe layers
+        for (int i = 0; i < randomScriptReferences.Length; i++) {
+    randomScriptReferences[i].RandomCheck();
+        }
+
+        // randomize all the texture layers
+        for (int i = 0; i < randomTextureScriptReferences.Length; i++) {
+    randomTextureScriptReferences[i].RandomCheck();
+        }
+
+        // randomize all the pose layers anim clips
         randomPoseScriptReferences.RandomCheck();
-        randomBGScriptReference.RandomCheck();
-        randomBodyTextureScriptReferences.RandomCheck();
-        randomBoomboxTextureScriptReferences.RandomCheck();
-        randomBorderTextureScriptReferences.RandomCheck();
+
+
+        //randomBGScriptReference.RandomCheck();
+        //randomBodyTextureScriptReferences.RandomCheck();
+        //randomBoomboxTextureScriptReferences.RandomCheck();
+        //randomBorderTextureScriptReferences.RandomCheck();
+
+
         dnaManagerReference.ExportJsonToText(newTraits);
     }
 
