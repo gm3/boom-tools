@@ -38,6 +38,9 @@ public class ConfigureRandomizer : MonoBehaviour
     public bool exportJPEG = true;
 
     public VRMAuthoringManager vrmAuthoringManager;
+
+    public GameObject baseObject;
+
     
     // Start is called before the first frame update
     void Start()
@@ -102,12 +105,17 @@ public class ConfigureRandomizer : MonoBehaviour
                             }
                             yield return new WaitForSeconds(delaySpeed+(int)Random.value);
                         cameraCaptureReference.Capture();
+
+                        modelToExportToVRM.transform.Rotate(0.0f, 180.0f, 0.0f, Space.Self);  
+                        ConnectBase();
                         
                         vrmTitle = dnaManagerReference.name + "glb#" + (dnaManagerReference.genID).ToString();
                         metaComponent.Meta = metaData;
 
                         vrmRuntimeExporterRef.Export(modelToExportToVRM, true, vrmTitle);
 
+                        modelToExportToVRM.transform.Rotate(0.0f, 180.0f, 0.0f, Space.Self); 
+                        DisonnectBase();
 
                         toTxtFileRef.CreateTextFile();
                         
@@ -135,6 +143,14 @@ public class ConfigureRandomizer : MonoBehaviour
                         
             }
             
+    }
+
+    public void ConnectBase(){
+        baseObject.transform.SetParent(modelToExportToVRM.transform);
+    }
+
+    public void DisonnectBase(){
+        baseObject.transform.SetParent(null);
     }
 
 }
