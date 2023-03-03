@@ -10982,7 +10982,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &725434556
 GameObject:
@@ -34420,6 +34420,7 @@ GameObject:
   - component: {fileID: 1953078748}
   - component: {fileID: 1953078747}
   - component: {fileID: 1953078749}
+  - component: {fileID: 1953078750}
   m_Layer: 0
   m_Name: NFT_Export_Camera_export
   m_TagString: NFTOutput
@@ -34545,6 +34546,29 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &1953078750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953078745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e9a1fb2a5c0146499a69a8bdb1b2177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uberReplacementShader: {fileID: 0}
+  opticalFlowShader: {fileID: 0}
+  opticalFlowSensitivity: 1
+  saveImage: 1
+  saveIdSegmentation: 1
+  saveLayerSegmentation: 1
+  saveDepth: 1
+  saveNormals: 1
+  saveOpticalFlow: 0
+  filepath: C:\Users\godfrey\Documents\GitHub\boom-tools\Assets\StreamingAssets\RGBDImages
+  filename: test.png
 --- !u!1 &1954992093
 GameObject:
   m_ObjectHideFlags: 0
@@ -34769,37 +34793,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49bd0d9013e65c9498cb9d1b69cd462e, type: 3}
---- !u!1 &1969422482
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1969422483}
-  m_Layer: 0
-  m_Name: Cameras
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1969422483
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1969422482}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1972386632
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41026,7 +41019,7 @@ Transform:
   - {fileID: 6818028007189582438}
   - {fileID: 3641021814511537015}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &7459962455618665635
 Transform:
