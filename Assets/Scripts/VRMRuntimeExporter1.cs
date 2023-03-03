@@ -57,7 +57,7 @@ using VRM;
        
        
         // export when click button
-        Export(m_model, true, dnaManagerReference.genID.ToString());
+        Export(m_model, true, dnaManagerReference.genID.ToString(), ".vrm");
         cameraCaptureReference.Capture();
         toTxtFileRef.CreateTextFile();
                   
@@ -142,13 +142,13 @@ using VRM;
         }
 
 
-        public void Export(GameObject model, bool useNormalize, string edition)
+        public void Export(GameObject model, bool useNormalize, string edition, string ext)
         {
             //#if UNITY_STANDALONE_WIN
 #if false
         var path = FileDialogForWindows.SaveDialog("save VRM", Application.dataPath + "/export.vrm");
 #else
-            var path = Application.dataPath + "/StreamingAssets/VRM/boomboxhead" + edition + ".vrm"; // i edited this line
+            var path = Application.dataPath + "/StreamingAssets/VRM/boomboxhead" + edition + ext; // i edited this line
 #endif
             if (string.IsNullOrEmpty(path))
             {

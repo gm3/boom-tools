@@ -31214,6 +31214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dnaIDReference: {fileID: 1437213998}
   buttonReference: {fileID: 1101364735}
+  JsonExportReference: {fileID: 0}
 --- !u!4 &1805947275
 Transform:
   m_ObjectHideFlags: 0
@@ -37960,7 +37961,6 @@ MonoBehaviour:
   totalJsonFilesInputField: {fileID: 105703554}
   Object1Ref: {fileID: 1491315889}
   Object2Ref: {fileID: 7866347911250475118}
-  Object3Ref: {fileID: 919132149145907618}
   totalMaterialsObject1:
   - {fileID: 2100000, guid: 3be0bfb0a01ac7e43864d3add5ad864a, type: 2}
   - {fileID: 2100000, guid: ca219d0c6a6bdc74893fd486c5b99c34, type: 2}
@@ -38057,59 +38057,22 @@ MonoBehaviour:
   - Pink
   - Purple
   - Orange
-  totalMaterialsObject3:
-  - {fileID: 2100000, guid: e87fba14243730a4e8a3bac4d36cb15b, type: 2}
-  - {fileID: 2100000, guid: db53c92490bd5b2449c9e18d25e938af, type: 2}
-  - {fileID: 2100000, guid: 3ac219afee528a542b07ee8b95f41538, type: 2}
-  - {fileID: 2100000, guid: 977a541f3d7954346a92669745c4709c, type: 2}
-  - {fileID: 2100000, guid: e35417e2820591446839fa44c3feba6a, type: 2}
-  - {fileID: 2100000, guid: 20b3f6535122a1b449ea715205741304, type: 2}
-  - {fileID: 2100000, guid: 71251d622ebceb049a3c69b148238a7f, type: 2}
-  - {fileID: 2100000, guid: 8e2dc60e21dcdb648808a43730175cef, type: 2}
-  - {fileID: 2100000, guid: a4c873952a5c8f24e92e997f8cc32400, type: 2}
-  - {fileID: 2100000, guid: 4563ce487d577824ab129184e9477a7b, type: 2}
-  - {fileID: 2100000, guid: c2b766e36f7ab8c4a8a644b98d7c3c4c, type: 2}
-  - {fileID: 2100000, guid: e3fbb3e2a985e9f4bb41b93472ff8935, type: 2}
-  - {fileID: 2100000, guid: ea1b9271c312dab45bd21c935d0b111e, type: 2}
-  - {fileID: 2100000, guid: 04b6946c93c6cb84697bd3df5518d84e, type: 2}
-  - {fileID: 2100000, guid: 846b19cb9e25cb04f88dcce5feeb4793, type: 2}
-  - {fileID: 2100000, guid: 527ccaef2ce948c46b8a606d13abf22f, type: 2}
-  - {fileID: 2100000, guid: af56a407cde68b34a9bbdeef5d2dd133, type: 2}
-  - {fileID: 2100000, guid: d2a987cdc08b2234f9c69081b1984a5a, type: 2}
-  - {fileID: 2100000, guid: f10dc79227a78f049a6b9f021816973f, type: 2}
-  - {fileID: 2100000, guid: 368aab611f82ba245b506ecaaf857463, type: 2}
-  - {fileID: 2100000, guid: ec8c14b019f8e664aa72aaceb3323015, type: 2}
-  layerStringData3:
-  - 1
-  - 2
-  - 3
-  - 4
-  - 5
-  - 6
-  - 7
-  - 8
-  - 9
-  - 10
-  - 11
-  - 12
-  - 13
-  - 14
-  - 15
-  - 16
-  - 17
-  - 18
-  - 19
-  - 20
-  - RealGold
-  index1: -1
-  index2: -1
-  index3: -1
   totalNFTs: 1
+  rangeStart: 0
+  rangeEnd: 0
+  currentOutoutEdition: 0
   vrmTitle: Boomboxhead #
   vrmAuthor: Boomboxhead
   vrmContactInformation: 
   vrmReference: 
   vrmVersion: 0.x
+  license: 1
+  violentUssage: 0
+  sexualUssage: 0
+  commercialUssage: 1
+  vrmAuthoringManager: {fileID: 0}
+  exportPNG: 0
+  exportJPEG: 1
   cameraCaptureReference: {fileID: 2146681997}
   toTxtFileRef: {fileID: 1805947274}
   delaySpeed: 0
@@ -38120,7 +38083,10 @@ MonoBehaviour:
   isExportingScreenshots: 1
   materialTraitNameToLoad1: BGColor
   materialTraitNameToLoad2: BodyTexture
-  materialTraitNameToLoad3: BBTexture
+  animationComponent: {fileID: 3529353725359737589}
+  possiblePoses:
+  - TPose
+  baseObject: {fileID: 720426409}
 --- !u!1 &2142862062
 GameObject:
   m_ObjectHideFlags: 0
@@ -38299,6 +38265,7 @@ MonoBehaviour:
   screenshotKey: 283
   Camera: {fileID: 1953078747}
   dnaManagerReference: {fileID: 1437213998}
+  JsonExportReference: {fileID: 0}
 --- !u!4 &221031878224847779
 Transform:
   m_ObjectHideFlags: 0

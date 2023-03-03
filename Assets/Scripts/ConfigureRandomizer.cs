@@ -109,10 +109,10 @@ public class ConfigureRandomizer : MonoBehaviour
                         modelToExportToVRM.transform.Rotate(0.0f, 180.0f, 0.0f, Space.Self);  
                         ConnectBase();
                         
-                        vrmTitle = dnaManagerReference.name + "glb#" + (dnaManagerReference.genID).ToString();
+                        vrmTitle = dnaManagerReference.name + (dnaManagerReference.genID).ToString();
                         metaComponent.Meta = metaData;
 
-                        vrmRuntimeExporterRef.Export(modelToExportToVRM, true, vrmTitle);
+                        vrmRuntimeExporterRef.Export(modelToExportToVRM, true, vrmTitle, ".glb");
 
                         modelToExportToVRM.transform.Rotate(0.0f, 180.0f, 0.0f, Space.Self); 
                         DisonnectBase();
@@ -132,7 +132,7 @@ public class ConfigureRandomizer : MonoBehaviour
                                 yield return new WaitForSeconds(delaySpeed+(int)Random.value);
                             }
 
-                            vrmRuntimeExporterRef.Export(modelToExportToVRM, true, dnaManagerReference.genID.ToString());
+                            vrmRuntimeExporterRef.Export(modelToExportToVRM, true, dnaManagerReference.genID.ToString(), ".vrm");
 
                         yield return new WaitForSeconds(delaySpeed+(int)Random.value);
 
