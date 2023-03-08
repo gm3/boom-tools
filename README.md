@@ -114,13 +114,6 @@ Then the Random ```once, batch or roll``` can be chosen to trigger the randomiza
 ![](https://i.imgur.com/rIEIeJS.png)
 ![](https://i.imgur.com/CQ0Q5j8.png)
 
-
-## Mocap Tests
-
-Here we bring in external live mocap to create animations using the Unity Recorder with a generated avatar. This animation was done by r00t, a friend of m3 and mvc
-
-![](https://i.imgur.com/uLwjfwx.gif)
-
 ## License
 This project is available under the MIT CC0 licence 
 
