@@ -101,7 +101,7 @@ We set up each layer, the probibility (Weights) or chance the layers show up, al
 
 1. Each Layer has a configuration script where you set up all your ```Values and Weights``` for each variation in a layer. 
 
-![](https://i.imgur.com/OOB8U85.png =500x600)
+![](https://i.imgur.com/OOB8U85.png)
 
 3. Drag references to 3d gameObjects / layers into the ``"Total Objects In Layer"`` array. 
 
