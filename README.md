@@ -88,4 +88,44 @@ Boom-tools can also import batches of JSON, and manage the loading of these laye
 - You can also export a single VRM as well as just the JSON if you wish.
 
 
+![](https://i.imgur.com/LNmNGJH.png)
+
+
+## How to setup layers and traits
+
+
+
+We set up each layer, the probibility (Weights) or chance the layers show up, all of the meta-data for the JSON output, and references to the 3d layers that will be randomized. There is also 2 examples of scripts that have been customized to randomize materials on a mesh. (Background and Body)
+
+![](https://i.imgur.com/yFDw64c.png)
+
+1. Each Layer has a configuration script where you set up all your ```Values and Weights``` for each variation in a layer. 
+
+![](https://i.imgur.com/OOB8U85.png =500x600)
+
+3. Drag references to 3d gameObjects / layers into the ``"Total Objects In Layer"`` array. 
+
+3. Setup the ``Layer String Data`` by matching the names of the values of the layers, that will be used to create the string JSON output.
+
+
+ 
+Then the Random ```once, batch or roll``` can be chosen to trigger the randomization.
+
+![](https://i.imgur.com/rIEIeJS.png)
+![](https://i.imgur.com/CQ0Q5j8.png)
+
+
+## Mocap Tests
+
+Here we bring in external live mocap to create animations using the Unity Recorder with a generated avatar. This animation was done by r00t, a friend of m3 and mvc
+
+![](https://i.imgur.com/uLwjfwx.gif)
+
+## License
+This project is available under the MIT CC0 licence 
+
+![](https://i.imgur.com/pYkqt1h.png)
+
+
+
 
