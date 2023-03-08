@@ -2597,7 +2597,7 @@ MonoBehaviour:
   - value: M3TV
     weight: 50
   - value: Golden
-    weight: 1
+    weight: 2
   buttonReference: {fileID: 996953371}
   totalMaterials:
   - {fileID: 2100000, guid: e87fba14243730a4e8a3bac4d36cb15b, type: 2}
@@ -8038,7 +8038,7 @@ MonoBehaviour:
   - value: Red
     weight: 50
   - value: Golden
-    weight: 1
+    weight: 2
   buttonReference: {fileID: 1685077563}
   totalMaterials:
   - {fileID: 2100000, guid: 91fc4ca1038415f4894c207e506249aa, type: 2}
@@ -9639,7 +9639,7 @@ MonoBehaviour:
   - value: WoodFloor
     weight: 1
   - value: Golden
-    weight: 1
+    weight: 2
   buttonReference: {fileID: 1160914626}
   totalMaterials:
   - {fileID: 2100000, guid: 0124eb31f3d2ede4ab7b50e3b3444b43, type: 2}
@@ -17713,7 +17713,7 @@ MonoBehaviour:
   - value: Phetta
     weight: 10
   - value: Golden
-    weight: 1
+    weight: 2
   - value: Yellow
     weight: 20
   - value: Red
