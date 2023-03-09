@@ -1,19 +1,9 @@
 fileFormatVersion: 2
-guid: 3b3bdf3ff195e634395e0b96630945d3
+guid: f00639e20a688df47937f8c091ff66ad
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Benie
-    second: {fileID: 2100000, guid: 3b94874b215907a4ea9562527ddbe48f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.001
-    second: {fileID: 2100000, guid: a5b1640ab623f9b4f922499048dad507, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
