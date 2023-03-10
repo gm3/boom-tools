@@ -105,6 +105,7 @@ public class ConfigureRandomizer : MonoBehaviour
                             }
                             yield return new WaitForSeconds(delaySpeed+(int)Random.value);
                         cameraCaptureReference.Capture();
+                        //cameraCaptureReference.CapturePNG();
 
                         modelToExportToVRM.transform.Rotate(0.0f, 180.0f, 0.0f, Space.Self);  
                         ConnectBase();
