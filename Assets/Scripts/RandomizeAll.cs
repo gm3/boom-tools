@@ -65,6 +65,34 @@ public class RandomizeAll : MonoBehaviour
         dnaManagerReference.ExportJsonToText(newTraits);
     }
 
+    public void RamdomizeAllSpaceBar() {
+        string newTraits = "";
+        if (parentRandomTraitCaller != null)
+        newTraits = RandomizeParentGetJsonData();
+
+        // randomize all the goe layers
+        for (int i = 0; i < randomScriptReferences.Length; i++) {
+    randomScriptReferences[i].RandomCheck();
+        }
+
+        // randomize all the texture layers
+        for (int i = 0; i < randomTextureScriptReferences.Length; i++) {
+    randomTextureScriptReferences[i].RandomCheck();
+        }
+
+        // randomize all the pose layers anim clips
+        randomPoseScriptReferences.RandomCheck();
+
+
+        //randomBGScriptReference.RandomCheck();
+        //randomBodyTextureScriptReferences.RandomCheck();
+        //randomBoomboxTextureScriptReferences.RandomCheck();
+        //randomBorderTextureScriptReferences.RandomCheck();
+
+
+        dnaManagerReference.ExportJsonToText(newTraits);
+    }
+
     private string RandomizeParentGetJsonData()
     {
         ActionCaller[] traits = parentRandomTraitCaller.GetComponentsInChildren<ActionCaller>(true);

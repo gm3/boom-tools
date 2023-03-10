@@ -76,7 +76,7 @@ public class ToggleControls : MonoBehaviour
 
 			if (Input.GetKeyDown(KeyCode.Space))
 			{
-				randomizeAllref.RamdomizeAll();
+				randomizeAllref.RamdomizeAllSpaceBar();
 				
 			}
 
