@@ -41,6 +41,19 @@ public class ConfigureRandomizer : MonoBehaviour
 
     public GameObject baseObject;
 
+    public Camera thumbnailCamera; // <-- add this variable to hold the thumbnail camera
+
+
+    
+    //public int currentBatch; //This variable stores the index of the current batch being processed.
+    //public int[] batch; //This variable is an array that stores the data for each batch. Each element in the array corresponds to a specific batch.
+    //public string batchDate; //This variable stores the date of the current batch being processed.
+    //public int totalInBatch; //This variable stores the total number of items in the current batch being processed.
+    //public string batchPath; //This variable stores the file path of the current batch being processed.
+    //public string imagePath; //This variable stores the file path of the current image being processed.
+    //public string glbPath;//: This variable stores the file path of the current glb file being processed.
+    //public string vrmPath;//: This variable stores the file path of the current vrm file being processed.
+
     
     // Start is called before the first frame update
     void Start()
@@ -61,6 +74,10 @@ public class ConfigureRandomizer : MonoBehaviour
     IEnumerator GenerateAllNFTsSlow(int totalNFTs)
     {
         HashSet<string> generatedDNAs = new HashSet<string>();
+
+        
+        
+
 
         VRMMetaObject metaData = ScriptableObject.CreateInstance<VRMMetaObject>();
         metaData.Title = vrmTitle;
@@ -84,6 +101,8 @@ public class ConfigureRandomizer : MonoBehaviour
             for (int i = 0; i < totalNFTs; i++) 
             {
                
+              
+        
                     vrmTitle = dnaManagerReference.name + " #" + (dnaManagerReference.genID+1).ToString();
                     metaComponent.Meta = metaData;
 
@@ -111,6 +130,51 @@ public class ConfigureRandomizer : MonoBehaviour
                         ConnectBase();
                         
                         vrmTitle = dnaManagerReference.name + (dnaManagerReference.genID).ToString();
+                        
+                        if (thumbnailCamera != null) 
+                            {
+                                // Take a thumbnail from the camera and set it to the metadata
+                                var thumbnailTexture = new Texture2D(512, 512, TextureFormat.RGB24, false);
+
+                                // Create a RenderTexture to hold the thumbnail
+                                RenderTexture rt = new RenderTexture(512, 512, 24, RenderTextureFormat.ARGB32);
+
+                                rt.Create();
+
+                                // Set the camera's viewport to match the RenderTexture size
+                                thumbnailCamera.targetTexture = rt;
+                                thumbnailCamera.pixelRect = new Rect(0, 0, rt.width, rt.height);
+
+                                yield return new WaitForEndOfFrame();
+
+                                // Render the camera to the RenderTexture
+                                thumbnailCamera.Render();
+
+                                // Read the pixels from the RenderTexture
+                                RenderTexture.active = rt;
+                                thumbnailTexture.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0);
+                                thumbnailTexture.Apply();
+                                    
+                                thumbnailCamera.pixelRect = new Rect(0, 0, thumbnailCamera.pixelWidth, thumbnailCamera.pixelHeight);
+                                rt.Release();
+
+                                // Convert the thumbnail texture to a byte array
+                                byte[] thumbnailBytes = thumbnailTexture.EncodeToJPG();
+
+                                // Create a new texture from the byte array
+                                Texture2D thumbnailTextureFromBytes = new Texture2D(2, 2);
+                                thumbnailTextureFromBytes.LoadImage(thumbnailBytes);
+
+                                // Set the thumbnail image in the metadata
+                                metaData.Thumbnail = thumbnailTextureFromBytes;
+                            }
+                            else 
+                            {
+                                Debug.LogError("thumbnailCamera is null!");
+                            }
+                        
+                        metaData.Title = dnaManagerReference.name + " #" + (dnaManagerReference.genID+1).ToString();
+
                         metaComponent.Meta = metaData;
 
                         vrmRuntimeExporterRef.Export(modelToExportToVRM, true, dnaManagerReference.genID.ToString(), ".glb");
