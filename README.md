@@ -12,6 +12,24 @@ The tool can be configured to export a batch of VRMs with ERC JSON metadata, alo
 
 Boom-tools can also import batches of JSON, and manage the loading of these layers with the goal to compose 2d projects into 3d VRMs and provide updated JSON for the VRMs.
 
+|  |  |  |
+| -------- | -------- | -------- |
+| ![](https://hackmd.io/_uploads/B1OQ1-5l2.png)     | ![](https://hackmd.io/_uploads/S1umy-5x3.png)     | ![](https://hackmd.io/_uploads/rJtQ1-cl3.png)     
+    
+![](https://hackmd.io/_uploads/ByGQZW9g2.png)
+
+    
+    
+The VRM format is an extension of GLTF by Khronos group and is rapidly becoming the standard for avatars on the web. The 3D assets can be downloaded and imported into any metaverse projects supporting VRMs. Overall, this project embodies the principles of open-source and interoperability in the metaverse. 
+    
+![](https://hackmd.io/_uploads/S1wcWZcl2.png)
+    
+
+## CC0 Assets
+The entire collection is available under a CC0 license, allowing for commercial use. The project is aligned with the vision of an "Open Metaverse". We rely on the ecosystem of engineers, builders and programmers that create open source software and tools. We want to encourage others to develop with this mindset, in public, to create an "Open Metaverse" together. We can do this by sharing our source code, source assets, building on the web, and documenting our work in public using tools like GitHub.   
+
+![](https://hackmd.io/_uploads/H17DWbqeh.png)
+
 ## Example Output
 ![](https://hackmd.io/_uploads/BJ01-5Q12.jpg)
 
