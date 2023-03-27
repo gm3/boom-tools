@@ -133,7 +133,7 @@ Then the Random ```once, batch or roll``` can be chosen to trigger the randomiza
 ![](https://i.imgur.com/CQ0Q5j8.png)
 
 ## License
-This project is available under the MIT CC0 licence 
+This project is available under the CC0 1.0 licence 
 
 ![](https://i.imgur.com/pYkqt1h.png)
 
