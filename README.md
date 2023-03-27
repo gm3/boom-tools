@@ -25,8 +25,8 @@ The VRM format is an extension of GLTF by Khronos group and is rapidly becoming 
 ![](https://hackmd.io/_uploads/S1wcWZcl2.png)
     
 
-## CC0 Assets
-The entire collection is available under a CC0 license, allowing for commercial use. The project is aligned with the vision of an "Open Metaverse". We rely on the ecosystem of engineers, builders and programmers that create open source software and tools. We want to encourage others to develop with this mindset, in public, to create an "Open Metaverse" together. We can do this by sharing our source code, source assets, building on the web, and documenting our work in public using tools like GitHub.   
+## CC0
+The project is aligned with the vision of an "Open Metaverse". We rely on the ecosystem of engineers, builders and programmers that create open source software and tools. We want to encourage others to develop with this mindset, in public, to create an "Open Metaverse" together. We can do this by sharing our source code, source assets, building on the web, and documenting our work in public using tools like GitHub.   
 
 ![](https://hackmd.io/_uploads/H17DWbqeh.png)
 
