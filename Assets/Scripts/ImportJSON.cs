@@ -95,6 +95,8 @@ public class ImportJSON : MonoBehaviour
 
     public GameObject baseObject;
 
+    public Camera thumbnailCamera; // <-- add this variable to hold the thumbnail camera
+
     void Start()
         {
             Button btn = buttonReference.GetComponent<Button>();
