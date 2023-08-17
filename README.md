@@ -4,6 +4,7 @@
 ![](https://hackmd.io/_uploads/SyI1s490o.gif)
 
 Wiki / API Docs https://github.com/gm3/boom-tools/wiki
+VRM-Toybox https://github.com/gm3/vrm-toybox/
 
 ## Summary
 This is a tool that can randomize layers in Unity using weighted randomization. It can export VRMs using uniVRM, as well as a posed GLB. 
